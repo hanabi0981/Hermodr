@@ -12,21 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: dfe2f8f4134995446bd269bcbd81a855
   - enabled: 1
-    path: Assets/Scenes/Badge.unity
-    guid: 91277a36b49275c4fa92c7bc08abb276
-  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: d012c5e55dd57a64bab626dec64dc617
   - enabled: 1
-    path: Assets/Scenes/StoryMode.unity
-    guid: c7ff1f3f74def9449849db26b6d4210a
-  - enabled: 1
-    path: Assets/Scenes/RankMode.unity
-    guid: 4decaeb719d55e8458e44a3de3ed9287
-  - enabled: 1
-    path: Assets/Scenes/HardMode.unity
-    guid: 1531773ca4d32c545ac3441d8e029485
-  - enabled: 1
-    path: Assets/Scenes/LoopMode.unity
-    guid: e02c3821a97481c43ad9334e4c5c5c9f
+    path: Assets/Scenes/MythCollection.unity
+    guid: a00037d6123d69042aac3ec44bdee0ee
   m_configObjects: {}

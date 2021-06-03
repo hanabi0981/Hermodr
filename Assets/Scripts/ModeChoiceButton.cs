@@ -6,23 +6,8 @@ using UnityEngine.SceneManagement;
 public class ModeChoiceButton : MonoBehaviour
 {
     // 스토리모드 버튼 터치 -> 스토리모드 입장
-    public void StoryMode()
+    public void Tutorial()
     {
-        SceneManager.LoadScene("StoryMode");
-    }
-
-    public void RankMode()
-    {
-        SceneManager.LoadScene("RankMode");
-    }
-
-    public void HardMode()
-    {
-        SceneManager.LoadScene("HardMode");
-    }
-
-    public void LoopMode()
-    {
-        SceneManager.LoadScene("LoopMode");
+        SceneManager.LoadScene("Tutorial");
     }
 }
