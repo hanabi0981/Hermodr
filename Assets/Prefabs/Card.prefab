@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2636929995822933942}
   - component: {fileID: 2636929995822933937}
   - component: {fileID: 9085866223017716888}
+  - component: {fileID: 5995779079425102571}
+  - component: {fileID: 7786260656975842634}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -70,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -748477101
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 77c8e25ae52f1e34ba26ab18d9ffd562, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -126,6 +128,44 @@ MonoBehaviour:
     pos: {x: 0, y: 0}
     rot: {x: 0, y: 0, z: 0, w: 0}
     scale: {x: 0, y: 0}
+--- !u!114 &5995779079425102571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2636929995822933936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 254b5c0dc187c6c488b428585c04f056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &7786260656975842634
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2636929995822933936}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.18918729}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.4, y: 3.2}
+    newSize: {x: 2.4, y: 3.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.4, y: 3.5783746}
+  m_EdgeRadius: 0
 --- !u!1 &2636929996715103836
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,8 +233,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -748477101
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c77105acc53348478b1c246368a3bcf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

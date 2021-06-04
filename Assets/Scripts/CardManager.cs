@@ -114,7 +114,7 @@ public class CardManager : MonoBehaviour
         {
             var targetPos = Vector2.Lerp(leftTr.position, rightTr.position, objLerps[i]);
             var targetRot = Utils.QI;
-                ;
+
             results.Add(new PRS(targetPos, targetRot, scale));
         }
 

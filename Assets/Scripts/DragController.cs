@@ -9,6 +9,11 @@ public class DragController : MonoBehaviour
     private Vector3 _worldPosition;
     private Draggable _lastDragged;
 
+    [SerializeField] GameObject unitPrefab;
+    [SerializeField] Transform unitSpawnPosition;
+
+    private bool totem;
+
     private void Awake()
     {
         DragController[] controllers = FindObjectsOfType<DragController>();
@@ -78,5 +83,12 @@ public class DragController : MonoBehaviour
     void Drop()
     {
         _isDragActive = false;
-    }
+
+        if (_lastDragged.transform.position.y > -1.5)
+        {
+            Instantiate(unitPrefab, unitSpawnPosition.position, Utils.QI);
+            Destroy(_lastDragged.gameObject);
+            GetComponent<CardActivate>().isActivate = false;
+        }    
+    }    
 }
