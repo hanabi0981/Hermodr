@@ -1,0 +1,14 @@
+Font: NeoDunggeunmo Pro  Style: Regular
+Point Size: 32   SP/PD Ratio: 15.6%
+
+Characters included: 11267/11269
+Missing characters: 2
+Excluded characters: 0
+
+Characters missing from font file:
+----------------------------------------
+ID: 127	Hex: 7F	Char []
+ID: 128	Hex: 80	Char []
+
+Characters excluded from packing:
+----------------------------------------
