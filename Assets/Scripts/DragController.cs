@@ -5,6 +5,7 @@ using UnityEngine;
 public class DragController : MonoBehaviour
 {
     private bool _isDragActive = false;
+    private Vector3 _originPosition;
     private Vector2 _screenPosition;
     private Vector3 _worldPosition;
     private Draggable _lastDragged;
@@ -73,22 +74,26 @@ public class DragController : MonoBehaviour
     void InitDrag()
     {
         _isDragActive = true;
+        
+        _originPosition = _worldPosition - _lastDragged.transform.position;
+
     }
 
     void Drag()
     {
-        _lastDragged.transform.position = new Vector2(_worldPosition.x, _worldPosition.y);
+        _lastDragged.transform.position = _worldPosition - _originPosition;
     }
 
     void Drop()
     {
         _isDragActive = false;
-
-        if (_lastDragged.transform.position.y > -1.5)
+//        Debug.Log(GetComponent<CardActivate>().isActivate);
+        if (_lastDragged.gameObject.GetComponent<CardActivate>().isActivate)
         {
             Instantiate(unitPrefab, unitSpawnPosition.position, Utils.QI);
             Destroy(_lastDragged.gameObject);
             GetComponent<CardActivate>().isActivate = false;
+            Debug.Log("active");
         }    
     }    
 }

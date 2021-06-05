@@ -58,10 +58,8 @@ public class CardManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
-            for (int i = 0; i < 5; i++)
-            {
-                AddCard();
-            }
+            AddCard();
+            
     }
 
     void AddCard()
@@ -87,7 +85,7 @@ public class CardManager : MonoBehaviour
     void CardAlignment()
     {
         List<PRS> originCardPRSs = new List<PRS>();
-        originCardPRSs = LineAlignment(myCardsLeft, myCardsRight, myCards.Count, Vector2.one * 0.475f);
+        originCardPRSs = LineAlignment(myCardsLeft, myCardsRight, myCards.Count, Vector2.one);
 
         var targetCards = myCards;
         for(int i = 0; i<targetCards.Count; i++)
@@ -106,10 +104,10 @@ public class CardManager : MonoBehaviour
 
         switch (objCount)
         {
-            case 1: objLerps = new float[] { 0.5f }; break;
-            case 2: objLerps = new float[] { 0.27f, 0.73f }; break;
-            case 3: objLerps = new float[] { 0.1f, 0.5f, 0.9f }; break;
-            case 4: objLerps = new float[] { 0.1f, 0.35f, 0.6f, 0.85f }; break;
+            case 1: objLerps = new float[] { 0 }; break;
+            case 2: objLerps = new float[] { 0, 0.25f }; break;
+            case 3: objLerps = new float[] { 0, 0.25f, 0.5f }; break;
+            case 4: objLerps = new float[] { 0, 0.25f, 0.5f, 0.75f }; break;
             case 5: objLerps = new float[] { 0, 0.25f, 0.5f, 0.75f, 1 }; break;
             default: break;
         }

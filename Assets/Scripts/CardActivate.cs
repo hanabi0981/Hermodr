@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class CardActivate : MonoBehaviour
 {
-    public bool isActivate;
+    public bool isActivate=false;
 
-    void OnTriggerEnter(Collider other)
+    
+    public void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("true");
-       isActivate = true;
+        Debug.Log("stay");
+        isActivate = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("exit");
+        isActivate = false;
     }
 }
