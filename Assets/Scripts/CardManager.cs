@@ -51,13 +51,17 @@ public class CardManager : MonoBehaviour
     void Start()
     {
         SetupItemBuffer();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
-            AddCard();
+            for (int i = 0; i < 5; i++)
+            {
+                AddCard();
+            }
     }
 
     void AddCard()
