@@ -18,5 +18,12 @@ public class LoginSaveLoad : MonoBehaviour
         File.WriteAllText(Application.dataPath + "/LoginData.Json", json);
     }
 
+    public void LoadToJson()
+    {
+        string json = File.ReadAllText(Application.dataPath + "/LoginData.Json");
+        LoginData data = JsonUtility.FromJson<LoginData>(json);
+
+        NickNameInputField.text = data.NickName;
+    }
 
 }
