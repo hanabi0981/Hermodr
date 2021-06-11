@@ -56,21 +56,8 @@ public class Card : MonoBehaviour
         Transform tr = CardManager.selectCard.transform.Find("Character");
         string codeN = tr.GetComponent<SpriteRenderer>().sprite.name;
 
-        if (CardManager.selectCard.transform.position.y > 1)
-            switch (codeN)
-            {
-                case "card001":
-                    Debug.Log(001);
-                    //                    CardManager.selectCard.Remove(card);
-                    CardManager.selectCard.gameObject.SetActive(false);
-                    CardManager.selectCard = null;
-
-                    break;
-                case "card002": Debug.Log(002); DestroyImmediate(CardManager.selectCard.gameObject); break;
-                case "card003": Debug.Log(003); DestroyImmediate(CardManager.selectCard.gameObject); break;
-                case "card004": Debug.Log(004); DestroyImmediate(CardManager.selectCard.gameObject); break;
-                case "card005": Debug.Log(005); DestroyImmediate(CardManager.selectCard.gameObject); break;
-            }
+        if (CardManager.selectCard.transform.position.y > -2)
+            DestroyImmediate(CardManager.selectCard.gameObject);
     }
 
     public void MoveTransform(PRS prs, bool useDotween, float dotweenTime = 0)

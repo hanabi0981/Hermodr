@@ -37,7 +37,7 @@ public class CardManager : MonoBehaviour
 
     void SetupItemBuffer()
     {
-        itemBuffer = new List<Item>(125);
+        itemBuffer = new List<Item>(5);
         for(int i = 0; i<itemSO.items.Length; i++)
         {
             Item item = itemSO.items[i];
@@ -118,11 +118,11 @@ public class CardManager : MonoBehaviour
     void CardAlignment(bool isMine)
     {
         List<PRS> originCardPRSs = new List<PRS>();
-        if(isMine)
-            originCardPRSs = LineAlignment(myCardsLeft, myCardsRight, myCards.Count, Vector2.one);
+        if (isMine)
+            originCardPRSs = RoundAlignment(myCardsLeft, myCardsRight, myCards.Count, 0.5f, Vector3.one);
 
         var targetCards = isMine ? myCards : otherCards;
-        for(int i = 0; i<targetCards.Count; i++)
+        for (int i = 0; i < targetCards.Count; i++)
         {
             var targetCard = targetCards[i];
 
@@ -130,29 +130,37 @@ public class CardManager : MonoBehaviour
             targetCard.MoveTransform(targetCard.originPRS, true, 0.7f);
         }
     }
-    List<PRS> LineAlignment(Transform leftTr, Transform rightTr, int objCount, Vector2 scale)
+
+    List<PRS> RoundAlignment(Transform leftTr, Transform rightTr, int objCount, float height, Vector3 scale)
     {
         float[] objLerps = new float[objCount];
         List<PRS> results = new List<PRS>(objCount);
 
         switch (objCount)
         {
-            case 1: objLerps = new float[] { 0 }; break;
-            case 2: objLerps = new float[] { 0, 0.25f }; break;
-            case 3: objLerps = new float[] { 0, 0.25f, 0.5f }; break;
-            case 4: objLerps = new float[] { 0, 0.25f, 0.5f, 0.75f }; break;
-            case 5: objLerps = new float[] { 0, 0.25f, 0.5f, 0.75f, 1 }; break;
-            default: break;
+            case 1: objLerps = new float[] { 0.5f }; break;
+            case 2: objLerps = new float[] { 0.27f, 0.73f }; break;
+            case 3: objLerps = new float[] { 0.1f, 0.5f, 0.9f }; break;
+            default:
+                float interval = 1f / (objCount - 1);
+                for (int i = 0; i < objCount; i++)
+                    objLerps[i] = interval * i;
+                break;
         }
 
-        for(int i = 0; i<objCount; i++)
+        for (int i = 0; i < objCount; i++)
         {
-            var targetPos = Vector2.Lerp(leftTr.position, rightTr.position, objLerps[i]);
+            var targetPos = Vector3.Lerp(leftTr.position, rightTr.position, objLerps[i]);
             var targetRot = Utils.QI;
-
+            if (objCount >= 4)
+            {
+                float curve = Mathf.Sqrt(Mathf.Pow(height, 2) - Mathf.Pow(objLerps[i] - 0.5f, 2));
+                curve = height >= 0 ? curve : -curve;
+                targetPos.y += curve;
+                targetRot = Quaternion.Slerp(leftTr.rotation, rightTr.rotation, objLerps[i]);
+            }
             results.Add(new PRS(targetPos, targetRot, scale));
         }
-
         return results;
     }
     /*
