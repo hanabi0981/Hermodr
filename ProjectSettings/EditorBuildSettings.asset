@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: dfe2f8f4134995446bd269bcbd81a855
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/Scenes/story.unity
     guid: d012c5e55dd57a64bab626dec64dc617
   - enabled: 1
     path: Assets/Scenes/MythCollection.unity

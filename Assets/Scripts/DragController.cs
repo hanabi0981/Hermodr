@@ -87,13 +87,16 @@ public class DragController : MonoBehaviour
     void Drop()
     {
         _isDragActive = false;
+
 //        Debug.Log(GetComponent<CardActivate>().isActivate);
         if (_lastDragged.gameObject.GetComponent<CardActivate>().isActivate)
         {
             Instantiate(unitPrefab, unitSpawnPosition.position, Utils.QI);
             Destroy(_lastDragged.gameObject);
+
             GetComponent<CardActivate>().isActivate = false;
-            Debug.Log("active");
+
+//            _lastDragged.gameObject.GetComponent<CardActivate>().target = null;
         }    
     }    
 }

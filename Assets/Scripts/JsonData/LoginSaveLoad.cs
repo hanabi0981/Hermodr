@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.IO;
 
 
-public class JsonSaveLoad : MonoBehaviour
+public class LoginSaveLoad : MonoBehaviour
 {
     public InputField NickNameInputField;
 

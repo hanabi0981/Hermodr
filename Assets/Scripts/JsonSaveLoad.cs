@@ -8,12 +8,12 @@ using System.IO;
 public class JsonSaveLoad : MonoBehaviour
 {
     public Text tx;
-    List<unit> data = new List<unit>();
+    List<viking_unit> data = new List<viking_unit>();
 
     private void Start()
     {
-        data.Add(new unit("바이킹", 20));
-        data.Add(new unit("발키리", 30));
+        data.Add(new viking_unit("바이킹", 20));
+        data.Add(new viking_unit("발키리", 30));
     }
     public void K_save()
     {
@@ -31,17 +31,17 @@ public class JsonSaveLoad : MonoBehaviour
         string reformat = System.Text.Encoding.UTF8.GetString(bytes);
 
         tx.text = jdata;
-        data = JsonConvert.DeserializeObject<List<unit>>(jdata);
+        data = JsonConvert.DeserializeObject<List<viking_unit>>(jdata);
     }
 
 }
 
-class unit
+class viking_unit
 {
     public string name;
     public int power;
 
-    public unit(string name, int power)
+    public viking_unit(string name, int power)
     {
         this.name = name;
         this.power = power;

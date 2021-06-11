@@ -6,7 +6,7 @@ using UnityEngine;
 public class Item
 {
     public string name;
-    public string value;
+    public int value;
     public Sprite sprite;
     public float percent;
 }

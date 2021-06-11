@@ -6,16 +6,29 @@ public class CardActivate : MonoBehaviour
 {
     public bool isActivate=false;
 
-    
-    public void OnTriggerStay2D(Collider2D collision)
+    public Collider2D target = null;
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("stay");
+        if (target == null)
+        {
+            target = collision;
+        }
+
+        target.GetComponentInParent<SpriteOutline>().color = Color.red;
+
         isActivate = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("exit");
+        target.GetComponentInParent<SpriteOutline>().color = Color.black;
+
+        if (target == collision)
+        {
+            target = null;
+        }
+        
         isActivate = false;
     }
 }

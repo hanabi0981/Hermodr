@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - MyCardArea
   - 
   - 
   - 
@@ -40,9 +40,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: 1
-    uniqueID: 3525265689
     locked: 0
   - name: Entity
     uniqueID: 1978520865
