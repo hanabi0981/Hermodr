@@ -13,7 +13,13 @@ public class WelcomManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        popUp.gameObject.SetActive(true);
+       
+            string json = File.ReadAllText(Application.dataPath + "/LoginData.Json");
+            LoginData data = JsonUtility.FromJson<LoginData>(json);
+
+            nText.text = data.NickName;
+        
+            popUp.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -23,12 +29,5 @@ public class WelcomManager : MonoBehaviour
             popUp.gameObject.SetActive(false);
     }
 
-    public void LoadNickName()
-    {
-        string nickname = File.ReadAllText(Application.dataPath + "/LoginData.Json");
-        byte[] bytes = System.Convert.FromBase64String(nickname);
-        string reformat = System.Text.Encoding.UTF8.GetString(bytes);
-
-        nText.text = nickname;
-    }
+    
 }
