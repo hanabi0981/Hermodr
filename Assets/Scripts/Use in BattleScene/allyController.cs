@@ -4,49 +4,110 @@ using UnityEngine;
 
 public class allyController : MonoBehaviour
 {
-    int speed = 5;
+    float speed = 2f;
     public int power = 40;
     public int maxHealth = 100;
     public int currentHealth;
 
-    public GameObject enermy;
+    float delayTime;
+
+    bool isMove;
+    bool isAttack;
+    bool engage;
+
+    Animator animator;
     EnemyController enemyController;
     public HealthBar healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemyController = enermy.GetComponent<EnemyController>();
+        isMove = false;
+        isAttack = false;
+        engage = false;
+        animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
-    // Update is called once per frame
-    void Update()
+    void Move()
     {
+        animator.SetBool("Move", true);
+    }
+    void Attack()
+    {
+        animator.SetBool("Attack", true);
+        DoDamage();
+        isMove = true;
+        isAttack = true;
+    }
+    void Stop()
+    {
+        animator.SetBool("Attack", false); // 애니메이션 Idle 재생
+        if(engage)
+        {
+            animator.SetBool("Move", false); // 교전 중이면 Move로 가지않게,
+            isMove = true;
+        }
+        else
+        {
+            animator.SetBool("Move", true); // 교전 중이 아니라면 Move로 가게끔.
+            isMove = false;
+        }
+        isAttack = false;
+        
+    }
+    public void Die()
+    {
+        animator.SetTrigger("Death");
+        Destroy(gameObject, 0.55f);
+    }
+    private void Update()
+    {
+        if (!isMove)
+        {
+            Move();
+            transform.Translate(Time.deltaTime * speed * Vector3.right);
+        }
+        if (isAttack)
+        {
+            delayTime += Time.deltaTime;
+            if (delayTime >= 0.4f)
+            {
+                Stop();
+                delayTime = 0;
+            }
+        }
+        if(engage)
+        {
+            delayTime += Time.deltaTime;
+            if (delayTime >= 1.0f)
+            {
+                Attack();
+                delayTime = 0;
+            }
+        }
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        enemyController = collision.gameObject.GetComponent<EnemyController>();
+
+        if (collision.gameObject.tag == "Enemy")
         {
-            TakeDamage(enemyController.power);
+            Attack();
+            engage = true;
         }
     }
-    private void FixedUpdate()
+    public void DoDamage()
     {
-        transform.Translate(0.01f * speed, 0, 0);
-    }
-
-    public void TakeDamage(int damage)
-    {
-        if (currentHealth != 0)
+        if (enemyController.currentHealth != 0)
         {
-            transform.position += Vector3.left * 3;
-            currentHealth -= damage;
-            healthBar.SetHealth(currentHealth);
-            if (currentHealth <= 0)
+            enemyController.currentHealth -= power;
+            enemyController.healthBar.SetHealth(enemyController.currentHealth);
+            if (enemyController.currentHealth <= 0)
             {
-                Destroy(gameObject);
+                enemyController.Die();
+                engage = false;
             }
         }
     }
