@@ -56,7 +56,7 @@ public class EnemyCombat : LifeEntity
                 animator.SetBool("Move", true);
                 Move();
             }
-            else if (hit.collider.gameObject.tag == "Player")
+            else if (hit.collider.tag == "Player" || hit.collider.tag == "Nexus")
             {
                 Attack(hit);
             }
