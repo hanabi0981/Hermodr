@@ -808,7 +808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1777455365272683507, guid: 40d3636d02142b649a6c56067a5b128a, type: 3}
-  enemy: {fileID: 3844469871636483639, guid: 2195cb1c5e664514381774a615bfe5da, type: 3}
+  enemy: {fileID: 5690062808894922540, guid: 939df7e9eefa44441be8aa8e7ef4ed44, type: 3}
+  killcount: 0
 --- !u!1 &1355388152
 GameObject:
   m_ObjectHideFlags: 0

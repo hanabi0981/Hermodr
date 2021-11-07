@@ -6,7 +6,7 @@ public class PlayerCombat : LifeEntity
 {
     public float moveSpeed = 5f;
     public float damage = 25;
-    private float attackRange = 0.6f;
+    public float attackRange = 0.6f;
     public float timeBetAttack;
     private float lastAttackTime;
 
