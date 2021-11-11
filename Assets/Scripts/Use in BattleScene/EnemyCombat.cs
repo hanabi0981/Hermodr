@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyCombat : LifeEntity
 {
-    [SerializeField] private float moveSpeed = 10f;
+    public float moveSpeed = 5f;
     public float damage = 50;
     // Enemy Object 의 무조건 attackRange는 1.0f 이상으로 설정할 것.
     public float attackRange = 1.0f;
@@ -17,9 +17,11 @@ public class EnemyCombat : LifeEntity
     public Image fill;
     Animator animator;
 
+    public ObjectGenerator og;
 
     private void Start()
     {
+        og = GetComponent<ObjectGenerator>();
         animator = GetComponentInChildren<Animator>();
         healthBar.maxValue = startHealth;
         healthBar.value = health;

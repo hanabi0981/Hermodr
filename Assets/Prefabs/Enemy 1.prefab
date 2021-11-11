@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 100
-  moveSpeed: 2
+  moveSpeed: 1
   damage: 50
   attackRange: 1
   timeBetAttack: 1
@@ -392,6 +392,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 4207208574798018662}
+  og: {fileID: 0}
 --- !u!212 &7537438050428537755
 SpriteRenderer:
   m_ObjectHideFlags: 0
