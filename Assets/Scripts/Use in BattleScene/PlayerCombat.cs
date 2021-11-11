@@ -63,6 +63,7 @@ public class PlayerCombat : LifeEntity
             {
                 animator.SetBool("Move", false);
                 Stop();
+                Debug.Log(hit.collider.name);
             }
         }
     }
