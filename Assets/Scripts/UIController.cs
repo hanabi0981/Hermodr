@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public GameObject popup_mission;
+    public GameObject popup_window;
 
-    public void Popup_mission()
+
+    public void Popup_window()
     {
-        popup_mission.SetActive(true);
+        popup_window.SetActive(true);
     }
 
-    public void Close_mission()
+    public void Close_window()
     {
-        popup_mission.SetActive(false);
+        popup_window.SetActive(false);
     }
 }
