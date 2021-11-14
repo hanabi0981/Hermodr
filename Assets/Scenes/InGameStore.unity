@@ -854,16 +854,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  ItemSelected: 00000000
   HaveItem:
   - {fileID: 0}
-  - {fileID: 1361843903}
-  - {fileID: 642553922}
-  - {fileID: 1396625285}
-  - {fileID: 1256519014}
-  - {fileID: 299249551}
-  HaveItemSpriteNumber: 000000000000000000000000000000000000000000000000
-  iL: {fileID: 0}
+  - {fileID: 1361843905}
+  - {fileID: 642553924}
+  - {fileID: 1396625287}
 --- !u!4 &751158993
 Transform:
   m_ObjectHideFlags: 0
@@ -1764,8 +1759,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 751158992}
-        m_MethodName: Exit
+      - m_Target: {fileID: 1497419022}
+        m_MethodName: BackToMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
