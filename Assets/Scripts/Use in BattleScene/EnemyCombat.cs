@@ -7,7 +7,8 @@ public class EnemyCombat : LifeEntity
 {
     public float moveSpeed = 5f;
     public float damage = 50;
-    private float attackRange = 0.6f;
+    // Enemy Object 의 무조건 attackRange는 1.0f 이상으로 설정할 것.
+    public float attackRange = 1.0f;
     public float timeBetAttack;
     private float lastAttackTime;
 
@@ -16,8 +17,11 @@ public class EnemyCombat : LifeEntity
     public Image fill;
     Animator animator;
 
+    public ObjectGenerator og;
+
     private void Start()
     {
+        og = GetComponent<ObjectGenerator>();
         animator = GetComponentInChildren<Animator>();
         healthBar.maxValue = startHealth;
         healthBar.value = health;
