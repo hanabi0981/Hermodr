@@ -7,6 +7,9 @@ public class PlayToMain : MonoBehaviour
 {
     public void BackToMain()
     {
+        GameObject someday = GameObject.Find("TestObject");
+        StageSelector.stageClear = 0;
+        Destroy(someday);
         SceneManager.LoadScene("Main");
     }
 }

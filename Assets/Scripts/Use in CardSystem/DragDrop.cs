@@ -33,7 +33,7 @@ public class DragDrop : MonoBehaviour
 
         if(GameObject.FindGameObjectWithTag("Player").transform.position.x > 9)
         {
-            SceneManager.LoadScene("InGameStore");
+            SceneManager.LoadScene(7);
         }
         
     }

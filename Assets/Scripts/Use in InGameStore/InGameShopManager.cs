@@ -18,10 +18,10 @@ public class InGameShopManager : MonoBehaviour
         }
     }
     private static InGameShopManager m_instance;
-
+    public static bool isSolo = true;
     public int[] shopItems = new int[4];
-    int c = 1;
-    public float coins;
+    public static int c = 1;
+    public static float coins = 1000;
     public Text coinsText;
 
     public GameObject[] itemsList = new GameObject[4];
@@ -29,10 +29,11 @@ public class InGameShopManager : MonoBehaviour
     public bool[] ItemSelected = new bool[] { false, false, false, false };
     public GameObject[] HaveItem = new GameObject[6];
     public int[] HaveItemSpriteNumber = new int[6];
-    int b = 1;
+    public static int b = 1;
     public ItemsList iL;
     // public Sprite[] ItemSprite = new Sprite[4]; 
     // Start is called before the first frame update
+   
     void Start()
     {
         coinsText.text = "Coins : " + coins.ToString();
@@ -41,6 +42,10 @@ public class InGameShopManager : MonoBehaviour
             IInfo[i] = itemsList[i].GetComponent<ItemsInfo>();
         }
         iL = GetComponent<ItemsList>();
+        if(!isSolo)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -63,7 +68,7 @@ public class InGameShopManager : MonoBehaviour
                         // 현재 HaveItem에 들어간 sprite의 ISprite Index 값을 가져옴.
                         if (iL.ISprite[j] == HaveItem[c].GetComponent<Image>().sprite)
                         {
-                            HaveItemSpriteNumber[b] = j;
+                            HaveItemSpriteNumber[c] = j;
                             b++;
                         }
                     }
