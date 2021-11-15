@@ -31,9 +31,9 @@ public class buttonController : MonoBehaviour
     }
     public void TestStore()
     {
-        InGameShopManager.isSolo = false;
-        GameObject inGameShopManager = GameObject.Find("InGameShopManager");
-        DontDestroyOnLoad(inGameShopManager);
+        //InGameShopManager.isSolo = false;
+        //GameObject inGameShopManager = GameObject.Find("InGameShopManager");
+        //DontDestroyOnLoad(inGameShopManager);
         SceneManager.LoadScene("Test");
     }
 

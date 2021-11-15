@@ -1842,6 +1842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1354180306}
   - component: {fileID: 1354180307}
+  - component: {fileID: 1354180308}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -1884,6 +1885,31 @@ MonoBehaviour:
   - {fileID: 205856581}
   - {fileID: 758710967}
   - {fileID: 320211023}
+--- !u!114 &1354180308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354180305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb337d2956405949a2d0cf4a7e85db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ISprite:
+  - {fileID: 2640926960474540371, guid: 9277d2bfb8237b54c9f53d8f31c0053a, type: 3}
+  - {fileID: 21300024, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300048, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300002, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300016, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300024, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300074, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300046, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300042, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300002, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  - {fileID: 21300030, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  IPrice: 00000000c8000000fa00000054010000f40100007800000040010000ae0100006e000000500000001e000000
 --- !u!1 &1355388152
 GameObject:
   m_ObjectHideFlags: 0

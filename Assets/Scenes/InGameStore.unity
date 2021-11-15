@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ISprite:
-  - {fileID: 0}
+  - {fileID: 2640926960474540371, guid: 9277d2bfb8237b54c9f53d8f31c0053a, type: 3}
   - {fileID: 21300024, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
   - {fileID: 21300048, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
   - {fileID: 21300002, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
@@ -1243,6 +1243,7 @@ MonoBehaviour:
   - {fileID: 299249551}
   HaveItemSpriteNumber: 000000000000000000000000000000000000000000000000
   iL: {fileID: 0}
+  buyButton: {fileID: 1364677550}
 --- !u!4 &751158994
 Transform:
   m_ObjectHideFlags: 0
@@ -1489,6 +1490,7 @@ MonoBehaviour:
   ItemID: 1
   PriceText: {fileID: 277446947}
   ShopManager: {fileID: 751158991}
+  value: 0
   sprite: {fileID: 0}
   price: 0
   Selected: 0
@@ -2798,6 +2800,7 @@ MonoBehaviour:
   ItemID: 3
   PriceText: {fileID: 299326979}
   ShopManager: {fileID: 751158991}
+  value: 0
   sprite: {fileID: 0}
   price: 0
   Selected: 0
@@ -2946,6 +2949,7 @@ MonoBehaviour:
   ItemID: 2
   PriceText: {fileID: 1962570213}
   ShopManager: {fileID: 751158991}
+  value: 0
   sprite: {fileID: 0}
   price: 0
   Selected: 0
@@ -4434,6 +4438,11 @@ PrefabInstance:
       propertyPath: coinsText
       value: 
       objectReference: {fileID: 1845954575}
+    - target: {fileID: 3465401757556726643, guid: 7396574dac7728d459a609261861ea94,
+        type: 3}
+      propertyPath: HaveItem.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3465401757556726643, guid: 7396574dac7728d459a609261861ea94,
         type: 3}
       propertyPath: HaveItem.Array.data[1]

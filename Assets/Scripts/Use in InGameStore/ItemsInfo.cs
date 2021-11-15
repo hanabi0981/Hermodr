@@ -8,7 +8,7 @@ public class ItemsInfo : MonoBehaviour
     public int ItemID;
     public Text PriceText;
     public GameObject ShopManager;
-    int value;
+    public int value;
     public Sprite sprite;
     public int price;
     public bool Selected;

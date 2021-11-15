@@ -29,8 +29,11 @@ public class InGameShopManager : MonoBehaviour
     public bool[] ItemSelected = new bool[] { false, false, false, false };
     public GameObject[] HaveItem = new GameObject[6];
     public int[] HaveItemSpriteNumber = new int[6];
-    public static int b = 1;
+    public static int b = 0;
     public ItemsList iL;
+
+    public static List<string> HaveItemSpriteNumber2 = new List<string>() {"None", "Item_01", "Item_02", "Item_03", "Item_04", "Item_05" };
+    public GameObject buyButton;
     // public Sprite[] ItemSprite = new Sprite[4]; 
     // Start is called before the first frame update
    
@@ -46,6 +49,10 @@ public class InGameShopManager : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        for(int i = 1; i < HaveItemSpriteNumber2.Count; i++)
+        {
+            HaveItem[i].GetComponent<Image>().sprite = iL.ISprite[PlayerPrefs.GetInt(HaveItemSpriteNumber2[i])];
+        }
     }
 
     // Update is called once per frame
@@ -53,33 +60,32 @@ public class InGameShopManager : MonoBehaviour
     {
         for (int i = 1; i < 4; i++)
         {
-            ItemSelected[i] = IInfo[i].Selected;
-            if (ItemSelected[i])
+            if(c <= 5)
             {
-                if (coins - IInfo[i].price >= 0)
+                ItemSelected[i] = IInfo[i].Selected;
+                if (ItemSelected[i])
                 {
-                    coins -= IInfo[i].price;
-                    coinsText.text = "GOLD : " + coins.ToString();
-                    itemsList[i].GetComponent<ItemsInfo>().ItemSelection();
-                    HaveItem[c].GetComponent<Image>().sprite = IInfo[i].sprite;
-                    // itemList의 Sprite 갯수만큼 반복.
-                    for (int j = 1; j < iL.ISprite.Length; j++)
+                    if (coins - IInfo[i].price >= 0)
                     {
-                        // 현재 HaveItem에 들어간 sprite의 ISprite Index 값을 가져옴.
-                        if (iL.ISprite[j] == HaveItem[c].GetComponent<Image>().sprite)
-                        {
-                            HaveItemSpriteNumber[c] = j;
-                            b++;
-                        }
+                        coins -= IInfo[i].price;
+                        coinsText.text = "GOLD : " + coins.ToString();
+                        itemsList[i].GetComponent<ItemsInfo>().ItemSelection();
+                        PlayerPrefs.SetInt(HaveItemSpriteNumber2[c], itemsList[i].GetComponent<ItemsInfo>().value);
+                        Debug.Log("선택한 아이템의 ISprite 번호 : " + PlayerPrefs.GetInt(HaveItemSpriteNumber2[c]));
+                        HaveItem[c].GetComponent<Image>().sprite = IInfo[i].sprite;
+                        c++;
                     }
-                    c++;
                 }
+            }
+            else
+            {
+                buyButton.GetComponent<Button>().interactable = false;
             }
         }
     }
     public void Exit()
     {
         SceneManager.LoadScene("Battle");
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 }
