@@ -465,7 +465,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8760275077572774143}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 6, y: -1.2, z: 0}
+  m_LocalPosition: {x: 5.904, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2697326113826454801}
@@ -507,7 +507,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03527546, y: -0.041688904}
+  m_Offset: {x: -0.30725646, y: -0.31067026}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -518,7 +518,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2111187, y: 0.21753272}
+  m_Size: {x: 1.5189214, y: 1.5394056}
   m_EdgeRadius: 0
 --- !u!114 &8477550028758192877
 MonoBehaviour:
@@ -535,6 +535,7 @@ MonoBehaviour:
   startHealth: 100
   moveSpeed: 1
   damage: 50
+  attackRange: 1
   timeBetAttack: 1
   healthBar: {fileID: 628507948859000418}
   gradient:
@@ -567,7 +568,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 5488221157916437481}
-  tmp: {fileID: 0}
+  og: {fileID: 0}
 --- !u!212 &1432204814757415274
 SpriteRenderer:
   m_ObjectHideFlags: 0

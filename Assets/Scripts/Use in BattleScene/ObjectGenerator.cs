@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ObjectGenerator : MonoBehaviour
 {
     public GameObject player;
     public GameObject enemy;
     public GameObject[] playerItems = new GameObject[6];
-    public int killcount = 0;
+
+    public static int killcount = 0;
 
     private void Start()
     {
@@ -26,6 +28,9 @@ public class ObjectGenerator : MonoBehaviour
                 }
             }
         }
+        SpawnEnemy();
+        Invoke("SpawnEnemy", 2);
+
     }
     // Update is called once per frame
     void Update()
@@ -38,9 +43,30 @@ public class ObjectGenerator : MonoBehaviour
         {
             Instantiate(enemy);
         }
-        if (killcount >= 2)
-        {
-            Debug.Log("게임종료.");
+        if (killcount >= 2 && SceneManager.GetActiveScene().name!="Battle")
+        {            
+            Invoke("InGameShopLoad", 2);
+            killcount = 0;
         }
+        else if (killcount >= 2 && SceneManager.GetActiveScene().name == "Battle")
+        {
+            Invoke("MainLoad", 2);
+            killcount = 0;
+        }
+    }
+
+    void SpawnEnemy()
+    {
+        Instantiate(enemy);
+    }
+
+    void InGameShopLoad()
+    {
+        SceneManager.LoadScene("InGameStore");
+    }
+
+    void MainLoad()
+    {
+        SceneManager.LoadScene("Main");
     }
 }

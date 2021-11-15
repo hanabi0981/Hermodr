@@ -84,5 +84,6 @@ public class EnemyCombat : LifeEntity
         gameObject.tag = "Finish";
         animator.SetTrigger("D");
         Destroy(gameObject, 1.0f);
+        ObjectGenerator.killcount++;
     }
 }

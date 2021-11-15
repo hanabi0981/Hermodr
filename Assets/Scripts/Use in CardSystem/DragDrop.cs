@@ -30,10 +30,12 @@ public class DragDrop : MonoBehaviour
         {
             transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         }
-
-        if(GameObject.FindGameObjectWithTag("Player").transform.position.x > 9)
+        if (GameObject.FindGameObjectWithTag("Player") != null)
         {
-            SceneManager.LoadScene(7);
+            if (GameObject.FindGameObjectWithTag("Player").transform.position.x > 9)
+            {
+                SceneManager.LoadScene(7);
+            }
         }
         
     }
@@ -72,8 +74,7 @@ public class DragDrop : MonoBehaviour
             {
                 Destroy(this.gameObject);
                 target = GameObject.FindGameObjectWithTag("Enemy");
-                target.GetComponent<EnemyCombat>().health = target.GetComponent<EnemyCombat>().health - 50;
-                target.GetComponent<EnemyCombat>().healthBar.value = target.GetComponent<EnemyCombat>().health;
+                target.GetComponent<EnemyCombat>().OnDamage(50);
                 target = null;
             }
             else if(this.gameObject == Card4)

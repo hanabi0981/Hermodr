@@ -14,14 +14,14 @@ public class TrophyEventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 2)
+        if(SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 5)
         {
-            TrophyCheck.Battle = true;
+            PlayerPrefs.SetInt("Trp_01", 1);
         }
 
-        if(SceneManager.GetActiveScene().buildIndex == 3)
+        if(SceneManager.GetActiveScene().buildIndex == 7)
         {
-            TrophyCheck.Store = true;
+            PlayerPrefs.SetInt("Trp_02", 1);
         }
 
         if(Input.GetKeyDown(KeyCode.Keypad4))

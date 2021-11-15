@@ -21,15 +21,7 @@ public class buttonController : MonoBehaviour
 
     public void Battle()
     {
-        for (int i = 0; i < stageNumbers; i++)
-        {
-            int rand = Random.Range(0, stageIndex.Count);
-            stageOrders[i] = stageIndex[rand];
-            Debug.Log(stageOrders[i] - 2);
-            stageIndex.RemoveAt(rand);
-        }
-        DontDestroyOnLoad(gameObject);
-        SceneManager.LoadScene("Test");
+        StartCoroutine(Delay());       
 
         // SceneManager.LoadScene("Battle");
     }
@@ -42,6 +34,22 @@ public class buttonController : MonoBehaviour
         InGameShopManager.isSolo = false;
         GameObject inGameShopManager = GameObject.Find("InGameShopManager");
         DontDestroyOnLoad(inGameShopManager);
+        SceneManager.LoadScene("Test");
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(0.75f);
+
+        for (int i = 0; i < stageNumbers; i++)
+        {
+            int rand = Random.Range(0, stageIndex.Count);
+            stageOrders[i] = stageIndex[rand];
+            Debug.Log(stageOrders[i] - 2);
+            stageIndex.RemoveAt(rand);
+        }
+        DontDestroyOnLoad(gameObject);
+
         SceneManager.LoadScene("Test");
     }
 }
