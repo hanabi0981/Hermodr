@@ -47,3 +47,6 @@ TagManager:
   - name: Card
     uniqueID: 3546490195
     locked: 0
+  - name: Lobby
+    uniqueID: 3471555257
+    locked: 0
