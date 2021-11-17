@@ -11,10 +11,10 @@ public class QuestBookManager : MonoBehaviour
 
     Dictionary<string, string> QuestDic = new Dictionary<string, string>()
     {
-        {"questBook1", "questTitle : Hermodr"},
-        {"description1_Book1", "Project_Hermodr"},
-        {"description2_Book1", "BP"},
-        {"description3_Book1", "YH"},
+        {"questBook1", "첫 전투"},
+        {"description1_Book1", "시나리오 진행"},
+        {"description2_Book1", "적 처치"},
+        {"description3_Book1", ""},
         {"questBook2", "questTitle : PIXEL"},
         {"description1_Book2", "TeamPIXEL"},
         {"description2_Book2", "Hermodr"},
@@ -49,6 +49,11 @@ public class QuestBookManager : MonoBehaviour
         questDescription1.text = description1_Book1;
         questDescription2.text = description2_Book1;
         questDescription3.text = description3_Book1;
+
+        PlayerPrefs.SetString("questTitle", questBook1);
+        PlayerPrefs.SetString("questDescription1", description1_Book1);
+        PlayerPrefs.SetString("questDescription2", description2_Book1);
+        PlayerPrefs.SetString("questDescription3", description3_Book1);
     }
     public void QuestBook2Selected()
     {

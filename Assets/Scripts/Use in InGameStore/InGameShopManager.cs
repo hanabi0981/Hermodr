@@ -22,6 +22,7 @@ public class InGameShopManager : MonoBehaviour
     public int[] shopItems = new int[4];
     public static int c = 1;
     public static float coins = 1000;
+    public static float usedCoins = 0;
     public Text coinsText;
 
     public GameObject[] itemsList = new GameObject[4];
@@ -74,6 +75,10 @@ public class InGameShopManager : MonoBehaviour
                         Debug.Log("선택한 아이템의 ISprite 번호 : " + PlayerPrefs.GetInt(HaveItemSpriteNumber2[c]));
                         HaveItem[c].GetComponent<Image>().sprite = IInfo[i].sprite;
                         c++;
+
+                        // counting coins that used for buy
+                        usedCoins += IInfo[i].price;
+
                     }
                 }
             }

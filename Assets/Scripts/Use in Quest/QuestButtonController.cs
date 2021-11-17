@@ -27,17 +27,16 @@ public class QuestButtonController : MonoBehaviour
             buttonStart.SetActive(false);
             buttonCancle.SetActive(true);
         }
+
     }
 
     public void QuestStart()
     {
         PlayerPrefs.SetInt("isQuest", 1);
-        Debug.Log(PlayerPrefs.GetInt("isQuest"));
     }
 
     public void QuestCancle()
     {
         PlayerPrefs.SetInt("isQuest", 0);
-        Debug.Log(PlayerPrefs.GetInt("isQuest"));
     }
 }

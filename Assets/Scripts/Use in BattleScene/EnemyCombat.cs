@@ -19,6 +19,8 @@ public class EnemyCombat : LifeEntity
 
     public ObjectGenerator og;
 
+    private int killCount;
+
     private void Start()
     {
         og = GetComponent<ObjectGenerator>();
@@ -85,5 +87,7 @@ public class EnemyCombat : LifeEntity
         animator.SetTrigger("D");
         Destroy(gameObject, 1.0f);
         ObjectGenerator.killcount++;
+        killCount++;
+        PlayerPrefs.SetInt("killCount",killCount);
     }
 }

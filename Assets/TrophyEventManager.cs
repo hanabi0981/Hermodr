@@ -17,6 +17,7 @@ public class TrophyEventManager : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 5)
         {
             PlayerPrefs.SetInt("Trp_01", 1);
+            PlayerPrefs.SetInt("isBattle", 1);
         }
 
         if(SceneManager.GetActiveScene().buildIndex == 7)
