@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class InGameShopManager : MonoBehaviour
 {
@@ -54,6 +55,11 @@ public class InGameShopManager : MonoBehaviour
         {
             HaveItem[i].GetComponent<Image>().sprite = iL.ISprite[PlayerPrefs.GetInt(HaveItemSpriteNumber2[i])];
         }
+        // 플레이어 프리팹 초기화
+        GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
+        _object.GetComponent<PlayerCombat>().damage = 25.0f;
+        PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
+        PrefabUtility.UnloadPrefabContents(_object);
     }
 
     // Update is called once per frame
