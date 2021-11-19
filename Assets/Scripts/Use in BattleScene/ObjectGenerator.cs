@@ -34,6 +34,7 @@ public class ObjectGenerator : MonoBehaviour
         {
             Debug.Log("선택된 아이템 넘버 : " + PlayerPrefs.GetInt(HaveItemNumber[i]));
             playerItems[i].GetComponent<Image>().sprite = GetComponent<ItemsList>().ISprite[PlayerPrefs.GetInt(HaveItemNumber[i])];
+            GetComponent<ItemsList>().ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[i]));
         }
         SpawnEnemy();
         Invoke("SpawnEnemy", 2);
