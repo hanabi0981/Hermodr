@@ -46,11 +46,6 @@ public class ShopManager : MonoBehaviour
             PlayerPrefs.DeleteKey(InGameShopManager.HaveItemSpriteNumber2[i]);
             PlayerPrefs.SetInt(InGameShopManager.HaveItemSpriteNumber2[i], 0);
         }
-        // 플레이어 프리팹 초기화
-        GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
-        _object.GetComponent<PlayerCombat>().damage = 25.0f;
-        PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
-        PrefabUtility.UnloadPrefabContents(_object);
     }
 
     // Update is called once per frame

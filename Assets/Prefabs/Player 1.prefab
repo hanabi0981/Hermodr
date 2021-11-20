@@ -259,7 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startHealth: 100
   moveSpeed: 1
-  damage: 100
+  damage: 25
   timeBetAttack: 1
   healthBar: {fileID: 1777455364867467730}
   gradient:
