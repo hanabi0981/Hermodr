@@ -14,7 +14,7 @@ AnimatorStateMachine:
     m_Position: {x: 40, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2117187443702981995}
-    m_Position: {x: 370, y: 280, z: 0}
+    m_Position: {x: 380, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1769889550313400641}
     m_Position: {x: 310, y: 10, z: 0}
@@ -64,7 +64,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wolf_Move
+  m_Name: Giant_Move
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -79,7 +79,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 75a0200be2e63ab43910d34d41df0e15, type: 2}
+  m_Motion: {fileID: 7400000, guid: b4db5585daf783444acc883d1f101e32, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -92,7 +92,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wolf_Die
+  m_Name: Giant_Die
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -105,7 +105,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1dca31995af7dff41b44c6885a690771, type: 2}
+  m_Motion: {fileID: 7400000, guid: e81e4a5fc4170f843904b830159814ad, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -118,7 +118,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wolf_Attack
+  m_Name: Giant_Attact
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -132,7 +132,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 96380148cfea80e43be359580960932c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 682c4eb6882ebf74c8a31ad8535bb7e4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -144,7 +144,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy 1
+  m_Name: Hell Giant
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Move
@@ -282,7 +282,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wolf_Idle
+  m_Name: Giant_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -296,7 +296,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 25e77c34e71ccd24e8b82b9cf02c39c3, type: 2}
+  m_Motion: {fileID: 7400000, guid: a8d78af64927b734ebedf236c7f29686, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
