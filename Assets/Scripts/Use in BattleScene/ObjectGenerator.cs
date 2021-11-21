@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,7 +38,7 @@ public class ObjectGenerator : MonoBehaviour
             // Debug.Log("선택된 아이템 넘버 : " + PlayerPrefs.GetInt(HaveItemNumber[i]));
             playerItems[i].GetComponent<Image>().sprite = GetComponent<ItemsList>().ISprite[PlayerPrefs.GetInt(HaveItemNumber[i])];
             playerItems[i].GetComponentInChildren<Text>().text = "+"+PlayerPrefs.GetInt(HaveItemForgeNumber[i]);
-            GetComponent<ItemsList>().ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[i]));
+            GetComponent<ItemsList>().ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[i]), PlayerPrefs.GetInt(HaveItemForgeNumber[i]));
             GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
             float damage = _object.GetComponent<PlayerCombat>().damage;
             float attackRange = _object.GetComponent<PlayerCombat>().attackRange;
@@ -94,3 +95,4 @@ public class ObjectGenerator : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 }
+#endif

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -8,91 +9,91 @@ public class ItemsList : MonoBehaviour
     public Sprite[] ISprite = new Sprite[11];
     public int[] IPrice = new int[11];
 
-    public void ItemAbility(int index)
+    public void ItemAbility(int index, int forge)
     {
         switch(index)
         {
             case 0:
                 break;
             case 1:
-                Ability_05();
+                Ability_01(forge);
                 break;
             case 2:
-                Ability_05();
+                Ability_02(forge);
                 break;
             case 3:
-                Ability_05();
+                Ability_03(forge);
                 break;
             case 4:
-                Ability_05();
+                Ability_04(forge);
                 break;
             case 5:
-                Ability_05();
+                Ability_05(forge);
                 break;
             case 6:
-                Ability_05();
+                Ability_06(forge);
                 break;
             case 7:
-                Ability_05();
+                Ability_07(forge);
                 break;
             case 8:
-                Ability_05();
+                Ability_08(forge);
                 break;
             case 9:
-                Ability_05();
+                Ability_09(forge);
                 break;
             case 10:
-                Ability_05();
+                Ability_10(forge);
                 break;
             default:
                 break;
         }
     }
-    private void Ability_01()
+    private void Ability_01(int forge)
     {
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
         _object.GetComponent<PlayerCombat>().damage += 10.0f;
-        _object.GetComponent<PlayerCombat>().timeBetAttack -= 0.2f;
+        _object.GetComponent<PlayerCombat>().timeBetAttack -= (0.2f * (forge + 1));
         PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
         PrefabUtility.UnloadPrefabContents(_object);
     }
-    private void Ability_02()
+    private void Ability_02(int forge)
     {
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
-        _object.GetComponent<PlayerCombat>().damage += 5.0f;
+        _object.GetComponent<PlayerCombat>().damage += (5.0f * (forge + 1));
         PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
         PrefabUtility.UnloadPrefabContents(_object);
     }
-    private void Ability_03()
+    private void Ability_03(int forge)
     {
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
-        _object.GetComponent<PlayerCombat>().attackRange += 0.2f;
+        _object.GetComponent<PlayerCombat>().attackRange += (0.2f * (forge + 1));
         PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
         PrefabUtility.UnloadPrefabContents(_object);
     }
-    private void Ability_04()
+    private void Ability_04(int forge)
     {
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
-        _object.GetComponent<PlayerCombat>().moveSpeed += 3.0f;
+        _object.GetComponent<PlayerCombat>().moveSpeed += ((forge + 1) * 2.0f + 1.0f);
         PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
         PrefabUtility.UnloadPrefabContents(_object);
     }
-    private void Ability_05()
+    private void Ability_05(int forge)
     {
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
-        _object.GetComponent<PlayerCombat>().startHealth += 10f;
+        _object.GetComponent<PlayerCombat>().startHealth += (10f * (forge + 1));
         PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
         PrefabUtility.UnloadPrefabContents(_object);
     }
-    private void Ability_06()
+    private void Ability_06(int forge)
     {
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
         _object.GetComponent<PlayerCombat>().damage += 20f;
-        _object.GetComponent<PlayerCombat>().timeBetAttack += 0.6f;
+        _object.GetComponent<PlayerCombat>().timeBetAttack -= 0.4f;
         PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
         PrefabUtility.UnloadPrefabContents(_object);
     }
-    private void Ability_07()
+    private void Ability_07(int forge)
     {
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
         _object.GetComponent<PlayerCombat>().startHealth -= 10f;
@@ -100,7 +101,7 @@ public class ItemsList : MonoBehaviour
         PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
         PrefabUtility.UnloadPrefabContents(_object);
     }
-    private void Ability_08()
+    private void Ability_08(int forge)
     {
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
         _object.GetComponent<PlayerCombat>().startHealth += 20f;
@@ -108,7 +109,7 @@ public class ItemsList : MonoBehaviour
         PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
         PrefabUtility.UnloadPrefabContents(_object);
     }
-    private void Ability_09()
+    private void Ability_09(int forge)
     {
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
         _object.GetComponent<PlayerCombat>().damage += 10f;
@@ -116,7 +117,7 @@ public class ItemsList : MonoBehaviour
         PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
         PrefabUtility.UnloadPrefabContents(_object);
     }
-    private void Ability_10()
+    private void Ability_10(int forge)
     {
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
         _object.GetComponent<PlayerCombat>().timeBetAttack -= 0.1f;
@@ -124,3 +125,4 @@ public class ItemsList : MonoBehaviour
         PrefabUtility.UnloadPrefabContents(_object);
     }
 }
+#endif
