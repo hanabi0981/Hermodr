@@ -50,5 +50,6 @@ public class ButtonController : MonoBehaviour
         {
             itemInfos[i].ToReset();
         }
+        PlayerPrefs.DeleteKey("Main Hero");
     }
 }

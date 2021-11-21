@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         PrefabUtility.UnloadPrefabContents(_object);
         // 메인 영웅 설정
         string heroSpritePath = PlayerPrefs.GetString("Main Hero");
-        if(heroSpritePath != null)
+        if(heroSpritePath != "")
         {
             int lastindex = heroSpritePath.LastIndexOf('.');
             string a1 = heroSpritePath.Substring(0, lastindex);
