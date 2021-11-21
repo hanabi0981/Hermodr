@@ -54,7 +54,8 @@ public class EnemyCombat : LifeEntity
     }
     private void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, attackRange);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -1 * transform.right, attackRange);
+        Debug.DrawRay(transform.position, -1 * transform.right, Color.red);
         if (!isDead)
         {
             if (hit.collider == null)
