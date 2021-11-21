@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject mainHero;
+    public GameObject player;
     public Sprite[] heroLists = new Sprite[8];
     void Start()
     {
@@ -30,6 +31,12 @@ public class GameManager : MonoBehaviour
         {
             mainHero.GetComponent<Image>().sprite = heroLists[PlayerPrefs.GetInt("Main Hero")];
         }
+        // 플레이어 프리팹 초기화
+        player.GetComponent<PlayerCombat>().startHealth = 100.0f;
+        player.GetComponent<PlayerCombat>().moveSpeed = 1.0f;
+        player.GetComponent<PlayerCombat>().damage = 25.0f;
+        player.GetComponent<PlayerCombat>().attackRange = 0.6f;
+        player.GetComponent<PlayerCombat>().timeBetAttack = 1.0f;
     }
     public void Divine()
     {

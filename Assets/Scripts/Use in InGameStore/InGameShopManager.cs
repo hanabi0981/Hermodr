@@ -40,7 +40,7 @@ public class InGameShopManager : MonoBehaviour
     public int forgeChance;
     int charForgeChance = 1;
     public Button forgeButton;
-
+    public GameObject player;
     // Start is called before the first frame update   
     void Start()
     {
@@ -64,7 +64,13 @@ public class InGameShopManager : MonoBehaviour
         for(int i = 1; i < HaveItem.Length; i++)
         {
             HaveItem[i].GetComponentInChildren<Text>().text = "+" + PlayerPrefs.GetInt(HaveItemForgeNumber[i]);
-        }        
+        }
+        // 플레이어 프리팹 초기화
+        player.GetComponent<PlayerCombat>().startHealth = 100.0f;
+        player.GetComponent<PlayerCombat>().moveSpeed = 1.0f;
+        player.GetComponent<PlayerCombat>().damage = 25.0f;
+        player.GetComponent<PlayerCombat>().attackRange = 0.6f;
+        player.GetComponent<PlayerCombat>().timeBetAttack = 1.0f;
     }
     public void Buy()
     {

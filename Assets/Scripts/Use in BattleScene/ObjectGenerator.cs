@@ -21,7 +21,7 @@ public class ObjectGenerator : MonoBehaviour
             Debug.Log("선택된 아이템 넘버 : " + PlayerPrefs.GetInt(HaveItemNumber[i]));
             playerItems[i].GetComponent<Image>().sprite = GetComponent<ItemsList>().ISprite[PlayerPrefs.GetInt(HaveItemNumber[i])];
             playerItems[i].GetComponentInChildren<Text>().text = "+" + PlayerPrefs.GetInt(HaveItemForgeNumber[i]);
-            playerItems[i].GetComponent<ItemsList>().ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[i]));
+            playerItems[i].GetComponent<ItemsList>().ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[i]), PlayerPrefs.GetInt(HaveItemForgeNumber[i]));
         }
         float damage = player.GetComponent<PlayerCombat>().damage;
         float attackRange = player.GetComponent<PlayerCombat>().attackRange;
@@ -29,7 +29,10 @@ public class ObjectGenerator : MonoBehaviour
         float startHealth = player.GetComponent<PlayerCombat>().startHealth;
         float moveSpeed = player.GetComponent<PlayerCombat>().moveSpeed;
         Debug.Log("플레이어의 공격력 : " + damage + "\n" +
-                    "플레이어의 공격범위 : " + attackRange + "\n");
+                    "플레이어의 공격범위 : " + attackRange + "\n" +
+                    "플레이어의 공격속도 : " + timeBetAttack + "\n" + 
+                    "플레이어의 최대체력 : " + startHealth + "\n" + 
+                    "플레이어의 이동속도 : " + moveSpeed );
         SpawnEnemy();
         Invoke("SpawnEnemy", 2);
 
