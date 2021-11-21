@@ -64,7 +64,7 @@ public class ItemsList : MonoBehaviour
     private void Ability_04()
     {
         ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
-        og.player.GetComponent<PlayerCombat>().moveSpeed = 3.0f;
+        og.player.GetComponent<PlayerCombat>().moveSpeed += 0.3f;
     }
     private void Ability_05()
     {
@@ -81,13 +81,13 @@ public class ItemsList : MonoBehaviour
     {
         ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         og.player.GetComponent<PlayerCombat>().startHealth -= 10.0f;
-        og.player.GetComponent<PlayerCombat>().moveSpeed += 5;
+        og.player.GetComponent<PlayerCombat>().moveSpeed += 0.5f;
     }
     private void Ability_08()
     {
         ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         og.player.GetComponent<PlayerCombat>().startHealth += 20.0f;
-        og.player.GetComponent<PlayerCombat>().moveSpeed -= 5.0f;
+        og.player.GetComponent<PlayerCombat>().moveSpeed -= 0.5f;
     }
     private void Ability_09()
     {
