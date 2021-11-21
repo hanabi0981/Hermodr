@@ -452,6 +452,7 @@ GameObject:
   - component: {fileID: 87546724}
   - component: {fileID: 87546726}
   - component: {fileID: 87546725}
+  - component: {fileID: 87546727}
   m_Layer: 5
   m_Name: itemImage2
   m_TagString: Untagged
@@ -517,6 +518,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87546723}
   m_CullTransparentMesh: 0
+--- !u!114 &87546727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87546723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb337d2956405949a2d0cf4a7e85db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ISprite:
+  - {fileID: 2640926960474540371, guid: 9277d2bfb8237b54c9f53d8f31c0053a, type: 3}
+  - {fileID: 21300024, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300048, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300002, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300016, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300024, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300074, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300046, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300042, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300002, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  - {fileID: 21300030, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  IPrice: 00000000c8000000fa00000054010000f40100007800000040010000ae0100006e000000500000001e000000
 --- !u!1 &205856581
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +554,7 @@ GameObject:
   - component: {fileID: 205856582}
   - component: {fileID: 205856584}
   - component: {fileID: 205856583}
+  - component: {fileID: 205856585}
   m_Layer: 5
   m_Name: itemImage3
   m_TagString: Untagged
@@ -593,6 +620,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205856581}
   m_CullTransparentMesh: 0
+--- !u!114 &205856585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205856581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb337d2956405949a2d0cf4a7e85db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ISprite:
+  - {fileID: 2640926960474540371, guid: 9277d2bfb8237b54c9f53d8f31c0053a, type: 3}
+  - {fileID: 21300024, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300048, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300002, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300016, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300024, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300074, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300046, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300042, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300002, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  - {fileID: 21300030, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  IPrice: 00000000c8000000fa00000054010000f40100007800000040010000ae0100006e000000500000001e000000
 --- !u!1 &320211023
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +656,7 @@ GameObject:
   - component: {fileID: 320211024}
   - component: {fileID: 320211026}
   - component: {fileID: 320211025}
+  - component: {fileID: 320211027}
   m_Layer: 5
   m_Name: itemImage5
   m_TagString: Untagged
@@ -669,6 +722,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320211023}
   m_CullTransparentMesh: 0
+--- !u!114 &320211027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320211023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb337d2956405949a2d0cf4a7e85db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ISprite:
+  - {fileID: 2640926960474540371, guid: 9277d2bfb8237b54c9f53d8f31c0053a, type: 3}
+  - {fileID: 21300024, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300048, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300002, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300016, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300024, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300074, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300046, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300042, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300002, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  - {fileID: 21300030, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  IPrice: 00000000c8000000fa00000054010000f40100007800000040010000ae0100006e000000500000001e000000
 --- !u!1 &338287256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1182,7 @@ GameObject:
   - component: {fileID: 534010909}
   - component: {fileID: 534010911}
   - component: {fileID: 534010910}
+  - component: {fileID: 534010912}
   m_Layer: 5
   m_Name: itemImage1
   m_TagString: Untagged
@@ -1169,6 +1248,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534010908}
   m_CullTransparentMesh: 0
+--- !u!114 &534010912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534010908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb337d2956405949a2d0cf4a7e85db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ISprite:
+  - {fileID: 2640926960474540371, guid: 9277d2bfb8237b54c9f53d8f31c0053a, type: 3}
+  - {fileID: 21300024, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300048, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300002, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300016, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300024, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300074, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300046, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300042, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300002, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  - {fileID: 21300030, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  IPrice: 00000000c8000000fa00000054010000f40100007800000040010000ae0100006e000000500000001e000000
 --- !u!1 &556124593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1457,7 @@ GameObject:
   - component: {fileID: 758710968}
   - component: {fileID: 758710970}
   - component: {fileID: 758710969}
+  - component: {fileID: 758710971}
   m_Layer: 5
   m_Name: itemImage4
   m_TagString: Untagged
@@ -1418,6 +1523,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758710967}
   m_CullTransparentMesh: 0
+--- !u!114 &758710971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758710967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb337d2956405949a2d0cf4a7e85db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ISprite:
+  - {fileID: 2640926960474540371, guid: 9277d2bfb8237b54c9f53d8f31c0053a, type: 3}
+  - {fileID: 21300024, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300048, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300002, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300016, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300024, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300074, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300046, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300042, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300002, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  - {fileID: 21300030, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  IPrice: 00000000c8000000fa00000054010000f40100007800000040010000ae0100006e000000500000001e000000
 --- !u!1 &790947403
 GameObject:
   m_ObjectHideFlags: 0
