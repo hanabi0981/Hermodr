@@ -31,10 +31,12 @@ public class ObjectGenerator : MonoBehaviour
         //}
         
         List<string> HaveItemNumber = InGameShopManager.HaveItemSpriteNumber2;
+        List<string> HaveItemForgeNumber = InGameShopManager.HaveItemForgeNumber;
         for (int i = 1; i < HaveItemNumber.Count; i++)
         {
             // Debug.Log("선택된 아이템 넘버 : " + PlayerPrefs.GetInt(HaveItemNumber[i]));
             playerItems[i].GetComponent<Image>().sprite = GetComponent<ItemsList>().ISprite[PlayerPrefs.GetInt(HaveItemNumber[i])];
+            playerItems[i].GetComponentInChildren<Text>().text = "+"+PlayerPrefs.GetInt(HaveItemForgeNumber[i]);
             GetComponent<ItemsList>().ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[i]));
             GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
             float damage = _object.GetComponent<PlayerCombat>().damage;

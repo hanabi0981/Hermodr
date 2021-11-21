@@ -40,12 +40,6 @@ public class ShopManager : MonoBehaviour
         {
             shopItems[3, count++] = 0;
         }
-        // 플레이어가 가진 아이템 수 초기화
-        for (int i = 0; i < InGameShopManager.HaveItemSpriteNumber2.Count; i++)
-        {
-            PlayerPrefs.DeleteKey(InGameShopManager.HaveItemSpriteNumber2[i]);
-            PlayerPrefs.SetInt(InGameShopManager.HaveItemSpriteNumber2[i], 0);
-        }
     }
 
     // Update is called once per frame

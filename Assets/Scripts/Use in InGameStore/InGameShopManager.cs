@@ -35,8 +35,12 @@ public class InGameShopManager : MonoBehaviour
     public ItemsList iL;
 
     public static List<string> HaveItemSpriteNumber2 = new List<string>() {"None", "Item_01", "Item_02", "Item_03", "Item_04", "Item_05" };
+    public static List<string> HaveItemForgeNumber = new List<string>() { "None", "F_Item_01", "F_Item_02", "F_Item_03", "F_Item_04", "F_Item_05" };
     public GameObject buyButton;
-    // public Sprite[] ItemSprite = new Sprite[4]; 
+
+    public int forgeChance;
+    int charForgeChance = 1;
+    public Button forgeButton;
     // Start is called before the first frame update
    
     void Start()
@@ -55,14 +59,23 @@ public class InGameShopManager : MonoBehaviour
         {
             HaveItem[i].GetComponent<Image>().sprite = iL.ISprite[PlayerPrefs.GetInt(HaveItemSpriteNumber2[i])];
         }
+        // 강화 횟수 제한 (기본적으로 1번)
+        forgeButton.interactable = true;
+        forgeChance = charForgeChance;
+        for(int i = 1; i < HaveItem.Length; i++)
+        {
+            HaveItem[i].GetComponentInChildren<Text>().text = "+" + PlayerPrefs.GetInt(HaveItemForgeNumber[i]);
+        }
         // 플레이어 프리팹 초기화
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
         _object.GetComponent<PlayerCombat>().damage = 25.0f;
+        _object.GetComponent<PlayerCombat>().attackRange = 0.6f; ;
+        _object.GetComponent<PlayerCombat>().timeBetAttack = 1f;
+        _object.GetComponent<PlayerCombat>().moveSpeed = 1f;
+        _object.GetComponent<PlayerCombat>().startHealth = 100f;
         PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
         PrefabUtility.UnloadPrefabContents(_object);
     }
-
-    // Update is called once per frame
     public void Buy()
     {
         for (int i = 1; i < 4; i++)
@@ -98,5 +111,31 @@ public class InGameShopManager : MonoBehaviour
     {
         SceneManager.LoadScene("Battle");
         //DontDestroyOnLoad(gameObject);
+    }
+    public void ForgeItem()
+    {
+        GameObject Forge_SelectedItem = GameObject.FindGameObjectWithTag("Forge");
+        int targetNumber = 0;
+        for(int i = 1; i < HaveItem.Length; i++)
+        {
+            if(HaveItem[i].name == Forge_SelectedItem.name)
+            {
+                targetNumber = i;
+            }
+        }
+        int forgeValue = int.Parse(Forge_SelectedItem.GetComponentInChildren<Text>().text.ToString().Substring(1));
+        if (forgeValue < 2)
+        {
+            forgeValue++;
+            forgeChance--;
+            PlayerPrefs.SetInt(HaveItemForgeNumber[targetNumber], forgeValue);
+            Forge_SelectedItem.GetComponentInChildren<Text>().text = "+" + forgeValue;
+            Forge_SelectedItem.GetComponent<HaveItemsInfo>().ItemSelection();
+            Debug.Log(forgeValue);
+        }
+        if(forgeChance <= 0)
+        {
+            forgeButton.interactable = false;
+        }
     }
 }
