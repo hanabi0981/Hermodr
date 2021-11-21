@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject mainHero;
-
+    public Sprite[] heroLists = new Sprite[8];
     void Start()
     {
         // 플레이어가 인게임에서 가진 아이템 인덱스 초기화
@@ -26,13 +26,9 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.DeleteKey(InGameShopManager.HaveItemForgeNumber[i]);
         }
         // 메인 영웅 설정
-        string heroSpritePath = PlayerPrefs.GetString("Main Hero");
-        if(heroSpritePath != "")
+        if(PlayerPrefs.GetInt("Main Hero") != 100)
         {
-            int lastindex = heroSpritePath.LastIndexOf('.');
-            string a1 = heroSpritePath.Substring(0, lastindex);
-            string ResourceSpritePath = a1.Substring(17);
-            mainHero.GetComponent<Image>().sprite = Resources.Load<Sprite>(ResourceSpritePath);
+            mainHero.GetComponent<Image>().sprite = heroLists[PlayerPrefs.GetInt("Main Hero")];
         }
     }
     public void Divine()

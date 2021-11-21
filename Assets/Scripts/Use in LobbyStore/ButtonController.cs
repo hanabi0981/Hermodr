@@ -8,7 +8,7 @@ public class ButtonController : MonoBehaviour
 {
     public GameObject[] lobbystore_Items = new GameObject[2];
     private ItemInfo[] lobbystore_ItemsInfo = new ItemInfo[8];
-
+    public Sprite[] heroLists = new Sprite[8];
     private List<string> playerPrefabItemList = new List<string>() { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8" };
     private void Awake()
     {
@@ -23,6 +23,13 @@ public class ButtonController : MonoBehaviour
         if(selectedHero != null)
         {
             Sprite heroSprite = selectedHero.GetComponent<Image>().sprite;
+            for(int i = 0; i < heroLists.Length; i++)
+            {
+                if(heroSprite == heroLists[i])
+                {
+                    PlayerPrefs.SetInt("Main Hero", i);
+                }
+            }
         }
         SceneManager.LoadScene("Main");
     }
@@ -48,6 +55,6 @@ public class ButtonController : MonoBehaviour
         {
             itemInfos[i].ToReset();
         }
-        PlayerPrefs.DeleteKey("Main Hero");
+        PlayerPrefs.SetInt("Main Hero", 100);
     }
 }
