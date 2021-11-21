@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
         // 플레이어 프리팹 초기화
         GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
         _object.GetComponent<PlayerCombat>().damage = 25.0f;
+        _object.GetComponent<PlayerCombat>().attackRange = 0.6f;
+        _object.GetComponent<PlayerCombat>().timeBetAttack = 1.0f;
+        _object.GetComponent<PlayerCombat>().moveSpeed = 1.0f;
+        _object.GetComponent<PlayerCombat>().startHealth = 100f;
         PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
         PrefabUtility.UnloadPrefabContents(_object);
         // 메인 영웅 설정

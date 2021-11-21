@@ -78,7 +78,7 @@ public class InGameShopManager : MonoBehaviour
                         coinsText.text = "GOLD : " + coins.ToString();
                         itemsList[i].GetComponent<ItemsInfo>().ItemSelection();
                         PlayerPrefs.SetInt(HaveItemSpriteNumber2[c], itemsList[i].GetComponent<ItemsInfo>().value);
-                        Debug.Log("선택한 아이템의 ISprite 번호 : " + PlayerPrefs.GetInt(HaveItemSpriteNumber2[c]));
+                        // Debug.Log("선택한 아이템의 ISprite 번호 : " + PlayerPrefs.GetInt(HaveItemSpriteNumber2[c]));
                         HaveItem[c].GetComponent<Image>().sprite = IInfo[i].sprite;
                         c++;
 

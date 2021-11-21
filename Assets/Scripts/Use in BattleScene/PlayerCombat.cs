@@ -6,7 +6,7 @@ public class PlayerCombat : LifeEntity
 {
     public float moveSpeed = 5f;
     public float damage = 25;
-    private float attackRange = 0.6f;
+    public float attackRange = 0.6f;
     public float timeBetAttack;
     private float lastAttackTime;
 
@@ -76,6 +76,7 @@ public class PlayerCombat : LifeEntity
     {
         base.Die();
         healthBar.gameObject.SetActive(false);
+        // D > die;
         animator.SetTrigger("D");
         gameObject.tag = "Finish";
         Destroy(gameObject, 1.0f);

@@ -14,7 +14,7 @@ public class StageSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("클리어 한 스테이지 갯수 : " + stageClear);
+        //Debug.Log("클리어 한 스테이지 갯수 : " + stageClear);
         StartCoroutine(StageSelect());
     }
 

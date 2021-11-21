@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1777455365272683507, guid: 40d3636d02142b649a6c56067a5b128a, type: 3}
-  enemy: {fileID: 8760275077572774143, guid: 2195cb1c5e664514381774a615bfe5da, type: 3}
+  enemy: {fileID: 337422645983922703, guid: e1e2dd36020f6804dbadc0f7f7ec479e, type: 3}
   playerItems:
   - {fileID: 0}
   - {fileID: 1586229123}

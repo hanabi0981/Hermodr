@@ -45,7 +45,7 @@ public class buttonController : MonoBehaviour
         {
             int rand = Random.Range(0, stageIndex.Count);
             stageOrders[i] = stageIndex[rand];
-            Debug.Log(stageOrders[i] - 2);
+            //Debug.Log(stageOrders[i] - 2);
             stageIndex.RemoveAt(rand);
         }
         DontDestroyOnLoad(gameObject);
