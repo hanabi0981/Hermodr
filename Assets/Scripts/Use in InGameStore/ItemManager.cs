@@ -10,7 +10,7 @@ public class ItemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 1; i < playerItems.Length; i++)
+        /* for (int i = 1; i < playerItems.Length; i++)
         {
             // InGameShopManager가 정상적으로 DontDestroyOnLoad에 존재한다면, 
             if (InGameShopManager.instance != null)
@@ -26,7 +26,8 @@ public class ItemManager : MonoBehaviour
                     }
                 }
             }
-        }
+        } */
+
         for (int i = 1; i < 6; i++)
         {
             if(InGameShopManager.instance.HaveItemSpriteNumber[i] != 0)

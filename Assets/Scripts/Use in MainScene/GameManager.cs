@@ -10,7 +10,10 @@ public class GameManager : MonoBehaviour
     public GameObject mainHero;
 
     void Start()
-    {        
+    {
+        // 플레이어가 인게임에서 가진 아이템 인덱스 초기화
+        InGameShopManager.c = 1;
+
         // 플레이어가 가진 아이템 수 초기화
         for (int i = 0; i < InGameShopManager.HaveItemSpriteNumber2.Count; i++)
         {

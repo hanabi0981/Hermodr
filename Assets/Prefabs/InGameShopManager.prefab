@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1675944950975353954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1675944950975353983}
+  - component: {fileID: 1675944950975353980}
+  - component: {fileID: 1675944950975353981}
+  m_Layer: 0
+  m_Name: InGameShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1675944950975353983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675944950975353954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 566, y: 391, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675944950975353980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675944950975353954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0154a50f30239448c89ae0138fb157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopItems: 00000000000000000000000000000000
+  coinsText: {fileID: 0}
+  itemsList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  IInfo:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ItemSelected: 00000000
+  HaveItem:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  HaveItemSpriteNumber: 000000000000000000000000000000000000000000000000
+  iL: {fileID: 0}
+  buyButton: {fileID: 0}
+  forgeChance: 0
+  forgeButton: {fileID: 0}
+--- !u!114 &1675944950975353981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675944950975353954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb337d2956405949a2d0cf4a7e85db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ISprite:
+  - {fileID: 2640926960474540371, guid: 9277d2bfb8237b54c9f53d8f31c0053a, type: 3}
+  - {fileID: 21300024, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300048, guid: 0612cabb39f2df143aab3640125c59fa, type: 3}
+  - {fileID: 21300002, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300016, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300024, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300074, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300046, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300042, guid: 87885d40c50627947adcd3fe53eabdc7, type: 3}
+  - {fileID: 21300002, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  - {fileID: 21300030, guid: a57b8af8b0efea144bf68dc36296d53d, type: 3}
+  IPrice: 00000000c8000000fa00000054010000f40100007800000040010000ae0100006e000000500000001e000000
