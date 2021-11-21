@@ -1,10 +1,8 @@
-﻿#if UNITY_EDITOR
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class InGameShopManager : MonoBehaviour
 {
@@ -42,8 +40,8 @@ public class InGameShopManager : MonoBehaviour
     public int forgeChance;
     int charForgeChance = 1;
     public Button forgeButton;
-    // Start is called before the first frame update
-   
+
+    // Start is called before the first frame update   
     void Start()
     {
         coinsText.text = "Coins : " + coins.ToString();
@@ -66,16 +64,7 @@ public class InGameShopManager : MonoBehaviour
         for(int i = 1; i < HaveItem.Length; i++)
         {
             HaveItem[i].GetComponentInChildren<Text>().text = "+" + PlayerPrefs.GetInt(HaveItemForgeNumber[i]);
-        }
-        // 플레이어 프리팹 초기화
-        GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
-        _object.GetComponent<PlayerCombat>().damage = 25.0f;
-        _object.GetComponent<PlayerCombat>().attackRange = 0.6f; ;
-        _object.GetComponent<PlayerCombat>().timeBetAttack = 1f;
-        _object.GetComponent<PlayerCombat>().moveSpeed = 1f;
-        _object.GetComponent<PlayerCombat>().startHealth = 100f;
-        PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
-        PrefabUtility.UnloadPrefabContents(_object);
+        }        
     }
     public void Buy()
     {
@@ -140,4 +129,3 @@ public class InGameShopManager : MonoBehaviour
         }
     }
 }
-#endif

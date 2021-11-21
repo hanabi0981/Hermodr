@@ -1,8 +1,6 @@
-﻿#if UNITY_EDITOR
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -25,7 +23,6 @@ public class ButtonController : MonoBehaviour
         if(selectedHero != null)
         {
             Sprite heroSprite = selectedHero.GetComponent<Image>().sprite;
-            PlayerPrefs.SetString("Main Hero", AssetDatabase.GetAssetPath(heroSprite));
         }
         SceneManager.LoadScene("Main");
     }
@@ -54,4 +51,3 @@ public class ButtonController : MonoBehaviour
         PlayerPrefs.DeleteKey("Main Hero");
     }
 }
-#endif

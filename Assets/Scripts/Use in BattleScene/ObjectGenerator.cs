@@ -1,10 +1,8 @@
-#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class ObjectGenerator : MonoBehaviour
 {
@@ -37,21 +35,8 @@ public class ObjectGenerator : MonoBehaviour
         {
             // Debug.Log("선택된 아이템 넘버 : " + PlayerPrefs.GetInt(HaveItemNumber[i]));
             playerItems[i].GetComponent<Image>().sprite = GetComponent<ItemsList>().ISprite[PlayerPrefs.GetInt(HaveItemNumber[i])];
-            playerItems[i].GetComponentInChildren<Text>().text = "+"+PlayerPrefs.GetInt(HaveItemForgeNumber[i]);
-            GetComponent<ItemsList>().ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[i]), PlayerPrefs.GetInt(HaveItemForgeNumber[i]));
-            GameObject _object = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Player 1.prefab");
-            float damage = _object.GetComponent<PlayerCombat>().damage;
-            float attackRange = _object.GetComponent<PlayerCombat>().attackRange;
-            float timeBetAttack = _object.GetComponent<PlayerCombat>().timeBetAttack;
-            float moveSpeed = _object.GetComponent<PlayerCombat>().moveSpeed;
-            float startHealth = _object.GetComponent<PlayerCombat>().startHealth;
-            PrefabUtility.SaveAsPrefabAsset(_object, "Assets/Prefabs/Player 1.prefab");
-            PrefabUtility.UnloadPrefabContents(_object);
-            Debug.Log("플레이어 공격력 : " + damage + "\n" +
-                        "플레이어 공격거리 : " + attackRange + "\n" +
-                        "플레이어 공격속도 : " + timeBetAttack + "\n" +
-                        "플레이어 이동속도 : " + moveSpeed + "\n" +
-                        "플레이어 최대체력 : " + startHealth + "\n");
+            playerItems[i].GetComponentInChildren<Text>().text = "+"+PlayerPrefs.GetInt(HaveItemForgeNumber[i]);           
+
         }
         SpawnEnemy();
         Invoke("SpawnEnemy", 2);
@@ -95,4 +80,3 @@ public class ObjectGenerator : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 }
-#endif
