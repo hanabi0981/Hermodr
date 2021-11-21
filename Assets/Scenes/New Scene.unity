@@ -213,6 +213,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1777455365272683510, guid: 40d3636d02142b649a6c56067a5b128a,
+        type: 3}
+      propertyPath: damage
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40d3636d02142b649a6c56067a5b128a, type: 3}
 --- !u!1 &1731518016
@@ -310,6 +315,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest Wolf
       objectReference: {fileID: 0}
+    - target: {fileID: 2762780130683675100, guid: e1e2dd36020f6804dbadc0f7f7ec479e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8b797873a1ed7e448959799b2ae70c30,
+        type: 3}
     - target: {fileID: 5033517383855797528, guid: e1e2dd36020f6804dbadc0f7f7ec479e,
         type: 3}
       propertyPath: m_RootOrder
@@ -374,6 +385,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042050448292827016, guid: e1e2dd36020f6804dbadc0f7f7ec479e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042050448292827016, guid: e1e2dd36020f6804dbadc0f7f7ec479e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042050448292827016, guid: e1e2dd36020f6804dbadc0f7f7ec479e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042050448292827016, guid: e1e2dd36020f6804dbadc0f7f7ec479e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042050448292827016, guid: e1e2dd36020f6804dbadc0f7f7ec479e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042050448292827016, guid: e1e2dd36020f6804dbadc0f7f7ec479e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468055349312980114, guid: e1e2dd36020f6804dbadc0f7f7ec479e,
+        type: 3}
+      propertyPath: m_Value
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e2dd36020f6804dbadc0f7f7ec479e, type: 3}
