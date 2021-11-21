@@ -54,16 +54,23 @@ public class InGameShopManager : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        for(int i = 1; i < HaveItemSpriteNumber2.Count; i++)
-        {
-            HaveItem[i].GetComponent<Image>().sprite = iL.ISprite[PlayerPrefs.GetInt(HaveItemSpriteNumber2[i])];
-        }
+        
         // 강화 횟수 제한 (기본적으로 1번)
         forgeButton.interactable = true;
         forgeChance = charForgeChance;
         for(int i = 1; i < HaveItem.Length; i++)
         {
             HaveItem[i].GetComponentInChildren<Text>().text = "+" + PlayerPrefs.GetInt(HaveItemForgeNumber[i]);
+        }
+        for (int i = 1; i < HaveItemSpriteNumber2.Count; i++)
+        {
+            HaveItem[i].GetComponent<Image>().sprite = iL.ISprite[PlayerPrefs.GetInt(HaveItemSpriteNumber2[i])];
+            int forge = int.Parse(HaveItem[i].GetComponentInChildren<Text>().text.ToString().Substring(1));
+            Debug.Log(i + " 번 슬롯 강화 수치 : " + forge);
+            if(forge == 0)
+            {
+                HaveItem[i].GetComponentInChildren<Text>().color = new Color(0,0,0,0);
+            }
         }
         // 플레이어 프리팹 초기화
         player.GetComponent<PlayerCombat>().startHealth = 100.0f;
@@ -126,6 +133,7 @@ public class InGameShopManager : MonoBehaviour
             forgeChance--;
             PlayerPrefs.SetInt(HaveItemForgeNumber[targetNumber], forgeValue);
             Forge_SelectedItem.GetComponentInChildren<Text>().text = "+" + forgeValue;
+            Forge_SelectedItem.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 255);
             Forge_SelectedItem.GetComponent<HaveItemsInfo>().ItemSelection();
             Debug.Log(forgeValue);
         }

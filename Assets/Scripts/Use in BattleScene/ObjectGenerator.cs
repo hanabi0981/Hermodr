@@ -22,6 +22,12 @@ public class ObjectGenerator : MonoBehaviour
             playerItems[i].GetComponent<Image>().sprite = GetComponent<ItemsList>().ISprite[PlayerPrefs.GetInt(HaveItemNumber[i])];
             playerItems[i].GetComponentInChildren<Text>().text = "+" + PlayerPrefs.GetInt(HaveItemForgeNumber[i]);
             playerItems[i].GetComponent<ItemsList>().ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[i]), PlayerPrefs.GetInt(HaveItemForgeNumber[i]));
+
+            int forge = int.Parse(playerItems[i].GetComponentInChildren<Text>().text.ToString().Substring(1));
+            if(forge == 0)
+            {
+                playerItems[i].GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0);
+            }
         }
         float damage = player.GetComponent<PlayerCombat>().damage;
         float attackRange = player.GetComponent<PlayerCombat>().attackRange;
