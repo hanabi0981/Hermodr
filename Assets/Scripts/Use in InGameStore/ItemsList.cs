@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemsList : MonoBehaviour
 {
+    public float maxHealth, moveSpeed, damage, attackRange, timeBetAttack;
     public Sprite[] ISprite = new Sprite[11];
     public int[] IPrice = new int[11];
-    public int[] Ability = new int[11] { 0, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 }; 
+    public string[] IName = new string[11] {"None", "Item 01", "Item 02", "Item 03", "Item 04", "Item 05",
+                                            "Item 06", "Item 07", "Item 08", "Item 09", "Item 10", };
     public void ItemAbility(int index, int forge)
     {
-
+        maxHealth = moveSpeed = damage = attackRange = timeBetAttack = 0;
         switch (index)
         {
             case 1:
@@ -48,178 +51,210 @@ public class ItemsList : MonoBehaviour
     }
     private void Ability_01(int forge)
     {
-        ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         switch (forge)
         {
             case 0:
-                og.player.GetComponent<PlayerCombat>().damage += 10.0f;
-                og.player.GetComponent<PlayerCombat>().timeBetAttack -= 0.2f;
+                damage = 10.0f;
+                timeBetAttack = -0.2f;
+                AddValue();
                 break;
             case 1:
-                og.player.GetComponent<PlayerCombat>().damage += 10.0f;
-                og.player.GetComponent<PlayerCombat>().timeBetAttack -= 0.4f;
+                damage = 10.0f;
+                timeBetAttack = -0.4f;
+                AddValue();
                 break;
             case 2:
-                og.player.GetComponent<PlayerCombat>().damage += 10.0f;
-                og.player.GetComponent<PlayerCombat>().timeBetAttack -= 0.6f;
+                damage = 10.0f;
+                timeBetAttack = -0.6f;
+                AddValue();
                 break;
         }
     }
     private void Ability_02(int forge)
     {
-        ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         switch (forge)
         {
             case 0:
-                og.player.GetComponent<PlayerCombat>().damage += 5.0f;
+                damage = 5.0f;
+                AddValue();
                 break;
             case 1:
-                og.player.GetComponent<PlayerCombat>().damage += 10.0f;
+                damage = 10.0f;
+                AddValue();
                 break;
             case 2:
-                og.player.GetComponent<PlayerCombat>().damage += 15.0f;
+                damage = 15.0f;
+                AddValue();
                 break;
         }
     }
     private void Ability_03(int forge)
     {
-        ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         switch (forge)
         {
             case 0:
-                og.player.GetComponent<PlayerCombat>().attackRange += 0.2f;
+                attackRange = 0.2f;
+                AddValue();
                 break;
             case 1:
-                og.player.GetComponent<PlayerCombat>().attackRange += 0.4f;
+                attackRange = 0.4f;
+                AddValue();
                 break;
             case 2:
-                og.player.GetComponent<PlayerCombat>().attackRange += 0.6f;
+                attackRange = 0.6f;
+                AddValue();
                 break;
         }
     }
     private void Ability_04(int forge)
     {
-        ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         switch (forge)
         {
             case 0:
-                og.player.GetComponent<PlayerCombat>().moveSpeed += 0.3f;
+                moveSpeed = 0.3f;
+                AddValue();
                 break;
             case 1:
-                og.player.GetComponent<PlayerCombat>().moveSpeed += 0.5f;
+                moveSpeed = 0.5f;
+                AddValue();
                 break;
             case 2:
-                og.player.GetComponent<PlayerCombat>().moveSpeed += 0.7f;
+                moveSpeed = 0.7f;
+                AddValue();
                 break;
         }
     }
     private void Ability_05(int forge)
     {
-        ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         switch (forge)
         {
             case 0:
-                og.player.GetComponent<PlayerCombat>().startHealth += 10f;
+                maxHealth = 10.0f;
+                AddValue();
                 break;
             case 1:
-                og.player.GetComponent<PlayerCombat>().startHealth += 20f;
+                maxHealth = 20.0f;
+                AddValue();
                 break;
             case 2:
-                og.player.GetComponent<PlayerCombat>().startHealth += 40f;
+                maxHealth = 40.0f;
+                AddValue();
                 break;
         }
     }
     private void Ability_06(int forge)
     {
-        ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         switch (forge)
         {
             case 0:
-                og.player.GetComponent<PlayerCombat>().damage += 20.0f;
-                og.player.GetComponent<PlayerCombat>().timeBetAttack = 0.6f;
+                damage = 20.0f;
+                timeBetAttack = -0.4f;
+                AddValue();
                 break;
             case 1:
-                og.player.GetComponent<PlayerCombat>().damage += 20.0f;
-                og.player.GetComponent<PlayerCombat>().timeBetAttack = 0.4f;
+                damage = 20.0f;
+                timeBetAttack = -0.6f;
+                AddValue();
                 break;
             case 2:
-                og.player.GetComponent<PlayerCombat>().damage += 20.0f;
-                og.player.GetComponent<PlayerCombat>().timeBetAttack = 0.2f;
+                damage = 20.0f;
+                timeBetAttack = -0.8f;
+                AddValue();
                 break;
         }
     }
     private void Ability_07(int forge)
     {
-        ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         switch (forge)
         {
             case 0:
-                og.player.GetComponent<PlayerCombat>().startHealth -= 10.0f;
-                og.player.GetComponent<PlayerCombat>().moveSpeed += 0.5f;
+                maxHealth = -10.0f;
+                moveSpeed = 0.5f;
+                AddValue();
                 break;
             case 1:
-                og.player.GetComponent<PlayerCombat>().startHealth -= 15.0f;
-                og.player.GetComponent<PlayerCombat>().moveSpeed += 0.7f;
+                maxHealth = -15.0f;
+                moveSpeed = 0.7f;
+                AddValue();
                 break;
             case 2:
-                og.player.GetComponent<PlayerCombat>().startHealth -= 15.0f;
-                og.player.GetComponent<PlayerCombat>().moveSpeed += 0.9f;
+                maxHealth = -15.0f;
+                moveSpeed = 0.9f;
+                AddValue();
                 break;
         }
     }
     private void Ability_08(int forge)
     {
-        ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         switch (forge)
         {
             case 0:
-                og.player.GetComponent<PlayerCombat>().startHealth += 20.0f;
-                og.player.GetComponent<PlayerCombat>().moveSpeed -= 0.5f;
+                maxHealth = 20.0f;
+                moveSpeed = -0.5f;
+                AddValue();
                 break;
             case 1:
-                og.player.GetComponent<PlayerCombat>().startHealth += 20.0f;
-                og.player.GetComponent<PlayerCombat>().moveSpeed -= 0.3f;
+                maxHealth = 20.0f;
+                moveSpeed = -0.3f;
+                AddValue();
                 break;
             case 2:
-                og.player.GetComponent<PlayerCombat>().startHealth += 20.0f;
-                og.player.GetComponent<PlayerCombat>().moveSpeed -= 0.1f;
+                maxHealth = 20.0f;
+                moveSpeed = -0.1f;
+                AddValue();
                 break;
         }
     }
     private void Ability_09(int forge)
     {
-        ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         switch (forge)
         {
             case 0:
-                og.player.GetComponent<PlayerCombat>().damage += 10.0f;
-                og.player.GetComponent<PlayerCombat>().startHealth -= 10.0f;
+                damage = 10.0f;
+                maxHealth = -10.0f;
+                AddValue();
                 break;
             case 1:
-                og.player.GetComponent<PlayerCombat>().damage += 20.0f;
-                og.player.GetComponent<PlayerCombat>().startHealth -= 20.0f;
+                damage = 20.0f;
+                maxHealth = -20.0f;
+                AddValue();
                 break;
             case 2:
-                og.player.GetComponent<PlayerCombat>().damage += 30.0f;
-                og.player.GetComponent<PlayerCombat>().startHealth -= 30.0f;
+                damage = 30.0f;
+                maxHealth = -30.0f;
+                AddValue();
                 break;
         }
     }
     private void Ability_10(int forge)
     {
-        ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
         switch (forge)
         {
             case 0:
-                og.player.GetComponent<PlayerCombat>().timeBetAttack -= 0.1f;
+                timeBetAttack = -0.1f;
+                AddValue();
                 break;
             case 1:
-                og.player.GetComponent<PlayerCombat>().timeBetAttack -= 0.2f;
+                timeBetAttack = -0.2f;
+                AddValue();
                 break;
             case 2:
-                og.player.GetComponent<PlayerCombat>().timeBetAttack -= 0.4f;
+                timeBetAttack = -0.4f;
+                AddValue();
                 break;
         }
-        
+    }
+    private void AddValue()
+    {
+        if (SceneManager.GetActiveScene().name != "InGameStore")
+        {
+            ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
+
+            og.player.GetComponent<PlayerCombat>().startHealth += maxHealth;
+            og.player.GetComponent<PlayerCombat>().moveSpeed += moveSpeed;
+            og.player.GetComponent<PlayerCombat>().damage += damage;
+            og.player.GetComponent<PlayerCombat>().attackRange += attackRange;
+            og.player.GetComponent<PlayerCombat>().timeBetAttack += timeBetAttack;
+        }
     }
 }
