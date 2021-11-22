@@ -8,7 +8,6 @@ public class UIController : MonoBehaviour
     public GameObject popup_window;
     public Text questTitle, questDescription1, questDescription2, questDescription3;
 
-    public GameObject divineWindow;
     public void Popup_window()
     {
         popup_window.SetActive(true);
@@ -18,14 +17,14 @@ public class UIController : MonoBehaviour
             questTitle.text = PlayerPrefs.GetString("questTitle");
             questDescription1.text = PlayerPrefs.GetString("questDescription1");
             questDescription2.text = PlayerPrefs.GetString("questDescription2");
-            questDescription3.text = PlayerPrefs.GetString("questDescription3"); ;
+            questDescription3.text = PlayerPrefs.GetString("questDescription3");
         }
         else
         {
-            questTitle.text = "";
-            questDescription1.text = "";
-            questDescription2.text = "";
-            questDescription3.text = "";
+            questTitle.text = " ";
+            questDescription1.text = " ";
+            questDescription2.text = " ";
+            questDescription3.text = " ";
 
         }
     }
@@ -33,10 +32,5 @@ public class UIController : MonoBehaviour
     public void Close_window()
     {
         popup_window.SetActive(false);
-    }
-
-    public void Divine_Open()
-    {
-        divineWindow.SetActive(true);
     }
 }

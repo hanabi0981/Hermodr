@@ -11,32 +11,31 @@ public class QuestBookManager : MonoBehaviour
 
     Dictionary<string, string> QuestDic = new Dictionary<string, string>()
     {
-        {"questBook1", "첫 전투"},
-        {"description1_Book1", "시나리오 진행"},
-        {"description2_Book1", "적 처치"},
-        {"description3_Book1", ""},
-        {"questBook2", "questTitle : PIXEL"},
-        {"description1_Book2", "TeamPIXEL"},
-        {"description2_Book2", "Hermodr"},
-        {"description3_Book2", "C++A+"},
-        {"questBook3", "questTitle : 북유럽 신화"},
-        {"description1_Book3", "로키"},
-        {"description2_Book3", "로키오딘"},
-        {"description3_Book3", "로키오딘토르"},
-        {"questBook4", "questTitle : 헤르모드"},
-        {"description1_Book4", "한글"},
-        {"description2_Book4", "한글 테스트"},
-        {"description3_Book4", "정렬 테스트의 정렬 테스트의 정렬 테스트의 정렬 테스트의 정렬 테스트의 정렬 테스트의 정렬 테스트의 테스트"},
-        {"questBook5", "questTitle : 퀘스트"},
-        {"description1_Book5", "TestTestTest"},
-        {"description2_Book5", "TestTestTest"},
-        {"description3_Book5", "TestTestTest"},
-        {"questBook6", "questTitle : null data"},
-        {"description1_Book6", "TestTestTest"},
-        {"description2_Book6", "TestTestTest"},
-        {"description3_Book6", "TestTestTest"},
+        {"questBook1", "도르마 벗어나기"},
+        {"description1_Book1", "숲 스테이지 클리어"},
+        {"description2_Book1", "숲의 괴물 5마리 처치"},
+        {"description3_Book1", "숲의 괴물 10마리 처치"},
+        {"questBook2", "황소 머리로 낚시하기"},
+        {"description1_Book2", "토르 획득"},
+        {"description2_Book2", "늪 스테이지 클리어"},
+        {"description3_Book2", "늪의 괴물 10마리 처치"},
+        {"questBook3", "발두르의 친구"},
+        {"description1_Book3", "발두르 획득"},
+        {"description2_Book3", "지옥 스테이지 클리어"},
+        {"description3_Book3", "지옥의 괴물 10마리 처치"},
+        {"questBook4", "라그나로크의 주인"},
+        {"description1_Book4", "모든 스테이지 클리어"},
+        {"description2_Book4", "황혼의 괴물 10마리 처치"},
+        {"description3_Book4", "모든 괴물 100마리 처치"},
+        {"questBook5", "황금의 시대"},
+        {"description1_Book5", "모든 스테이지 4회 클리어"},
+        {"description2_Book5", "모든 신성 획득"},
+        {"description3_Book5", "토벌 로키 클리어"},
+        {"questBook6", "정해진 운명"},
+        {"description1_Book6", "숲 스테이지 클리어 실패"},
+        {"description2_Book6", "늪 스테이지 클리어 실패"},
+        {"description3_Book6", "지옥 스테이지 클리어 실패"},
     };
-
 
     public void QuestBook1Selected()
     {
@@ -54,6 +53,8 @@ public class QuestBookManager : MonoBehaviour
         PlayerPrefs.SetString("questDescription1", description1_Book1);
         PlayerPrefs.SetString("questDescription2", description2_Book1);
         PlayerPrefs.SetString("questDescription3", description3_Book1);
+
+        PlayerPrefs.SetInt("selectedQuest", 1);
     }
     public void QuestBook2Selected()
     {
@@ -66,6 +67,13 @@ public class QuestBookManager : MonoBehaviour
         questDescription1.text = description1_Book2;
         questDescription2.text = description2_Book2;
         questDescription3.text = description3_Book2;
+
+        PlayerPrefs.SetString("questTitle", questBook2);
+        PlayerPrefs.SetString("questDescription1", description1_Book2);
+        PlayerPrefs.SetString("questDescription2", description2_Book2);
+        PlayerPrefs.SetString("questDescription3", description3_Book2);
+
+        PlayerPrefs.SetInt("selectedQuest", 2);
     }
     public void QuestBook3Selected()
     {
@@ -78,6 +86,13 @@ public class QuestBookManager : MonoBehaviour
         questDescription1.text = description1_Book3;
         questDescription2.text = description2_Book3;
         questDescription3.text = description3_Book3;
+
+        PlayerPrefs.SetString("questTitle", questBook3);
+        PlayerPrefs.SetString("questDescription1", description1_Book3);
+        PlayerPrefs.SetString("questDescription2", description2_Book3);
+        PlayerPrefs.SetString("questDescription3", description3_Book3);
+
+        PlayerPrefs.SetInt("selectedQuest", 3);
     }
     public void QuestBook4Selected()
     {
@@ -90,6 +105,13 @@ public class QuestBookManager : MonoBehaviour
         questDescription1.text = description1_Book4;
         questDescription2.text = description2_Book4;
         questDescription3.text = description3_Book4;
+
+        PlayerPrefs.SetString("questTitle", questBook4);
+        PlayerPrefs.SetString("questDescription1", description1_Book4);
+        PlayerPrefs.SetString("questDescription2", description2_Book4);
+        PlayerPrefs.SetString("questDescription3", description3_Book4);
+
+        PlayerPrefs.SetInt("selectedQuest", 4);
     }
     public void QuestBook5Selected()
     {
@@ -102,6 +124,13 @@ public class QuestBookManager : MonoBehaviour
         questDescription1.text = description1_Book5;
         questDescription2.text = description2_Book5;
         questDescription3.text = description3_Book5;
+
+        PlayerPrefs.SetString("questTitle", questBook5);
+        PlayerPrefs.SetString("questDescription1", description1_Book5);
+        PlayerPrefs.SetString("questDescription2", description2_Book5);
+        PlayerPrefs.SetString("questDescription3", description3_Book5);
+
+        PlayerPrefs.SetInt("selectedQuest", 5);
     }
     public void QuestBook6Selected()
     {
@@ -114,5 +143,12 @@ public class QuestBookManager : MonoBehaviour
         questDescription1.text = description1_Book6;
         questDescription2.text = description2_Book6;
         questDescription3.text = description3_Book6;
+
+        PlayerPrefs.SetString("questTitle", questBook6);
+        PlayerPrefs.SetString("questDescription1", description1_Book6);
+        PlayerPrefs.SetString("questDescription2", description2_Book6);
+        PlayerPrefs.SetString("questDescription3", description3_Book6);
+
+        PlayerPrefs.SetInt("selectedQuest", 6);
     }
 }
