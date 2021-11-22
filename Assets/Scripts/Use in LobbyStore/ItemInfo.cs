@@ -18,12 +18,19 @@ public class ItemInfo : MonoBehaviour
         {
             if (!selected)
             {
-                GameObject pre_SelectedHero = GameObject.FindGameObjectWithTag("Purchase");
-                if (pre_SelectedHero != null)
+                GameObject pre_SelectedHero_01 = GameObject.FindGameObjectWithTag("Purchase");
+                GameObject pre_SelectedHero_02 = GameObject.FindGameObjectWithTag("Hero");
+                if (pre_SelectedHero_01 != null)
                 {
-                    pre_SelectedHero.GetComponent<ItemInfo>().ColorToNormal();
-                    pre_SelectedHero.GetComponent<ItemInfo>().selected = false;
-                    pre_SelectedHero.tag = "Untagged";
+                    pre_SelectedHero_01.GetComponent<ItemInfo>().ColorToNormal();
+                    pre_SelectedHero_01.GetComponent<ItemInfo>().selected = false;
+                    pre_SelectedHero_01.tag = "Untagged";
+                }
+                if (pre_SelectedHero_02 != null)
+                {
+                    pre_SelectedHero_02.GetComponent<ItemInfo>().ColorToNormal();
+                    pre_SelectedHero_02.GetComponent<ItemInfo>().selected = false;
+                    pre_SelectedHero_02.tag = "Untagged";
                 }
                 ColorToRed();
                 this.tag = "Purchase";
@@ -40,12 +47,19 @@ public class ItemInfo : MonoBehaviour
         {
             if(!selected)
             {
-                GameObject pre_SelectedHero = GameObject.FindGameObjectWithTag("Hero");
-                if (pre_SelectedHero != null)
+                GameObject pre_SelectedHero_01 = GameObject.FindGameObjectWithTag("Purchase");
+                GameObject pre_SelectedHero_02 = GameObject.FindGameObjectWithTag("Hero");
+                if (pre_SelectedHero_01 != null)
                 {
-                    pre_SelectedHero.GetComponent<ItemInfo>().ColorToNormal();
-                    pre_SelectedHero.GetComponent<ItemInfo>().selected = false;
-                    pre_SelectedHero.tag = "Untagged";
+                    pre_SelectedHero_01.GetComponent<ItemInfo>().ColorToNormal();
+                    pre_SelectedHero_01.GetComponent<ItemInfo>().selected = false;
+                    pre_SelectedHero_01.tag = "Untagged";
+                }
+                if (pre_SelectedHero_02 != null)
+                {
+                    pre_SelectedHero_02.GetComponent<ItemInfo>().ColorToNormal();
+                    pre_SelectedHero_02.GetComponent<ItemInfo>().selected = false;
+                    pre_SelectedHero_02.tag = "Untagged";
                 }
                 ColorToBlue();
                 this.tag = "Hero";
@@ -89,7 +103,7 @@ public class ItemInfo : MonoBehaviour
     public void ToReset()
     {
         Sprite[] OXSprites = Resources.LoadAll<Sprite>("Sprites/misc");
-        if (PlayerPrefs.GetInt(this.transform.parent.name) == 1)
+        if (PlayerPrefs.GetInt(this.name) == 1)
         {
             isHave = 1;
             this.transform.GetChild(0).GetComponent<Image>().sprite = OXSprites[1];

@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject mainHero;
+    public Image mainHeroImage;
+    public Image windowHeroImage;
     public GameObject player;
     public Sprite[] heroLists = new Sprite[8];
     void Start()
@@ -26,10 +27,12 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.DeleteKey(InGameShopManager.HaveItemForgeNumber[i]);
         }
-        // 메인 영웅 설정
-        if(PlayerPrefs.GetInt("Main Hero") != 100)
+        // 메인 영웅 & 신성 팝업 영웅 설정
+        if(PlayerPrefs.GetInt("Main Hero") != 0)
         {
-            mainHero.GetComponent<Image>().sprite = heroLists[PlayerPrefs.GetInt("Main Hero")];
+            mainHeroImage.sprite = heroLists[PlayerPrefs.GetInt("Main Hero")];
+            windowHeroImage.sprite = heroLists[PlayerPrefs.GetInt("Main Hero")];
+
         }
         // 플레이어 프리팹 초기화
         player.GetComponent<PlayerCombat>().startHealth = 100.0f;
@@ -37,9 +40,5 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerCombat>().damage = 25.0f;
         player.GetComponent<PlayerCombat>().attackRange = 0.6f;
         player.GetComponent<PlayerCombat>().timeBetAttack = 1.0f;
-    }
-    public void Divine()
-    {
-        SceneManager.LoadScene("LobbyStore");
     }
 }

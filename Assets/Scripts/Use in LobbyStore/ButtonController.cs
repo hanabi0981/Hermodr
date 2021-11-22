@@ -6,42 +6,53 @@ using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
-    public GameObject[] lobbystore_Items = new GameObject[2];
-    private ItemInfo[] lobbystore_ItemsInfo = new ItemInfo[8];
-    public Sprite[] heroLists = new Sprite[8];
-    private List<string> playerPrefabItemList = new List<string>() { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8" };
+    public GameObject godsWindow;
+    public Image mainHeroImage;
+    public Image windowHeroImage;
+
+    public GameObject[] lobbystore_Items = new GameObject[7];
+    private ItemInfo[] lobbystore_ItemsInfo = new ItemInfo[7];
+    public Sprite[] heroLists = new Sprite[7];
+    private List<string> playerPrefabItemList = new List<string>() { "None", "GodsIcon1", "GodsIcon2", "GodsIcon3", "GodsIcon4", "GodsIcon5", "GodsIcon6" };
     private void Awake()
     {
-        for (int i = 0; i < lobbystore_Items.Length; i++)
+        for (int i = 1; i < lobbystore_Items.Length; i++)
         {
-            lobbystore_ItemsInfo[i] = lobbystore_Items[i].GetComponentInChildren<ItemInfo>();
+            lobbystore_ItemsInfo[i] = lobbystore_Items[i].GetComponent<ItemInfo>();
         }
     }
     public void Back()
     {
-        GameObject selectedHero = GameObject.FindGameObjectWithTag("Hero");
-        if(selectedHero != null)
-        {
-            Sprite heroSprite = selectedHero.GetComponent<Image>().sprite;
-            for(int i = 0; i < heroLists.Length; i++)
-            {
-                if(heroSprite == heroLists[i])
-                {
-                    PlayerPrefs.SetInt("Main Hero", i);
-                }
-            }
-        }
-        SceneManager.LoadScene("Main");
+        mainHeroImage.sprite = windowHeroImage.sprite;
+        godsWindow.SetActive(false);
     }
-    public void Buy()
+    public void BuyOrSelect()
     {
         GameObject selectedHero = GameObject.FindGameObjectWithTag("Purchase");
+
         if(selectedHero != null)
         {
             selectedHero.transform.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Sprites/misc")[1];
             selectedHero.GetComponent<ItemInfo>().ItemSelection();
-            PlayerPrefs.SetInt(selectedHero.transform.parent.name, 1);
-            selectedHero.GetComponent<ItemInfo>().isHave = PlayerPrefs.GetInt(selectedHero.transform.parent.name);
+            PlayerPrefs.SetInt(selectedHero.name, 1);
+            selectedHero.GetComponent<ItemInfo>().isHave = PlayerPrefs.GetInt(selectedHero.name);
+        }
+        else
+        {
+            selectedHero = GameObject.FindGameObjectWithTag("Hero");
+            if (selectedHero != null)
+            {
+                Sprite heroSprite = selectedHero.GetComponent<Image>().sprite;
+                selectedHero.GetComponent<ItemInfo>().ItemSelection();
+                for (int i = 0; i < heroLists.Length; i++)
+                {
+                    if (heroSprite == heroLists[i])
+                    {
+                        PlayerPrefs.SetInt("Main Hero", i);
+                    }
+                }
+            }
+            windowHeroImage.sprite = heroLists[PlayerPrefs.GetInt("Main Hero")];
         }
     }
     public void HeroReset()
@@ -55,6 +66,7 @@ public class ButtonController : MonoBehaviour
         {
             itemInfos[i].ToReset();
         }
-        PlayerPrefs.SetInt("Main Hero", 100);
+        PlayerPrefs.SetInt("Main Hero", 0);
+        windowHeroImage.sprite = heroLists[PlayerPrefs.GetInt("Main Hero")];
     }
 }

@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
     public GameObject popup_window;
     public Text questTitle, questDescription1, questDescription2, questDescription3;
 
+    public GameObject divineWindow;
     public void Popup_window()
     {
         popup_window.SetActive(true);
@@ -32,5 +33,10 @@ public class UIController : MonoBehaviour
     public void Close_window()
     {
         popup_window.SetActive(false);
+    }
+
+    public void Divine_Open()
+    {
+        divineWindow.SetActive(true);
     }
 }
