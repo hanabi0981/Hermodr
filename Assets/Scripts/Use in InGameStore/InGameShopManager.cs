@@ -21,7 +21,7 @@ public class InGameShopManager : MonoBehaviour
     public static bool isSolo = true;
     public int[] shopItems = new int[4];
     public static int c = 1;
-    public static float coins = 1000;
+    public static float coins = 0;
     public static float usedCoins = 0;
     public Text coinsText;
 
@@ -44,7 +44,7 @@ public class InGameShopManager : MonoBehaviour
     // Start is called before the first frame update   
     void Start()
     {
-        coinsText.text = "Coins : " + coins.ToString();
+        coinsText.text = "Coins : " + coins.ToString() + " G";
         for (int i = 1; i <= 3; i++)
         {
             IInfo[i] = itemsList[i].GetComponent<ItemsInfo>();
@@ -91,7 +91,7 @@ public class InGameShopManager : MonoBehaviour
                     if (coins - IInfo[i].price >= 0)
                     {
                         coins -= IInfo[i].price;
-                        coinsText.text = "GOLD : " + coins.ToString();
+                        coinsText.text = "GOLD : " + coins.ToString() + " G";
                         itemsList[i].GetComponent<ItemsInfo>().ItemSelection();
                         PlayerPrefs.SetInt(HaveItemSpriteNumber2[c], itemsList[i].GetComponent<ItemsInfo>().value);
                         // Debug.Log("선택한 아이템의 ISprite 번호 : " + PlayerPrefs.GetInt(HaveItemSpriteNumber2[c]));

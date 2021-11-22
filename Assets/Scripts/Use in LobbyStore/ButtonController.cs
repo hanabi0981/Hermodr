@@ -69,4 +69,10 @@ public class ButtonController : MonoBehaviour
         PlayerPrefs.SetInt("Main Hero", 0);
         windowHeroImage.sprite = heroLists[PlayerPrefs.GetInt("Main Hero")];
     }
+    public void ResetEnt()
+    {
+        Debug.Log("초기화 전 총 엔트로피 : " + PlayerPrefs.GetFloat("Total Ent"));
+        PlayerPrefs.SetFloat("Total Ent", 0f);
+        Debug.Log("초기화 후 총 엔트로피 : " + PlayerPrefs.GetFloat("Total Ent"));
+    }
 }

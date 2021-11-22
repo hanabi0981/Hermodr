@@ -8,12 +8,15 @@ public class ObjectGenerator : MonoBehaviour
 {
     public GameObject player;
     public GameObject enemy;
+    public GameObject stageClear;
+   
     public GameObject[] playerItems = new GameObject[6];
 
     public static int killcount = 0;
 
     List<string> HaveItemNumber = InGameShopManager.HaveItemSpriteNumber2;
     List<string> HaveItemForgeNumber = InGameShopManager.HaveItemForgeNumber;
+
     private void Start()
     {
         for (int i = 1; i < HaveItemNumber.Count; i++)
@@ -29,6 +32,10 @@ public class ObjectGenerator : MonoBehaviour
                 playerItems[i].GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0);
             }
         }
+        // 스테이지 클리어/엔드 UI 초기화
+        stageClear.SetActive(false);
+        //
+      
         float damage = player.GetComponent<PlayerCombat>().damage;
         float attackRange = player.GetComponent<PlayerCombat>().attackRange;
         float timeBetAttack = player.GetComponent<PlayerCombat>().timeBetAttack;
@@ -55,13 +62,46 @@ public class ObjectGenerator : MonoBehaviour
             Instantiate(enemy);
         }
         if (killcount >= 2 && SceneManager.GetActiveScene().name!="Battle")
-        {            
-            Invoke("InGameShopLoad", 2);
+        {
+            stageClear.SetActive(true);
+            Text clearText = GameObject.Find("clearText").GetComponent<Text>();
+            Text gainGold = GameObject.Find("gainGold").GetComponent<Text>();
+            Text gainEnt = GameObject.Find("gainEnt").GetComponent<Text>();
+
+            int stageClearGold = StageSelector.stageClear * 150;
+            float stageClearEnt = stageClearGold * 0.1f;
+
+            gainEnt.text = "+" + stageClearEnt + " E";
+
+            stageClearEnt = PlayerPrefs.GetFloat("Stage Ent") + stageClearEnt;
+            PlayerPrefs.SetFloat("Stage Ent", stageClearEnt);
+
+            clearText.text = "! 스테이지 클리어 !";
+            gainGold.text = "+" + stageClearGold + " G";
+
+            InGameShopManager.coins += stageClearGold;
+
+            Invoke("InGameShopLoad", 3);
             killcount = 0;
         }
         else if (killcount >= 2 && SceneManager.GetActiveScene().name == "Battle")
         {
-            Invoke("MainLoad", 2);
+            stageClear.SetActive(true);
+            Text clearText = GameObject.Find("clearText").GetComponent<Text>();
+            Text gainGold = GameObject.Find("gainGold").GetComponent<Text>();
+            Text gainEnt = GameObject.Find("gainEnt").GetComponent<Text>();
+
+            float stageClearEnt = 500.0f;
+
+            stageClearEnt = PlayerPrefs.GetFloat("Stage Ent") + stageClearEnt;
+            PlayerPrefs.SetFloat("Stage Ent", stageClearEnt);
+            float totalClearEnt = PlayerPrefs.GetFloat("Total Ent") + stageClearEnt;
+            PlayerPrefs.SetFloat("Total Ent", totalClearEnt);
+            gainGold.text = "+0 G";
+            Debug.Log(totalClearEnt);
+            gainEnt.text = "+" + stageClearEnt + " E  >>> Total : " + totalClearEnt + " E";
+
+            Invoke("MainLoad", 3);
             killcount = 0;
         }
         
