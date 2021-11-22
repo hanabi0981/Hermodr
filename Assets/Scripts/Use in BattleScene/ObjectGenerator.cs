@@ -81,7 +81,7 @@ public class ObjectGenerator : MonoBehaviour
 
             InGameShopManager.coins += stageClearGold;
 
-            Invoke("InGameShopLoad", 3);
+            //Invoke("InGameShopLoad", 3);
             killcount = 0;
         }
         else if (killcount >= 2 && SceneManager.GetActiveScene().name == "Battle")
@@ -101,7 +101,7 @@ public class ObjectGenerator : MonoBehaviour
             Debug.Log(totalClearEnt);
             gainEnt.text = "+" + stageClearEnt + " E  >>> Total : " + totalClearEnt + " E";
 
-            Invoke("MainLoad", 3);
+            //Invoke("MainLoad", 3);
             killcount = 0;
         }
         

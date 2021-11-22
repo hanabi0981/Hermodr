@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
         {
             mainHeroImage.sprite = heroLists[PlayerPrefs.GetInt("Main Hero")];
             windowHeroImage.sprite = heroLists[PlayerPrefs.GetInt("Main Hero")];
-
         }
         // 플레이어 프리팹 초기화
         player.GetComponent<PlayerCombat>().startHealth = 100.0f;
