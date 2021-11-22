@@ -2525,7 +2525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1777455365272683507, guid: 40d3636d02142b649a6c56067a5b128a, type: 3}
-  enemy: {fileID: 7993794174987966002, guid: 00b92adce0f4aef44b6448e8d8444f61, type: 3}
+  enemy: {fileID: 337422645983922703, guid: e1e2dd36020f6804dbadc0f7f7ec479e, type: 3}
   playerItems:
   - {fileID: 0}
   - {fileID: 1234158634}
@@ -3410,7 +3410,7 @@ PrefabInstance:
     - target: {fileID: 6547689628940741076, guid: e2028863d78d5894c9137325abaf1cbd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 6547689628940741076, guid: e2028863d78d5894c9137325abaf1cbd,
         type: 3}
