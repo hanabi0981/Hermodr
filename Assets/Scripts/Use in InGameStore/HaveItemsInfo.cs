@@ -9,7 +9,7 @@ public class HaveItemsInfo : MonoBehaviour
     public string myColor = "White";
     public void ItemSelection()
     {
-        if (!selected)
+        if (!selected && this.GetComponent<Image>().sprite.name != "UI002_116")
         {
             GameObject pre_SelectedItem = GameObject.FindGameObjectWithTag("Forge");
             if (pre_SelectedItem != null)
