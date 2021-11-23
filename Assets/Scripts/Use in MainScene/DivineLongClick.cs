@@ -5,14 +5,14 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class DivineLongClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     private bool pointerDown;
     private float pointerDownTimer;
 
     public float requiredHoldTime;
     public UnityEvent onLongClick;
-    public GameObject ItemStatusPanel;
+    public GameObject DivineStatusPanel;
     public void OnPointerDown(PointerEventData eventData)
     {
         pointerDown = true;
@@ -24,12 +24,12 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     }
     private void Update()
     {
-        if(pointerDown)
+        if (pointerDown)
         {
             pointerDownTimer += Time.deltaTime;
-            if(pointerDownTimer >= requiredHoldTime)
+            if (pointerDownTimer >= requiredHoldTime)
             {
-                if(onLongClick != null && this.GetComponent<Image>().sprite.name != "UI002_116")
+                if (onLongClick != null)
                 {
                     onLongClick.Invoke();
                 }
@@ -44,11 +44,10 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     }
     public void StatusPanelSetActive()
     {
-        Debug.Log(ItemStatusPanel.transform.GetChild(0).gameObject.name);
-        ItemStatusPanel.SetActive(true);
+        DivineStatusPanel.SetActive(true);
     }
     public void StatusPanelSetInActive()
     {
-        ItemStatusPanel.SetActive(false);
+        DivineStatusPanel.SetActive(false);
     }
 }

@@ -29,13 +29,22 @@ public class ButtonController : MonoBehaviour
     public void BuyOrSelect()
     {
         GameObject selectedHero = GameObject.FindGameObjectWithTag("Purchase");
-
-        if(selectedHero != null)
+     
+        if (selectedHero != null)
         {
-            selectedHero.transform.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Sprites/misc")[1];
-            selectedHero.GetComponent<ItemInfo>().ItemSelection();
-            PlayerPrefs.SetInt(selectedHero.name, 1);
-            selectedHero.GetComponent<ItemInfo>().isHave = PlayerPrefs.GetInt(selectedHero.name);
+            DivineStatus ds = selectedHero.GetComponent<DivineLongClick>().DivineStatusPanel.GetComponent<DivineStatus>();
+            Pop_Controller pc = GameObject.FindObjectOfType<Pop_Controller>().GetComponent<Pop_Controller>();
+            float totalEnt = PlayerPrefs.GetFloat("Total Ent");
+            if (totalEnt >= ds.divinePrice[ds.itemindex])
+            {
+                totalEnt -= ds.divinePrice[ds.itemindex];
+                PlayerPrefs.SetFloat("Total Ent", totalEnt);
+                pc.haveEnt.text = totalEnt + " E";
+                selectedHero.transform.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Sprites/misc")[1];
+                selectedHero.GetComponent<ItemInfo>().ItemSelection();
+                PlayerPrefs.SetInt(selectedHero.name, 1);
+                selectedHero.GetComponent<ItemInfo>().isHave = PlayerPrefs.GetInt(selectedHero.name);
+            }  
         }
         else
         {

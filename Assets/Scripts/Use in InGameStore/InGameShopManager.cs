@@ -38,7 +38,7 @@ public class InGameShopManager : MonoBehaviour
     public GameObject buyButton;
 
     public int forgeChance;
-    int charForgeChance = 1;
+    public int charForgeChance = 1;
     public Button forgeButton;
     public GameObject player;
     // Start is called before the first frame update   
@@ -58,6 +58,7 @@ public class InGameShopManager : MonoBehaviour
         
         // 강화 횟수 제한 (기본적으로 1번)
         forgeButton.interactable = true;
+        charForgeChance = PlayerPrefs.GetInt("charForgeChance");
         forgeChance = charForgeChance;
         for(int i = 1; i < HaveItem.Length; i++)
         {

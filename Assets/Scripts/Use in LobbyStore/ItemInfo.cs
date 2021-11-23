@@ -11,6 +11,7 @@ public class ItemInfo : MonoBehaviour
     private void Start()
     {
         ToReset();
+
     }
     public void ItemSelection()
     {
