@@ -9,6 +9,10 @@ public class DrawCards : MonoBehaviour
 
     List<GameObject> cards = new List<GameObject>();
 
+    private string draw = "Draw";
+
+    public static int handCount=0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +23,12 @@ public class DrawCards : MonoBehaviour
 
     public void Draw()
     {
+        SoundManager.instance.PlaySE(draw);
+
         Debug.Log("cards : "+cards.Count);
         if(cards.Count != 0)
         {            
-            if (cards.Count >= 3)
+            if (cards.Count >= 3 && handCount < 3)
             {
                 for (int i = 0; i < 3; i++)
                 {
@@ -30,9 +36,10 @@ public class DrawCards : MonoBehaviour
                     GameObject playerCard = Instantiate(cards[rand], new Vector3(0, 0, 0), Quaternion.identity);
                     cards.Remove(cards[rand]);
                     playerCard.transform.SetParent(myHandArea.transform, false);
+                    handCount++;
                 }
             }
-            else if(cards.Count <3)
+            else if(cards.Count <3 && handCount < 3)
             {
                 for (int i = 0; i < cards.Count; i++)
                 {
@@ -40,6 +47,7 @@ public class DrawCards : MonoBehaviour
                     GameObject playerCard = Instantiate(cards[rand], new Vector3(0, 0, 0), Quaternion.identity);
                     cards.Remove(cards[rand]);
                     playerCard.transform.SetParent(myHandArea.transform, false);
+                    handCount++;
                 }
             }
         }
