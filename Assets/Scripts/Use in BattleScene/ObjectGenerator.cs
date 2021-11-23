@@ -11,12 +11,18 @@ public class ObjectGenerator : MonoBehaviour
     public GameObject stageClear;
    
     public GameObject[] playerItems = new GameObject[6];
-
     public static int killcount = 0;
 
     List<string> HaveItemNumber = InGameShopManager.HaveItemSpriteNumber2;
     List<string> HaveItemForgeNumber = InGameShopManager.HaveItemForgeNumber;
 
+    public Text timeText;
+    float _sec;
+    int _min;
+    string timeString;
+
+    public int totalEnemy;
+    public int remainEnemy;
     private void Start()
     {
         for (int i = 1; i < HaveItemNumber.Count; i++)
@@ -46,13 +52,91 @@ public class ObjectGenerator : MonoBehaviour
                     "플레이어의 공격속도 : " + timeBetAttack + "\n" + 
                     "플레이어의 최대체력 : " + startHealth + "\n" + 
                     "플레이어의 이동속도 : " + moveSpeed );
-        SpawnEnemy();
-        Invoke("SpawnEnemy", 2);
-
+        // 적 스테이지클리어 횟수를 참조하여 소환.
+        if (enemy.name == "Hell Giant")
+        {
+            if (StageSelector.stageClear == 1)
+            {
+                totalEnemy = StageSelector.stageClear + 6;
+                remainEnemy = totalEnemy;
+                SpawnEnemy();
+                StartCoroutine(SpawnGiantRepeat());
+            }
+            else if (StageSelector.stageClear == 2)
+            {
+                totalEnemy = StageSelector.stageClear + 6;
+                remainEnemy = totalEnemy;
+                SpawnEnemy();
+                StartCoroutine(SpawnGiantRepeat());
+            }
+            else if (StageSelector.stageClear == 3)
+            {
+                totalEnemy = StageSelector.stageClear + 6;
+                remainEnemy = totalEnemy;
+                SpawnEnemy();
+                StartCoroutine(SpawnGiantRepeat());
+            }
+        }
+        if(enemy.name == "Forest Wolf")
+        {
+            if(StageSelector.stageClear == 1)
+            {
+                totalEnemy = StageSelector.stageClear + 14;
+                remainEnemy = totalEnemy;
+                SpawnEnemy();
+                StartCoroutine(SpawnWolfRepeat());
+            }
+            else if (StageSelector.stageClear == 2)
+            {
+                totalEnemy = StageSelector.stageClear + 15;
+                remainEnemy = totalEnemy;
+                SpawnEnemy();
+                StartCoroutine(SpawnWolfRepeat());
+            }
+            else if (StageSelector.stageClear == 3)
+            {
+                totalEnemy = StageSelector.stageClear + 15;
+                remainEnemy = totalEnemy;
+                SpawnEnemy();
+                StartCoroutine(SpawnWolfRepeat());
+            }
+        }
+        if(enemy.name == "Sea_Shell")
+        {
+            if(StageSelector.stageClear == 1)
+            {
+                totalEnemy = StageSelector.stageClear + 9;
+                remainEnemy = totalEnemy;
+                SpawnEnemy();
+                StartCoroutine(SpawnShellRepeat());
+            }
+            else if (StageSelector.stageClear == 2)
+            {
+                totalEnemy = StageSelector.stageClear + 10;
+                remainEnemy = totalEnemy;
+                SpawnEnemy();
+                StartCoroutine(SpawnShellRepeat());
+            }
+            else if (StageSelector.stageClear == 3)
+            {
+                totalEnemy = StageSelector.stageClear + 11;
+                remainEnemy = totalEnemy;
+                SpawnEnemy();
+                StartCoroutine(SpawnShellRepeat());
+            }
+        }
     }
     // Update is called once per frame
     void Update()
     {
+        _sec += Time.deltaTime;
+        timeString = string.Format("{0:D2}:{1:D2}", _min, (int)_sec);
+        if ((int)_sec > 59)
+        {
+            _sec = 0;
+            _min++;
+        }
+        timeText.text = timeString;
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             Instantiate(player);
@@ -61,7 +145,7 @@ public class ObjectGenerator : MonoBehaviour
         {
             Instantiate(enemy);
         }
-        if (killcount >= 2 && SceneManager.GetActiveScene().name!="Battle")
+        if (killcount >= totalEnemy && SceneManager.GetActiveScene().name!="Battle")
         {
             stageClear.SetActive(true);
             Text clearText = GameObject.Find("clearText").GetComponent<Text>();
@@ -84,7 +168,7 @@ public class ObjectGenerator : MonoBehaviour
             //Invoke("InGameShopLoad", 3);
             killcount = 0;
         }
-        else if (killcount >= 2 && SceneManager.GetActiveScene().name == "Battle")
+        else if (killcount >= totalEnemy && SceneManager.GetActiveScene().name == "Battle")
         {
             stageClear.SetActive(true);
             Text clearText = GameObject.Find("clearText").GetComponent<Text>();
@@ -106,12 +190,40 @@ public class ObjectGenerator : MonoBehaviour
         }
         
     }
-
+    IEnumerator SpawnGiantRepeat()
+    {
+        int rand = (int)Random.Range(5, 10);
+        for(int i = 0; i < totalEnemy - 1; i++)
+        {
+            yield return new WaitForSeconds(rand);
+            SpawnEnemy();
+            rand = (int)Random.Range(15, 20);
+        }
+    }
+    IEnumerator SpawnWolfRepeat()
+    {
+        int rand = (int)Random.Range(5, 7);
+        for (int i = 0; i < totalEnemy - 1; i++)
+        {
+            yield return new WaitForSeconds(rand);
+            SpawnEnemy();
+            rand = (int)Random.Range(5, 7);
+        }
+    }
+    IEnumerator SpawnShellRepeat()
+    {
+        int rand = (int)Random.Range(7, 10);
+        for (int i = 0; i < totalEnemy - 1; i++)
+        {
+            yield return new WaitForSeconds(rand);
+            SpawnEnemy();
+            rand = (int)Random.Range(10, 12);
+        }
+    }
     void SpawnEnemy()
     {
         Instantiate(enemy);
     }
-
     void InGameShopLoad()
     {
         SceneManager.LoadScene("InGameStore");

@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337422645983922703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.756, y: -1.2, z: 0}
+  m_LocalPosition: {x: 7, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6364334010208305121}
@@ -95,11 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9784ca50243d74d9b8815884adc9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 100
-  moveSpeed: 1
-  damage: 50
+  startHealth: 50
+  moveSpeed: 1.3
+  damage: 20
   attackRange: 1
-  timeBetAttack: 1
+  timeBetAttack: 0.3
   healthBar: {fileID: 8468055349312980114}
   gradient:
     serializedVersion: 2

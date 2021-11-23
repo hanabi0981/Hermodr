@@ -44,6 +44,7 @@ public class InGameShopManager : MonoBehaviour
     // Start is called before the first frame update   
     void Start()
     {
+        coins = 150;
         coinsText.text = "Coins : " + coins.ToString() + " G";
         for (int i = 1; i <= 3; i++)
         {
@@ -100,7 +101,6 @@ public class InGameShopManager : MonoBehaviour
 
                         // counting coins that used for buy
                         usedCoins += IInfo[i].price;
-
                     }
                 }
             }

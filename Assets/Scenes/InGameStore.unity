@@ -8098,6 +8098,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1777455365272683507, guid: 40d3636d02142b649a6c56067a5b128a,
         type: 3}
+    - target: {fileID: 1675944950975353981, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: IPrice.Array.data[1]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675944950975353981, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: IPrice.Array.data[2]
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675944950975353981, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: IPrice.Array.data[3]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675944950975353981, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: IPrice.Array.data[4]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675944950975353981, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: IPrice.Array.data[5]
+      value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675944950975353981, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: IPrice.Array.data[6]
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675944950975353981, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: IPrice.Array.data[7]
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675944950975353981, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: IPrice.Array.data[8]
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675944950975353981, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: IPrice.Array.data[9]
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1675944950975353981, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: IPrice.Array.data[10]
+      value: 155
+      objectReference: {fileID: 0}
     - target: {fileID: 1675944950975353983, guid: d38ed1d92368300479ffdc27934def9e,
         type: 3}
       propertyPath: m_RootOrder

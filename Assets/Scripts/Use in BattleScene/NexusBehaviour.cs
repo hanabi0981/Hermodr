@@ -50,7 +50,6 @@ public class NexusBehaviour : LifeEntity
         gainGold.text = "+0 G"; 
         gainEnt.text = "+" + stageClearEnt + " E  >>> Total : " + totalClearEnt + " E";
 
-        Invoke("ToMain", 3);
         ObjectGenerator.killcount = 0;
     }
     public void ToMain()

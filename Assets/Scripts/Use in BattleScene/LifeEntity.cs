@@ -19,6 +19,14 @@ public class LifeEntity : MonoBehaviour, IDamageable
             Die();
         }
     }
+    virtual public void RestoreHearth(float restore)
+    {
+        health += restore;
+        if(health > 100.0f)
+        {
+            health = 100.0f;
+        }
+    }
     virtual public void Die()
     {
         isDead = true;

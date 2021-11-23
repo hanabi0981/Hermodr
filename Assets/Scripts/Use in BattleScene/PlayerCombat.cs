@@ -52,8 +52,16 @@ public class PlayerCombat : LifeEntity
         {
             if (hit.collider == null)
             {
-                animator.SetBool("Move", true);
-                Move();
+                if(transform.position.x < 5.5)
+                {
+                    animator.SetBool("Move", true);
+                    Move();
+                }
+                else
+                {
+                    animator.SetBool("Move", false);
+                    Stop();
+                }
             }
             else if (hit.collider.gameObject.tag == "Enemy")
             {
@@ -69,6 +77,12 @@ public class PlayerCombat : LifeEntity
     public override void OnDamage(float damage)
     {
         base.OnDamage(damage);
+        healthBar.value = health;
+        fill.color = gradient.Evaluate(healthBar.normalizedValue);
+    }
+    public override void RestoreHearth(float restore)
+    {
+        base.RestoreHearth(restore);
         healthBar.value = health;
         fill.color = gradient.Evaluate(healthBar.normalizedValue);
     }

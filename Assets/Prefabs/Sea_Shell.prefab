@@ -532,10 +532,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 100
-  moveSpeed: 1
+  moveSpeed: 0.8
   damage: 50
   attackRange: 1
-  timeBetAttack: 1
+  timeBetAttack: 1.3
   healthBar: {fileID: 2289515331813660847}
   gradient:
     serializedVersion: 2

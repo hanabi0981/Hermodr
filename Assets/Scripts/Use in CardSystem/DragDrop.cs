@@ -15,7 +15,7 @@ public class DragDrop : MonoBehaviour
     public GameObject Enemy;
 
     public float delayTime = 2f;
-    private GameObject target;
+    private GameObject[] target;
 
     private bool isDragging = false;
     private bool isOverDropArea = false;
@@ -74,28 +74,33 @@ public class DragDrop : MonoBehaviour
             else if (this.gameObject == Card3)
             {
                 Destroy(this.gameObject);
-                target = GameObject.FindGameObjectWithTag("Enemy");
-                target.GetComponent<EnemyCombat>().OnDamage(50);
-                target = null;
+                target = GameObject.FindGameObjectsWithTag("Enemy");
+                float damage = target[0].GetComponent<EnemyCombat>().startHealth / 8;
+                for(int i = 0; i < target.Length; i++)
+                {
+                    target[i].GetComponent<EnemyCombat>().OnDamage(damage);
+                    target[i] = null;
+                }
                 DrawCards.handCount--;
             }
             else if(this.gameObject == Card4)
             {
                 Destroy(this.gameObject);
-                target = GameObject.FindGameObjectWithTag("Player");
-                target.GetComponent<PlayerCombat>().health = target.GetComponent<PlayerCombat>().health + 50;
-                target.GetComponent<PlayerCombat>().healthBar.value = target.GetComponent<PlayerCombat>().health;
-                target = null;
+                target = GameObject.FindGameObjectsWithTag("Player");
+                for(int i = 0; i <target.Length; i++)
+                {
+                    target[i].GetComponent<PlayerCombat>().RestoreHearth(50.0f);
+                    target[i] = null;
+                }
                 DrawCards.handCount--;
             }
             else if(this.gameObject == Card5)
             {
-                Destroy(this.gameObject);
-                target = GameObject.FindGameObjectWithTag("Enemy");
-                target.GetComponent<EnemyCombat>().moveSpeed = 0;
-                StartCoroutine(CountMagicDelay());
-                target = null;
                 DrawCards.handCount--;
+                Vector3 localPosition = GetComponent<RectTransform>().position;
+                GetComponent<RectTransform>().position = localPosition + new Vector3(0, 0, -1000);
+
+                StartCoroutine(Card5_Delay(2.0f));
             }
 
         }
@@ -104,10 +109,24 @@ public class DragDrop : MonoBehaviour
             transform.position = startPosition;
         }
     }
-
-    IEnumerator CountMagicDelay()
+    public IEnumerator Card5_Delay(float delay)
     {
-        yield return new WaitForSeconds(delayTime);
-        target.GetComponent<EnemyCombat>().moveSpeed = 1;
+        target = GameObject.FindGameObjectsWithTag("Enemy");
+        float[] normalSpeeds = new float[target.Length];
+        if (target.Length != 1)
+        {
+            for (int i = 1; i < target.Length; i++)
+            {
+                normalSpeeds[i] = target[i].GetComponent<EnemyCombat>().moveSpeed;
+                target[i].GetComponent<EnemyCombat>().moveSpeed = 0;
+            }
+            yield return new WaitForSeconds(delay);
+            for (int i = 1; i < target.Length; i++)
+            {
+                target[i].GetComponent<EnemyCombat>().moveSpeed = normalSpeeds[i];
+                target[i] = null;
+            }
+        }
+        Destroy(gameObject);
     }
 }

@@ -17,13 +17,12 @@ public class EnemyCombat : LifeEntity
     public Image fill;
     Animator animator;
 
-    public ObjectGenerator og;
+    ObjectGenerator og;
 
     private int killCount;
-
     private void Start()
     {
-        og = GetComponent<ObjectGenerator>();
+        og = GameObject.FindObjectOfType<ObjectGenerator>().GetComponent<ObjectGenerator>();
         animator = GetComponentInChildren<Animator>();
         healthBar.maxValue = startHealth;
         healthBar.value = health;
@@ -34,6 +33,7 @@ public class EnemyCombat : LifeEntity
     {
         if (Time.time >= lastAttackTime + timeBetAttack)
         {
+            animator.SetBool("Move", true);
             animator.SetTrigger("Attack");
             lastAttackTime = Time.time;
             IDamageable target = h.collider.GetComponent<IDamageable>();
@@ -41,6 +41,11 @@ public class EnemyCombat : LifeEntity
             {
                 target.OnDamage(damage);
             }
+        }
+        else
+        {
+            animator.SetBool("Move", false);
+            Stop();
         }
     }
     private void Move()
@@ -89,6 +94,7 @@ public class EnemyCombat : LifeEntity
         Destroy(gameObject, 1.0f);
         ObjectGenerator.killcount++;
         killCount++;
+        og.remainEnemy--;
         PlayerPrefs.SetInt("killCount",killCount);
     }
 }

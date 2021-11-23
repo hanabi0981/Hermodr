@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DrawCards : MonoBehaviour
 {
@@ -19,13 +20,10 @@ public class DrawCards : MonoBehaviour
         cards.Add(Card1); cards.Add(Card1); cards.Add(Card2); cards.Add(Card2); cards.Add(Card3);
         cards.Add(Card3); cards.Add(Card3); cards.Add(Card4); cards.Add(Card4); cards.Add(Card5);
     }
-
-
     public void Draw()
     {
         SoundManager.instance.PlaySE(draw);
 
-        Debug.Log("cards : "+cards.Count);
         if(cards.Count != 0)
         {            
             if (cards.Count >= 3 && handCount < 3)
@@ -50,11 +48,15 @@ public class DrawCards : MonoBehaviour
                     handCount++;
                 }
             }
+            Debug.Log("cards : " + cards.Count);
         }
         else if(cards.Count == 0)
         {
             Grave();
+            Draw();
         }
+        GetComponent<DrawCardContorller>().drawTime = Time.time;
+        GetComponent<Button>().interactable = false;
     }
 
     public void Grave()
