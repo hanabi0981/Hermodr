@@ -166,7 +166,7 @@ Animator:
   m_GameObject: {fileID: 959955324917868769}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 19270e429824ee34597b0b5ab19a8a03, type: 2}
+  m_Controller: {fileID: 9100000, guid: 37f34752ef9c58847bff9ae7b7b58a27, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -567,7 +567,6 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 6581732295310587172}
-  og: {fileID: 0}
 --- !u!212 &332457160991053735
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -95,6 +95,14 @@ MonoBehaviour:
   Card3: {fileID: 5591356637379826287, guid: 24610a689188bb04381b7d288dcfd427, type: 3}
   Card4: {fileID: 6845528713905795820}
   Card5: {fileID: 409142257095132103, guid: 17a88798bf64c4f418a2c7b01dac5257, type: 3}
+  Effect_01: {fileID: 7902037999140417176, guid: e79a5facb5e0a57439dadc8e8ff4301e,
+    type: 3}
+  Effect_02: {fileID: 599330102746479135, guid: f3c4642a9202a2c42bdd024c014a7463,
+    type: 3}
+  Effect_03: {fileID: 7293740924703597814, guid: 316d440fddcbb3c458c4bb50c52c8b98,
+    type: 3}
+  Effect_04: {fileID: 4437260889625639426, guid: de94ec72d6557cf40960dee11b1ad3c4,
+    type: 3}
   Player: {fileID: 1777455365272683507, guid: 40d3636d02142b649a6c56067a5b128a, type: 3}
   Enemy: {fileID: 8760275077572774143, guid: 2195cb1c5e664514381774a615bfe5da, type: 3}
   delayTime: 1
