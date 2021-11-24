@@ -34,7 +34,6 @@ public class PlayerCombat : LifeEntity
             if (target != null)
             {
                 target.OnDamage(damage);
-                Debug.Log("흡수한 생명력 량 : " + lifeSteal);
                 RestoreHearth(lifeSteal);
             }
         }
@@ -80,6 +79,7 @@ public class PlayerCombat : LifeEntity
     public override void OnDamage(float damage)
     {
         base.OnDamage(damage);
+        Debug.Log("받은 피해량 : " + damage);
         healthBar.value = health;
         fill.color = gradient.Evaluate(healthBar.normalizedValue);
     }
@@ -94,8 +94,8 @@ public class PlayerCombat : LifeEntity
         base.Die();
         healthBar.gameObject.SetActive(false);
         // D > die;
-        animator.SetTrigger("D");
         gameObject.tag = "Finish";
+        animator.SetTrigger("D");
         Destroy(gameObject, 1.0f);
     }
 }
