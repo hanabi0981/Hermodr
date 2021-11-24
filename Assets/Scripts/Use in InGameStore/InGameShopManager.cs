@@ -44,7 +44,6 @@ public class InGameShopManager : MonoBehaviour
     // Start is called before the first frame update   
     void Start()
     {
-        coins = 150;
         coinsText.text = "Coins : " + coins.ToString() + " G";
         for (int i = 1; i <= 3; i++)
         {
@@ -77,7 +76,7 @@ public class InGameShopManager : MonoBehaviour
         // 플레이어 프리팹 초기화
         player.GetComponent<PlayerCombat>().startHealth = 100.0f;
         player.GetComponent<PlayerCombat>().moveSpeed = 1.0f;
-        player.GetComponent<PlayerCombat>().damage = 25.0f;
+        player.GetComponent<PlayerCombat>().damage = PlayerPrefs.GetFloat("charDamage");
         player.GetComponent<PlayerCombat>().attackRange = 0.6f;
         player.GetComponent<PlayerCombat>().timeBetAttack = 1.0f;
     }

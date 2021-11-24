@@ -8,17 +8,19 @@ public class DrawCards : MonoBehaviour
     public GameObject Card1, Card2, Card3, Card4, Card5;
     public GameObject myHandArea;
 
-    List<GameObject> cards = new List<GameObject>();
+    public List<GameObject> cards = new List<GameObject>();
 
     private string draw = "Draw";
 
-    public static int handCount=0;
-
+    public static int handCount = 0;
+    public Text remainCard;
     // Start is called before the first frame update
     void Start()
     {
         cards.Add(Card1); cards.Add(Card1); cards.Add(Card2); cards.Add(Card2); cards.Add(Card3);
         cards.Add(Card3); cards.Add(Card3); cards.Add(Card4); cards.Add(Card4); cards.Add(Card5);
+        
+        remainCard.text = cards.Count.ToString();
     }
     public void Draw()
     {
@@ -37,7 +39,7 @@ public class DrawCards : MonoBehaviour
                     handCount++;
                 }
             }
-            else if(cards.Count <3 && handCount < 3)
+            else if(cards.Count < 3 && handCount < 3)
             {
                 for (int i = 0; i < cards.Count; i++)
                 {
@@ -48,7 +50,9 @@ public class DrawCards : MonoBehaviour
                     handCount++;
                 }
             }
-            Debug.Log("cards : " + cards.Count);
+            remainCard.text = cards.Count.ToString();
+            Debug.Log("Deck : " + cards.Count);
+            Debug.Log("패 :" + handCount);
         }
         else if(cards.Count == 0)
         {

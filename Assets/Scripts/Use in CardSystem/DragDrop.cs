@@ -68,12 +68,13 @@ public class DragDrop : MonoBehaviour
             if (this.gameObject==Card1||this.gameObject==Card2)
             {
                 Destroy(this.gameObject);
-                Instantiate(Player);
                 DrawCards.handCount--;
+                Instantiate(Player);
             }
             else if (this.gameObject == Card3)
             {
                 Destroy(this.gameObject);
+                DrawCards.handCount--;
                 target = GameObject.FindGameObjectsWithTag("Enemy");
                 float damage = target[0].GetComponent<EnemyCombat>().startHealth / 8;
                 for(int i = 0; i < target.Length; i++)
@@ -81,18 +82,17 @@ public class DragDrop : MonoBehaviour
                     target[i].GetComponent<EnemyCombat>().OnDamage(damage);
                     target[i] = null;
                 }
-                DrawCards.handCount--;
             }
             else if(this.gameObject == Card4)
             {
                 Destroy(this.gameObject);
+                DrawCards.handCount--;
                 target = GameObject.FindGameObjectsWithTag("Player");
                 for(int i = 0; i <target.Length; i++)
                 {
                     target[i].GetComponent<PlayerCombat>().RestoreHearth(50.0f);
                     target[i] = null;
-                }
-                DrawCards.handCount--;
+                }           
             }
             else if(this.gameObject == Card5)
             {

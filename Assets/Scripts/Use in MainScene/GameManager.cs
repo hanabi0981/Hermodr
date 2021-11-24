@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         // 플레이어가 인게임에서 가진 아이템 인덱스 초기화
         InGameShopManager.c = 1;
         // 플레이어가 클리어한 맵 갯수 초기화
-        PlayerPrefs.DeleteKey("stageClear");
+        StageSelector.stageClear = 0;
         // 골드 값 초기화
         InGameShopManager.coins = 0;
         // 스테이지 엔트로피 초기화

@@ -10,243 +10,243 @@ public class ItemsList : MonoBehaviour
     public int[] IPrice = new int[11];
     public string[] IName = new string[11] {"None", "Item 01", "Item 02", "Item 03", "Item 04", "Item 05",
                                             "Item 06", "Item 07", "Item 08", "Item 09", "Item 10", };
-    public void ItemAbility(int index, int forge)
+    public void ItemAbility(int index, int forge, string name)
     {
         maxHealth = moveSpeed = damage = attackRange = timeBetAttack = 0;
         switch (index)
         {
             case 1:
-                Ability_01(forge);
+                Ability_01(forge, name);
                 break;
             case 2:
-                Ability_02(forge);
+                Ability_02(forge, name);
                 break;
             case 3:
-                Ability_03(forge);
+                Ability_03(forge, name);
                 break;
             case 4:
-                Ability_04(forge);
+                Ability_04(forge, name);
                 break;
             case 5:
-                Ability_05(forge);
+                Ability_05(forge, name);
                 break;
             case 6:
-                Ability_06(forge);
+                Ability_06(forge, name);
                 break;
             case 7:
-                Ability_07(forge);
+                Ability_07(forge, name);
                 break;
             case 8:
-                Ability_08(forge);
+                Ability_08(forge, name);
                 break;
             case 9:
-                Ability_09(forge);
+                Ability_09(forge, name);
                 break;
             case 10:
-                Ability_10(forge);
+                Ability_10(forge, name);
                 break;
             default:
                 break;
         }
     }
-    private void Ability_01(int forge)
+    private void Ability_01(int forge, string name)
     {
         switch (forge)
         {
             case 0:
                 damage = 10.0f;
                 timeBetAttack = -0.2f;
-                AddValue();
+                AddValue(name);
                 break;
             case 1:
                 damage = 10.0f;
                 timeBetAttack = -0.4f;
-                AddValue();
+                AddValue(name);
                 break;
             case 2:
                 damage = 10.0f;
                 timeBetAttack = -0.6f;
-                AddValue();
+                AddValue(name);
                 break;
         }
     }
-    private void Ability_02(int forge)
+    private void Ability_02(int forge, string name)
     {
         switch (forge)
         {
             case 0:
                 damage = 5.0f;
-                AddValue();
+                AddValue(name);
                 break;
             case 1:
                 damage = 10.0f;
-                AddValue();
+                AddValue(name);
                 break;
             case 2:
                 damage = 15.0f;
-                AddValue();
+                AddValue(name);
                 break;
         }
     }
-    private void Ability_03(int forge)
+    private void Ability_03(int forge, string name)
     {
         switch (forge)
         {
             case 0:
                 attackRange = 0.2f;
-                AddValue();
+                AddValue(name);
                 break;
             case 1:
                 attackRange = 0.4f;
-                AddValue();
+                AddValue(name);
                 break;
             case 2:
                 attackRange = 0.6f;
-                AddValue();
+                AddValue(name);
                 break;
         }
     }
-    private void Ability_04(int forge)
+    private void Ability_04(int forge, string name)
     {
         switch (forge)
         {
             case 0:
                 moveSpeed = 0.3f;
-                AddValue();
+                AddValue(name);
                 break;
             case 1:
                 moveSpeed = 0.5f;
-                AddValue();
+                AddValue(name);
                 break;
             case 2:
                 moveSpeed = 0.7f;
-                AddValue();
+                AddValue(name);
                 break;
         }
     }
-    private void Ability_05(int forge)
+    private void Ability_05(int forge, string name)
     {
         switch (forge)
         {
             case 0:
                 maxHealth = 10.0f;
-                AddValue();
+                AddValue(name);
                 break;
             case 1:
                 maxHealth = 20.0f;
-                AddValue();
+                AddValue(name);
                 break;
             case 2:
                 maxHealth = 40.0f;
-                AddValue();
+                AddValue(name);
                 break;
         }
     }
-    private void Ability_06(int forge)
+    private void Ability_06(int forge, string name)
     {
         switch (forge)
         {
             case 0:
                 damage = 20.0f;
                 timeBetAttack = -0.4f;
-                AddValue();
+                AddValue(name);
                 break;
             case 1:
                 damage = 20.0f;
                 timeBetAttack = -0.6f;
-                AddValue();
+                AddValue(name);
                 break;
             case 2:
                 damage = 20.0f;
                 timeBetAttack = -0.8f;
-                AddValue();
+                AddValue(name);
                 break;
         }
     }
-    private void Ability_07(int forge)
+    private void Ability_07(int forge, string name)
     {
         switch (forge)
         {
             case 0:
                 maxHealth = -10.0f;
                 moveSpeed = 0.5f;
-                AddValue();
+                AddValue(name);
                 break;
             case 1:
                 maxHealth = -15.0f;
                 moveSpeed = 0.7f;
-                AddValue();
+                AddValue(name);
                 break;
             case 2:
                 maxHealth = -15.0f;
                 moveSpeed = 0.9f;
-                AddValue();
+                AddValue(name);
                 break;
         }
     }
-    private void Ability_08(int forge)
+    private void Ability_08(int forge, string name)
     {
         switch (forge)
         {
             case 0:
                 maxHealth = 20.0f;
                 moveSpeed = -0.5f;
-                AddValue();
+                AddValue(name);
                 break;
             case 1:
                 maxHealth = 20.0f;
                 moveSpeed = -0.3f;
-                AddValue();
+                AddValue(name);
                 break;
             case 2:
                 maxHealth = 20.0f;
                 moveSpeed = -0.1f;
-                AddValue();
+                AddValue(name);
                 break;
         }
     }
-    private void Ability_09(int forge)
+    private void Ability_09(int forge, string name)
     {
         switch (forge)
         {
             case 0:
                 damage = 10.0f;
                 maxHealth = -10.0f;
-                AddValue();
+                AddValue(name);
                 break;
             case 1:
                 damage = 20.0f;
                 maxHealth = -20.0f;
-                AddValue();
+                AddValue(name);
                 break;
             case 2:
                 damage = 30.0f;
                 maxHealth = -30.0f;
-                AddValue();
+                AddValue(name);
                 break;
         }
     }
-    private void Ability_10(int forge)
+    private void Ability_10(int forge, string name)
     {
         switch (forge)
         {
             case 0:
                 timeBetAttack = -0.1f;
-                AddValue();
+                AddValue(name);
                 break;
             case 1:
                 timeBetAttack = -0.2f;
-                AddValue();
+                AddValue(name);
                 break;
             case 2:
                 timeBetAttack = -0.4f;
-                AddValue();
+                AddValue(name);
                 break;
         }
     }
-    private void AddValue()
+    private void AddValue(string name)
     {
-        if (SceneManager.GetActiveScene().name != "InGameStore")
+        if (name == "BattleManager")
         {
             ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
 

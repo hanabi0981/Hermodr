@@ -25,6 +25,7 @@ public class PlayerCombat : LifeEntity
     }
     public void Attack(RaycastHit2D h)
     {
+        float lifeSteal = PlayerPrefs.GetFloat("charLifeSteal") * damage;
         if (Time.time >= lastAttackTime + timeBetAttack)
         {
             animator.SetTrigger("Attack");
@@ -33,6 +34,8 @@ public class PlayerCombat : LifeEntity
             if (target != null)
             {
                 target.OnDamage(damage);
+                Debug.Log("흡수한 생명력 량 : " + lifeSteal);
+                RestoreHearth(lifeSteal);
             }
         }
     }

@@ -6609,7 +6609,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b11489d856809e54a956c81fc415edce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5e66505c71967e14aaf166841dbdc575, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24946,10 +24946,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2028785361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e55401855c89ab74a88c5a15253badba, type: 3}
+  m_Script: {fileID: 11500000, guid: 9835fb5717a89464d86a87bf472c04aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemindex: 0
   divineSprite:
   - {fileID: 21300000, guid: 5e66505c71967e14aaf166841dbdc575, type: 3}
   - {fileID: 21300000, guid: a8ad544ca378d7a4b888172b8260a996, type: 3}
@@ -24958,7 +24957,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c5a385311102c0c49ad0911c24ed6365, type: 3}
   - {fileID: 21300000, guid: e80f2bb379623434e9f2e4828720334a, type: 3}
   - {fileID: 21300000, guid: f30cc188caaef464a95d8f022fa18cf4, type: 3}
-  divinePrice: 00000000e8030000dc050000c4090000b80b0000ac0d000070170000
 --- !u!1 &2050296318
 GameObject:
   m_ObjectHideFlags: 0

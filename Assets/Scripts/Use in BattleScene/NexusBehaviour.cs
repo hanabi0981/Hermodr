@@ -42,13 +42,13 @@ public class NexusBehaviour : LifeEntity
         Text gainGold = GameObject.Find("gainGold").GetComponent<Text>();
         Text gainEnt = GameObject.Find("gainEnt").GetComponent<Text>();
 
-        float stageClearEnt = StageSelector.stageClear * 5.0f;
-        stageClearEnt = PlayerPrefs.GetFloat("Stage Ent") + stageClearEnt;
-        PlayerPrefs.SetFloat("Stage Ent", stageClearEnt);
-        float totalClearEnt = PlayerPrefs.GetFloat("Total Ent") + stageClearEnt;
-        PlayerPrefs.SetFloat("Total Ent", totalClearEnt);
+        float stageClearEnt = StageSelector.stageClear * 5.0f * PlayerPrefs.GetFloat("charGainEnt");
+        stageClearEnt = PlayerPrefs.GetInt("Stage Ent") + stageClearEnt;
+        PlayerPrefs.SetInt("Stage Ent", (int) stageClearEnt);
+        float totalClearEnt = PlayerPrefs.GetInt("Total Ent") + stageClearEnt;
+        PlayerPrefs.SetInt("Total Ent", (int) totalClearEnt);
         gainGold.text = "+0 G"; 
-        gainEnt.text = "+" + stageClearEnt + " E  >>> Total : " + totalClearEnt + " E";
+        gainEnt.text = "+" + (int) stageClearEnt + " E  >>> Total : " + (int) totalClearEnt + " E";
 
         ObjectGenerator.killcount = 0;
     }

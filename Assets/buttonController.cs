@@ -22,7 +22,7 @@ public class buttonController : MonoBehaviour
     public void Battle()
     {
         // 메인 영웅의 스프라이트에 따라 신성 능력 부여
-        DivineStatus ds = GetComponent<DivineStatus>();
+        DivineAbility ds = GetComponent<DivineAbility>();
         
         for (int i = 0; i < ds.divineSprite.Length; i++)
         {

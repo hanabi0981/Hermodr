@@ -22,9 +22,9 @@ public class LifeEntity : MonoBehaviour, IDamageable
     virtual public void RestoreHearth(float restore)
     {
         health += restore;
-        if(health > 100.0f)
+        if(health > startHealth)
         {
-            health = 100.0f;
+            health = startHealth;
         }
     }
     virtual public void Die()

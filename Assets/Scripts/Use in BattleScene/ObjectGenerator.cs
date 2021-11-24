@@ -23,15 +23,21 @@ public class ObjectGenerator : MonoBehaviour
 
     public int totalEnemy;
     public int remainEnemy;
+
+    public int haveItemCount;
     private void Start()
     {
+        // 보유 아이템 이미지 / 실제 능력치 적용
         for (int i = 1; i < HaveItemNumber.Count; i++)
         {
             Debug.Log("선택된 아이템 넘버 : " + PlayerPrefs.GetInt(HaveItemNumber[i]));
             playerItems[i].GetComponent<Image>().sprite = GetComponent<ItemsList>().ISprite[PlayerPrefs.GetInt(HaveItemNumber[i])];
             playerItems[i].GetComponentInChildren<Text>().text = "+" + PlayerPrefs.GetInt(HaveItemForgeNumber[i]);
-            playerItems[i].GetComponent<ItemsList>().ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[i]), PlayerPrefs.GetInt(HaveItemForgeNumber[i]));
-
+            playerItems[i].GetComponent<ItemsList>().ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[i]), PlayerPrefs.GetInt(HaveItemForgeNumber[i]), this.name);
+            if(PlayerPrefs.GetInt(HaveItemNumber[i]) != 0)
+            {
+                haveItemCount++;
+            }
             int forge = int.Parse(playerItems[i].GetComponentInChildren<Text>().text.ToString().Substring(1));
             if(forge == 0)
             {
@@ -40,8 +46,9 @@ public class ObjectGenerator : MonoBehaviour
         }
         // 스테이지 클리어/엔드 UI 초기화
         stageClear.SetActive(false);
-        //
-      
+        // 신성 5 : 아이템 갯수 따라 체력 증가 적용/미적용
+        player.GetComponent<PlayerCombat>().startHealth += haveItemCount * PlayerPrefs.GetInt("charGetHealthPerItem");
+
         float damage = player.GetComponent<PlayerCombat>().damage;
         float attackRange = player.GetComponent<PlayerCombat>().attackRange;
         float timeBetAttack = player.GetComponent<PlayerCombat>().timeBetAttack;
@@ -77,7 +84,7 @@ public class ObjectGenerator : MonoBehaviour
                 StartCoroutine(SpawnGiantRepeat());
             }
         }
-        if(enemy.name == "Forest Wolf")
+        else if(enemy.name == "Forest Wolf")
         {
             if(StageSelector.stageClear == 1)
             {
@@ -101,7 +108,7 @@ public class ObjectGenerator : MonoBehaviour
                 StartCoroutine(SpawnWolfRepeat());
             }
         }
-        if(enemy.name == "Sea_Shell")
+        else if(enemy.name == "Sea_Shell")
         {
             if(StageSelector.stageClear == 1)
             {
@@ -124,6 +131,13 @@ public class ObjectGenerator : MonoBehaviour
                 SpawnEnemy();
                 StartCoroutine(SpawnShellRepeat());
             }
+        }
+        else
+        {
+            // 보스전 레벨 디자인
+            totalEnemy = 10;
+            remainEnemy = totalEnemy;
+            Debug.Log("totalEnemy :" + totalEnemy);
         }
     }
     // Update is called once per frame
@@ -153,12 +167,12 @@ public class ObjectGenerator : MonoBehaviour
             Text gainEnt = GameObject.Find("gainEnt").GetComponent<Text>();
 
             int stageClearGold = StageSelector.stageClear * 150;
-            float stageClearEnt = stageClearGold * 0.1f;
+            float stageClearEnt = stageClearGold * 0.1f * PlayerPrefs.GetFloat("charGainEnt");
 
-            gainEnt.text = "+" + stageClearEnt + " E";
+            gainEnt.text = "+" + (int) stageClearEnt + " E";
 
-            stageClearEnt = PlayerPrefs.GetFloat("Stage Ent") + stageClearEnt;
-            PlayerPrefs.SetFloat("Stage Ent", stageClearEnt);
+            stageClearEnt = PlayerPrefs.GetInt("Stage Ent") + stageClearEnt;
+            PlayerPrefs.SetInt("Stage Ent", (int) stageClearEnt);
 
             clearText.text = "! 스테이지 클리어 !";
             gainGold.text = "+" + stageClearGold + " G";
@@ -175,7 +189,7 @@ public class ObjectGenerator : MonoBehaviour
             Text gainGold = GameObject.Find("gainGold").GetComponent<Text>();
             Text gainEnt = GameObject.Find("gainEnt").GetComponent<Text>();
 
-            float stageClearEnt = 500.0f;
+            float stageClearEnt = 500.0f * PlayerPrefs.GetFloat("charGainEnt");
 
             stageClearEnt = PlayerPrefs.GetFloat("Stage Ent") + stageClearEnt;
             PlayerPrefs.SetFloat("Stage Ent", stageClearEnt);

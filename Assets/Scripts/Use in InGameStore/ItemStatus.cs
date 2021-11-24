@@ -18,7 +18,7 @@ public class ItemStatus : MonoBehaviour
         Text statusForge = GameObject.Find("Status forge " + itemindex).GetComponent<Text>();
         Text statusAbility_01 = GameObject.Find("Status text " + itemindex).GetComponent<Text>();
         
-        itemsList.ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[itemindex]), PlayerPrefs.GetInt(HaveItemForgeNumber[itemindex]));
+        itemsList.ItemAbility(PlayerPrefs.GetInt(HaveItemNumber[itemindex]), PlayerPrefs.GetInt(HaveItemForgeNumber[itemindex]), this.name);
         float[] status = new float[5] { itemsList.maxHealth, itemsList.moveSpeed, itemsList.damage, itemsList.attackRange, itemsList.timeBetAttack };
         string statusText = "";
         statusImage.sprite = itemsList.ISprite[PlayerPrefs.GetInt(HaveItemNumber[itemindex])];
