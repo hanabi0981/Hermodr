@@ -25,8 +25,8 @@ public class NewPlayerCombat : LifeEntity
         healthBar.maxValue = startHealth;
         healthBar.value = health;
         fill.color = gradient.Evaluate(1f);
-        float rand = UnityEngine.Random.Range(-0.1f, 0.1f);
-        attackRange += (float)Math.Truncate(rand * 100) / 100;
+        float rand = UnityEngine.Random.Range(-1f, 1f);
+        attackRange += (float)Math.Truncate(rand * 10) / 10;
         lastAttackTime = 0;
     }
     private void FixedUpdate()
@@ -95,6 +95,12 @@ public class NewPlayerCombat : LifeEntity
     public override void OnDamage(float damage)
     {
         base.OnDamage(damage);
+        healthBar.value = health;
+        fill.color = gradient.Evaluate(healthBar.normalizedValue);
+    }
+    public override void RestoreHearth(float restore)
+    {
+        base.RestoreHearth(restore);
         healthBar.value = health;
         fill.color = gradient.Evaluate(healthBar.normalizedValue);
     }

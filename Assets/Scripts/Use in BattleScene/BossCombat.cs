@@ -17,6 +17,8 @@ public class BossCombat : LifeEntity
     Animator animator;
 
     public LayerMask Target;
+    public GameObject BloodEffect;
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -32,7 +34,7 @@ public class BossCombat : LifeEntity
 
         if (colliders.Length != 0)
         {
-            if (colliders[0].tag == "Player")
+            if (colliders[0].tag == "Player" || colliders[0].tag == "Nexus")
             {
 
                 AttackReady(colliders);
@@ -109,6 +111,22 @@ public class BossCombat : LifeEntity
     public override void OnDamage(float damage)
     {
         base.OnDamage(damage);
+        BloodEffect.transform.position = transform.position;
+
+        float randPosition = Random.Range(-1f, 1f);
+        float randRotation = Random.Range(-10f, 10f);
+        Vector3 randP = new Vector3(2.5f + randPosition, -0.8f + randPosition, 0f);
+        Vector3 localScale = BloodEffect.transform.localScale;
+
+        BloodEffect.transform.position -= randP;
+        BloodEffect.transform.Rotate(0,0, randRotation);
+        BloodEffect.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 1;
+        BloodEffect.transform.localScale *= 1.5f;
+
+        StartCoroutine(B_Effect(BloodEffect, this.gameObject, 0.8f));
+
+        BloodEffect.transform.localScale = localScale;
+
         healthBar.value = health;
         fill.color = gradient.Evaluate(healthBar.normalizedValue);
     }
@@ -119,5 +137,15 @@ public class BossCombat : LifeEntity
         gameObject.tag = "Finish";
         animator.SetTrigger("Die");
         Destroy(gameObject, 1.0f);
+    }
+    IEnumerator B_Effect(GameObject effect, GameObject target, float delay)
+    {
+
+        GameObject e = Instantiate(effect);
+        e.transform.SetParent(target.transform);
+
+        yield return new WaitForSeconds(delay);
+
+        Destroy(e);
     }
 }

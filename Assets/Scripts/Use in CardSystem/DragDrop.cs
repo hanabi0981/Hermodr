@@ -85,20 +85,45 @@ public class DragDrop : MonoBehaviour
             }
             else if (this.gameObject == Card3)
             {
+                float damage;
                 DrawCards.handCount--;
 
                 Vector3 localPosition = GetComponent<RectTransform>().position;
                 GetComponent<RectTransform>().position = localPosition + new Vector3(0, 0, -1000);
 
                 target = GameObject.FindGameObjectsWithTag("Enemy");
-                float damage = target[0].GetComponent<EnemyCombat>().startHealth / 8;
+                Debug.Log(target[0].name.Substring(0,9));
+                if(target[0].name.Substring(0, 9) != "Boss_Loki")
+                {
+                    damage = target[0].GetComponent<NewEnemyCombat>().startHealth / 4;
+                }
+                else
+                {
+                    damage = 50.0f;
+                }
                 for(int i = 0; i < target.Length; i++)
                 {
-                    target[i].GetComponent<EnemyCombat>().OnDamage(damage);
-                    Effect_02.transform.position = target[i].transform.position;
-                    Effect_02.transform.position -= new Vector3(-1.0f, 0.6f, 0f);
-                    StartCoroutine(CardEffect(Effect_02, target[i], 0.9f));
-                    target[i] = null;
+                    if (target[i].name.Substring(0, 9) != "Boss_Loki")
+                    {
+                        target[i].GetComponent<NewEnemyCombat>().OnDamage(damage);
+                        Effect_02.transform.position = target[i].transform.position;
+                        Effect_02.transform.position -= new Vector3(-1.0f, 0.6f, 0f);
+                        Effect_02.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 1;
+                        StartCoroutine(CardEffect(Effect_02, target[i], 0.9f));
+                        target[i] = null;
+                    }
+                    else
+                    {
+                        target[i].GetComponent<BossCombat>().OnDamage(damage);
+                        Effect_02.transform.position = target[i].transform.position;
+                        Effect_02.transform.position -= new Vector3(-1.5f, 0.6f, 0f);
+                        Effect_02.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 1;
+                        Vector3 localScale = Effect_02.transform.localScale;
+                        Effect_02.transform.localScale *= 2.0f;
+                        StartCoroutine(CardEffect(Effect_02, target[i], 0.9f));
+                        Effect_02.transform.localScale = localScale;
+                        target[i] = null;
+                    }                                                
                 }
             }
             else if(this.gameObject == Card4)
@@ -111,7 +136,7 @@ public class DragDrop : MonoBehaviour
                 target = GameObject.FindGameObjectsWithTag("Player");
                 for(int i = 0; i <target.Length; i++)
                 {
-                    target[i].GetComponent<PlayerCombat>().RestoreHearth(50.0f);
+                    target[i].GetComponent<NewPlayerCombat>().RestoreHearth(50.0f);
                     Effect_03.transform.position = target[i].transform.position;
                     Effect_03.transform.position -= new Vector3(-0.8f, 1.14f, 0f);
                     StartCoroutine(CardEffect(Effect_03, target[i], 0.7f));

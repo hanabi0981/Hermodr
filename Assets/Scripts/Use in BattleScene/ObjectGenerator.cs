@@ -47,13 +47,13 @@ public class ObjectGenerator : MonoBehaviour
         // 스테이지 클리어/엔드 UI 초기화
         stageClear.SetActive(false);
         // 신성 5 : 아이템 갯수 따라 체력 증가 적용/미적용
-        player.GetComponent<PlayerCombat>().startHealth += haveItemCount * PlayerPrefs.GetInt("charGetHealthPerItem");
+        player.GetComponent<NewPlayerCombat>().startHealth += haveItemCount * PlayerPrefs.GetInt("charGetHealthPerItem");
 
-        float damage = player.GetComponent<PlayerCombat>().damage;
-        float attackRange = player.GetComponent<PlayerCombat>().attackRange;
-        float timeBetAttack = player.GetComponent<PlayerCombat>().timeBetAttack;
-        float startHealth = player.GetComponent<PlayerCombat>().startHealth;
-        float moveSpeed = player.GetComponent<PlayerCombat>().moveSpeed;
+        float damage = player.GetComponent<NewPlayerCombat>().damage;
+        float attackRange = player.GetComponent<NewPlayerCombat>().attackRange;
+        float timeBetAttack = player.GetComponent<NewPlayerCombat>().timeBetAttack;
+        float startHealth = player.GetComponent<NewPlayerCombat>().startHealth;
+        float moveSpeed = player.GetComponent<NewPlayerCombat>().moveSpeed;
         Debug.Log("플레이어의 공격력 : " + damage + "\n" +
                     "플레이어의 공격범위 : " + attackRange + "\n" +
                     "플레이어의 공격속도 : " + timeBetAttack + "\n" + 
@@ -132,12 +132,12 @@ public class ObjectGenerator : MonoBehaviour
                 StartCoroutine(SpawnShellRepeat());
             }
         }
-        else
+        else if(enemy.name == "Boss_Loki")
         {
             // 보스전 레벨 디자인
-            totalEnemy = 10;
+            totalEnemy = 1;
             remainEnemy = totalEnemy;
-            Debug.Log("totalEnemy :" + totalEnemy);
+            SpawnEnemy();
         }
     }
     // Update is called once per frame
