@@ -60,6 +60,11 @@ public class NewEnemyCombat : LifeEntity
                     animator.SetBool("Move", true);
                     Move();
                 }
+                else if (hit.collider.name != "Player")
+                {
+                    animator.SetBool("Move", true);
+                    Move();
+                }
             }
         }
     }

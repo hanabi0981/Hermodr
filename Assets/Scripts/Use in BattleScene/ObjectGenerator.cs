@@ -67,7 +67,7 @@ public class ObjectGenerator : MonoBehaviour
         // 적 스테이지클리어 횟수를 참조하여 소환.
         if (enemy.name == "Hell Giant")
         {
-            if (StageSelector.stageClear == 0)
+            if (StageSelector.stageClear == 1)
             {
                 totalEnemy = StageSelector.stageClear + 6;
                 remainEnemy = totalEnemy;
@@ -91,7 +91,7 @@ public class ObjectGenerator : MonoBehaviour
         }
         else if(enemy.name == "Forest Wolf")
         {
-            if(StageSelector.stageClear == 1)
+            if(StageSelector.stageClear == 0)
             {
                 totalEnemy = StageSelector.stageClear + 14;
                 remainEnemy = totalEnemy;

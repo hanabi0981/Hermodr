@@ -218,7 +218,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 65836081393e3874bbe061da4e99d566, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -521,6 +521,7 @@ MonoBehaviour:
   Target:
     serializedVersion: 2
     m_Bits: 512
+  moveRange: 0
 --- !u!1 &8001550345562172725
 GameObject:
   m_ObjectHideFlags: 0

@@ -89,7 +89,7 @@ public class NewPlayerCombat : LifeEntity
         if (Time.time >= lastAttackTime + timeBetAttack)
         {
             animator.SetBool("Move", true);
-            animator.SetTrigger("Attack");
+            animator.SetBool("Attack", true);
             lastAttackTime = Time.time;
             IDamageable[] target = new IDamageable[c.Length];
             for(int i = 0; i < c.Length; i++)
@@ -105,7 +105,7 @@ public class NewPlayerCombat : LifeEntity
         }
         else
         {
-            animator.SetBool("Move", false);
+            animator.SetBool("Attack", false);
             Idle();
         }
     }
