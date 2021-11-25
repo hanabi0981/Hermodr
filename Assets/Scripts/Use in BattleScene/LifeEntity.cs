@@ -31,8 +31,11 @@ public class LifeEntity : MonoBehaviour, IDamageable
     }
     virtual public void Die()
     {
-        isDead = true;
-        transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 10;
+        if(!isStuck)
+        {
+            isDead = true;
+            transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 10;
+        }
     }
 
 }

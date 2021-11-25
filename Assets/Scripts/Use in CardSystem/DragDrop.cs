@@ -205,6 +205,7 @@ public class DragDrop : MonoBehaviour
         for (int i = 0; i < target.Length; i++)
         {
             target[i].GetComponent<NewEnemyCombat>().isStuck = true;
+            
 
             Effect_04.transform.position = target[i].transform.position;
             Effect_04.transform.position -= new Vector3(-1.3f, 0.7f, 0f);
@@ -220,6 +221,7 @@ public class DragDrop : MonoBehaviour
         for (int i = 0; i < target.Length; i++)
         {
             target[i].GetComponent<NewEnemyCombat>().isStuck = false;
+            
             Destroy(e[i]);
         }
 

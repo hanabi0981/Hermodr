@@ -118,13 +118,20 @@ public class NewEnemyCombat : LifeEntity
     public override void Die()
     {
         base.Die();
-        healthBar.gameObject.SetActive(false);
-        gameObject.tag = "Finish";
-        animator.SetTrigger("D");
-        Destroy(gameObject, 1.0f);
-        ObjectGenerator.killcount++;
-        killCount++;
-        og.remainEnemy--;
-        PlayerPrefs.SetInt("killCount", killCount);
+        if(!isStuck)
+        {
+            healthBar.gameObject.SetActive(false);
+            gameObject.tag = "Finish";
+            animator.SetTrigger("D");
+            Destroy(gameObject, 1.0f);
+            ObjectGenerator.killcount++;
+            killCount++;
+            og.remainEnemy--;
+            PlayerPrefs.SetInt("killCount", killCount);
+        }
+        else
+        {
+            RestoreHearth(1);
+        }
     }
 }

@@ -91,7 +91,7 @@ public class ObjectGenerator : MonoBehaviour
         }
         else if(enemy.name == "Forest Wolf")
         {
-            if(StageSelector.stageClear == 0)
+            if(StageSelector.stageClear == 1)
             {
                 totalEnemy = StageSelector.stageClear + 14;
                 remainEnemy = totalEnemy;
@@ -115,7 +115,7 @@ public class ObjectGenerator : MonoBehaviour
         }
         else if(enemy.name == "Sea_Shell")
         {
-            if(StageSelector.stageClear == 1)
+            if(StageSelector.stageClear == 0)
             {
                 totalEnemy = StageSelector.stageClear + 9;
                 remainEnemy = totalEnemy;

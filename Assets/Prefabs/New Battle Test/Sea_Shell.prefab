@@ -482,9 +482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2be37673051e3b44be3afd2f5d8c7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 100
+  startHealth: 170
   moveSpeed: 0.8
-  damage: 50
+  damage: 25
   attackRange: 4
   timeBetAttack: 1.3
   healthBar: {fileID: 4323488505093092718}
