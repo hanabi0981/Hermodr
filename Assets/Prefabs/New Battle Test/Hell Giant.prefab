@@ -145,10 +145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2be37673051e3b44be3afd2f5d8c7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 500
+  startHealth: 1000
   moveSpeed: 0.5
   damage: 50
-  attackRange: 1
+  attackRange: 0.5
   timeBetAttack: 2
   healthBar: {fileID: 7217865630494914993}
   gradient:
@@ -184,6 +184,7 @@ MonoBehaviour:
   Target:
     serializedVersion: 2
     m_Bits: 512
+  moveRange: 0
 --- !u!1 &1746071775426147929
 GameObject:
   m_ObjectHideFlags: 0

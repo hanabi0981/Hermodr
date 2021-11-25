@@ -58,13 +58,13 @@ public class GameManager : MonoBehaviour
         playerMelee.GetComponent<NewPlayerCombat>().startHealth = 100.0f;
         playerMelee.GetComponent<NewPlayerCombat>().moveSpeed = 1.0f;
         playerMelee.GetComponent<NewPlayerCombat>().damage = 25.0f;
-        playerMelee.GetComponent<NewPlayerCombat>().attackRange = 1.0f;
+        playerMelee.GetComponent<NewPlayerCombat>().attackRange = 0.5f;
         playerMelee.GetComponent<NewPlayerCombat>().timeBetAttack = 1.0f;
         // 탱커 유닛 프리팹 초기화
-        playerTank.GetComponent<NewPlayerCombat>().startHealth = 200.0f;
+        playerTank.GetComponent<NewPlayerCombat>().startHealth = 150.0f;
         playerTank.GetComponent<NewPlayerCombat>().moveSpeed = 0.7f;
         playerTank.GetComponent<NewPlayerCombat>().damage = 10.0f;
-        playerTank.GetComponent<NewPlayerCombat>().attackRange = 1.0f;
+        playerTank.GetComponent<NewPlayerCombat>().attackRange = 0.3f;
         playerTank.GetComponent<NewPlayerCombat>().timeBetAttack = 2.0f;
         // 궁수 공격 유닛 프리팹 초기화
         playerArcher.GetComponent<NewPlayerCombat>().startHealth = 50.0f;

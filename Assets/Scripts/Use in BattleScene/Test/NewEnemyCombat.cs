@@ -20,8 +20,11 @@ public class NewEnemyCombat : LifeEntity
     public LayerMask Target;
     public float moveRange;
 
+    ObjectGenerator og;
+    private int killCount;
     private void Start()
     {
+        og = GameObject.FindObjectOfType<ObjectGenerator>().GetComponent<ObjectGenerator>();
         animator = GetComponentInChildren<Animator>();
         healthBar.maxValue = startHealth;
         healthBar.value = health;
@@ -38,22 +41,25 @@ public class NewEnemyCombat : LifeEntity
        
         if(!isDead)
         {
-            if (colliders.Length != 0)
+            if(!isStuck)
             {
-                if (colliders[0].tag == "Player" || colliders[0].tag == "Nexus")
+                if (colliders.Length != 0)
                 {
-                    Attack(colliders);
+                    if (colliders[0].tag == "Player" || colliders[0].tag == "Nexus")
+                    {
+                        Attack(colliders);
+                    }
+                    else
+                    {
+                        animator.SetBool("Move", false);
+                        Idle();
+                    }
                 }
-                else
+                else if (hit.collider == null)
                 {
-                    animator.SetBool("Move", false);
-                    Idle();
+                    animator.SetBool("Move", true);
+                    Move();
                 }
-            }
-            else if (hit.collider == null)
-            {
-                animator.SetBool("Move", true);
-                Move();
             }
         }
     }
@@ -64,20 +70,28 @@ public class NewEnemyCombat : LifeEntity
     }
     private void Attack(Collider2D[] c)
     {
-        if (Time.time >= lastAttackTime + timeBetAttack)
+        if(c.Length != 0)
         {
-            animator.SetBool("Move", true);
-            animator.SetTrigger("Attack");
-            lastAttackTime = Time.time;
-            IDamageable[] target = new IDamageable[c.Length];
-            for (int i = 0; i < c.Length; i++)
+            if (Time.time >= lastAttackTime + timeBetAttack)
             {
-                target[i] = c[i].GetComponent<IDamageable>();
-                if (target[i] != null)
+                animator.SetBool("Move", true);
+                animator.SetTrigger("Attack");
+                lastAttackTime = Time.time;
+                IDamageable[] target = new IDamageable[c.Length];
+                for (int i = 0; i < c.Length; i++)
                 {
-                    target[i].OnDamage(damage);
-                    break;
+                    target[i] = c[i].GetComponent<IDamageable>();
+                    if (target[i] != null)
+                    {
+                        target[i].OnDamage(damage);
+                        break;
+                    }
                 }
+            }
+            else
+            {
+                animator.SetBool("Move", false);
+                Idle();
             }
         }
         else
@@ -103,5 +117,9 @@ public class NewEnemyCombat : LifeEntity
         gameObject.tag = "Finish";
         animator.SetTrigger("D");
         Destroy(gameObject, 1.0f);
+        ObjectGenerator.killcount++;
+        killCount++;
+        og.remainEnemy--;
+        PlayerPrefs.SetInt("killCount", killCount);
     }
 }

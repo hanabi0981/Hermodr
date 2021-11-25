@@ -167,9 +167,17 @@ public class ObjectGenerator : MonoBehaviour
         if (killcount >= totalEnemy && SceneManager.GetActiveScene().name!="Battle")
         {
             stageClear.SetActive(true);
+
+            LifeEntity[] G_lf = GameObject.FindObjectsOfType<LifeEntity>();
             Text clearText = GameObject.Find("clearText").GetComponent<Text>();
             Text gainGold = GameObject.Find("gainGold").GetComponent<Text>();
             Text gainEnt = GameObject.Find("gainEnt").GetComponent<Text>();
+
+            // 전투 종료 시 전부 idle 로 바꿈.
+            for(int i = 0; i < G_lf.Length; i++)
+            {
+                G_lf[i].isDead = true;
+            }
 
             int stageClearGold = StageSelector.stageClear * 150;
             float stageClearEnt = stageClearGold * 0.1f * PlayerPrefs.GetFloat("charGainEnt");

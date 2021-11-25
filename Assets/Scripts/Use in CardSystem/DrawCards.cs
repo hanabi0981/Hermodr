@@ -17,9 +17,12 @@ public class DrawCards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cards.Add(Card1); cards.Add(Card1); cards.Add(Card2); cards.Add(Card2); cards.Add(Card3);
-        cards.Add(Card3); cards.Add(Card3); cards.Add(Card4); cards.Add(Card4); cards.Add(Card5);
-        cards.Add(Card6); cards.Add(Card6);
+        cards.Add(Card1); cards.Add(Card1); cards.Add(Card1); 
+        cards.Add(Card2); cards.Add(Card2);
+        cards.Add(Card6); cards.Add(Card6); cards.Add(Card6);
+        cards.Add(Card3); cards.Add(Card3);
+        cards.Add(Card4);
+        cards.Add(Card5);
 
         remainCard.text = cards.Count.ToString();
     }
@@ -66,8 +69,11 @@ public class DrawCards : MonoBehaviour
 
     public void Grave()
     {
-        cards.Add(Card1); cards.Add(Card2); cards.Add(Card3); cards.Add(Card4); cards.Add(Card5);
-        cards.Add(Card1); cards.Add(Card2); cards.Add(Card3); cards.Add(Card4); cards.Add(Card5);
-        cards.Add(Card6); cards.Add(Card6);
+        cards.Add(Card1); cards.Add(Card1); cards.Add(Card1);
+        cards.Add(Card2); cards.Add(Card2);
+        cards.Add(Card6); cards.Add(Card6); cards.Add(Card6);
+        cards.Add(Card3);
+        cards.Add(Card4); cards.Add(Card4);
+        cards.Add(Card5);
     }
 }

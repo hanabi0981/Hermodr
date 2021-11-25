@@ -8,6 +8,8 @@ TagManager:
   - Purchase
   - Forge
   - Enemy
+  - Nexus
+  - Bless
   layers:
   - Default
   - TransparentFX

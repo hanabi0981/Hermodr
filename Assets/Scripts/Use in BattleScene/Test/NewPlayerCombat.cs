@@ -21,12 +21,22 @@ public class NewPlayerCombat : LifeEntity
 
     private void Start()
     {
+        float rand;
+
         animator = GetComponentInChildren<Animator>();
         healthBar.maxValue = startHealth;
         healthBar.value = health;
         fill.color = gradient.Evaluate(1f);
-        float rand = UnityEngine.Random.Range(-1f, 1f);
-        attackRange += (float)Math.Truncate(rand * 10) / 10;
+        if (this.gameObject.name != "PlayerArcher")
+        {
+            rand = UnityEngine.Random.Range(-0.1f, 0.1f);
+            attackRange += (float)Math.Truncate(rand * 100) / 100;
+        }
+        else
+        {
+            rand = UnityEngine.Random.Range(-1f, 1f);
+            attackRange += (float)Math.Truncate(rand * 10) / 10;
+        }
         lastAttackTime = 0;
     }
     private void FixedUpdate()
@@ -34,35 +44,38 @@ public class NewPlayerCombat : LifeEntity
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRange, Target);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, attackRange);
 
-        if(colliders.Length != 0)
+        if(!isDead)
         {
-            if(colliders[0].tag == "Enemy")
+            if (colliders.Length != 0)
             {
-                Attack(colliders);
+                if (colliders[0].tag == "Enemy")
+                {
+                    Attack(colliders);
+                }
+                else
+                {
+                    animator.SetBool("Move", false);
+                    Idle();
+                }
             }
-            else
+            else if (hit.collider == null)
             {
-                animator.SetBool("Move", false);
-                Idle();
+                if (transform.position.x < 5.5)
+                {
+                    animator.SetBool("Move", true);
+                    Move();
+                }
+                else
+                {
+                    animator.SetBool("Move", false);
+                    Idle();
+                }
             }
-        }
-        else if (hit.collider == null)
-        {
-            if (transform.position.x < 5.5)
+            else if (hit.collider.name != "Enemy")
             {
                 animator.SetBool("Move", true);
                 Move();
             }
-            else
-            {
-                animator.SetBool("Move", false);
-                Idle();
-            }
-        }
-        else if (hit.collider.name != "Enemy")
-        {
-            animator.SetBool("Move", true);
-            Move();
         }
     }
     private void Move()

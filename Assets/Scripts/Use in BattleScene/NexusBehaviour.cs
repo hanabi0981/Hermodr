@@ -38,9 +38,17 @@ public class NexusBehaviour : LifeEntity
         healthBar.gameObject.SetActive(false);
         // 게임 오버 ui 출력
         stageEnd.SetActive(true);
+
+        LifeEntity[] G_lf = GameObject.FindObjectsOfType<LifeEntity>();
         Text clearText = GameObject.Find("clearText").GetComponent<Text>();
         Text gainGold = GameObject.Find("gainGold").GetComponent<Text>();
         Text gainEnt = GameObject.Find("gainEnt").GetComponent<Text>();
+
+        // 전투 종료시 전부 idle로 바꿈.
+        for(int i = 0; i < G_lf.Length; i++)
+        {
+            G_lf[i].isDead = false;
+        }
 
         float stageClearEnt = StageSelector.stageClear * 5.0f * PlayerPrefs.GetFloat("charGainEnt");
         stageClearEnt = PlayerPrefs.GetInt("Stage Ent") + stageClearEnt;
