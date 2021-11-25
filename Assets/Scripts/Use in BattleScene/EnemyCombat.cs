@@ -22,7 +22,7 @@ public class EnemyCombat : LifeEntity
     private int killCount;
     private void Start()
     {
-        og = GameObject.FindObjectOfType<ObjectGenerator>().GetComponent<ObjectGenerator>();
+        //og = GameObject.FindObjectOfType<ObjectGenerator>().GetComponent<ObjectGenerator>();
         animator = GetComponentInChildren<Animator>();
         healthBar.maxValue = startHealth;
         healthBar.value = health;
@@ -94,7 +94,7 @@ public class EnemyCombat : LifeEntity
         Destroy(gameObject, 1.0f);
         ObjectGenerator.killcount++;
         killCount++;
-        og.remainEnemy--;
+        //og.remainEnemy--;
         PlayerPrefs.SetInt("killCount",killCount);
     }
 }
