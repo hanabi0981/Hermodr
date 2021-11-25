@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Move
+  m_Name: Melee_Move
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -35,7 +35,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Die
+  m_Name: Melee_Die
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -48,7 +48,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: aaee763b2761c5c489120adbf3d737ca, type: 2}
+  m_Motion: {fileID: 7400000, guid: ad2cd481a93e6ce49ace8473e150d309, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -118,7 +118,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Idle
+  m_Name: Melee_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -169,7 +169,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player 1
+  m_Name: Melee
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Move
@@ -260,7 +260,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Attack
+  m_Name: Melee_Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -274,7 +274,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b49272e22b176594ca6aec0d311c0d9e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3997da8485a70e5459a60147f95535cc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
