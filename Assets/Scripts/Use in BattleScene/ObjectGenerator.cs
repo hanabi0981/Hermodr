@@ -115,7 +115,7 @@ public class ObjectGenerator : MonoBehaviour
         }
         else if(enemy.name == "Sea_Shell")
         {
-            if(StageSelector.stageClear == 0)
+            if(StageSelector.stageClear == 1)
             {
                 totalEnemy = StageSelector.stageClear + 9;
                 remainEnemy = totalEnemy;

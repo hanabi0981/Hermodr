@@ -262,11 +262,11 @@ public class ItemsList : MonoBehaviour
             og.playerTank.GetComponent<NewPlayerCombat>().attackRange += attackRange;
             og.playerTank.GetComponent<NewPlayerCombat>().timeBetAttack += timeBetAttack;
             // 궁수 유닛 능력치 적용.
-            og.playerTank.GetComponent<NewPlayerCombat>().startHealth += maxHealth;
-            og.playerTank.GetComponent<NewPlayerCombat>().moveSpeed += moveSpeed;
-            og.playerTank.GetComponent<NewPlayerCombat>().damage += damage;
-            og.playerTank.GetComponent<NewPlayerCombat>().attackRange += attackRange;
-            og.playerTank.GetComponent<NewPlayerCombat>().timeBetAttack += timeBetAttack;
+            og.playerArcher.GetComponent<NewPlayerCombat>().startHealth += maxHealth;
+            og.playerArcher.GetComponent<NewPlayerCombat>().moveSpeed += moveSpeed;
+            og.playerArcher.GetComponent<NewPlayerCombat>().damage += damage;
+            og.playerArcher.GetComponent<NewPlayerCombat>().attackRange += attackRange;
+            og.playerArcher.GetComponent<NewPlayerCombat>().timeBetAttack += timeBetAttack;
         }
     }
 }

@@ -8049,9 +8049,27 @@ PrefabInstance:
       objectReference: {fileID: 1845954575}
     - target: {fileID: 1675944950975353980, guid: d38ed1d92368300479ffdc27934def9e,
         type: 3}
+      propertyPath: playerTank
+      value: 
+      objectReference: {fileID: 4959830526026804813, guid: ad5ccf8f1f52a8841b1893f691123f7d,
+        type: 3}
+    - target: {fileID: 1675944950975353980, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
       propertyPath: forgeButton
       value: 
       objectReference: {fileID: 2041701238}
+    - target: {fileID: 1675944950975353980, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: playerMelee
+      value: 
+      objectReference: {fileID: 4959830526026804813, guid: 7a3152274ab681f41a4e2e6baa256439,
+        type: 3}
+    - target: {fileID: 1675944950975353980, guid: d38ed1d92368300479ffdc27934def9e,
+        type: 3}
+      propertyPath: playerArcher
+      value: 
+      objectReference: {fileID: 4959830526026804813, guid: ed2512f28ffc6d64ba11f9b7f49aafca,
+        type: 3}
     - target: {fileID: 1675944950975353980, guid: d38ed1d92368300479ffdc27934def9e,
         type: 3}
       propertyPath: HaveItem.Array.data[1]

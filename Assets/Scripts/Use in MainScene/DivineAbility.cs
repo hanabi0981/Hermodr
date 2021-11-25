@@ -41,9 +41,9 @@ public class DivineAbility : MonoBehaviour
         PlayerPrefs.SetFloat("charDamageMelee", 25.0f);
         PlayerPrefs.SetFloat("charDamageTank", 10.0f);
         PlayerPrefs.SetFloat("charDamageArcher", 10.0f);
-        GameManager.instance.playerMelee.GetComponent<PlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageMelee");
-        GameManager.instance.playerTank.GetComponent<PlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageTank");
-        GameManager.instance.playerArcher.GetComponent<PlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageArcher");
+        GameManager.instance.playerMelee.GetComponent<NewPlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageMelee");
+        GameManager.instance.playerTank.GetComponent<NewPlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageTank");
+        GameManager.instance.playerArcher.GetComponent<NewPlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageArcher");
         //3 번 능력 초기화
         InGameShopManager.coins = 0;
         //4 번 능력 초기화
@@ -63,9 +63,9 @@ public class DivineAbility : MonoBehaviour
     }
     private void Ability_02()
     {
-        float addDamage_Melee = GameManager.instance.playerMelee.GetComponent<PlayerCombat>().damage + 15;
-        float addDamage_Tank = GameManager.instance.playerTank.GetComponent<PlayerCombat>().damage + 15;
-        float addDamage_Archer = GameManager.instance.playerArcher.GetComponent<PlayerCombat>().damage + 15;
+        float addDamage_Melee = GameManager.instance.playerMelee.GetComponent<NewPlayerCombat>().damage + 15;
+        float addDamage_Tank = GameManager.instance.playerTank.GetComponent<NewPlayerCombat>().damage + 15;
+        float addDamage_Archer = GameManager.instance.playerArcher.GetComponent<NewPlayerCombat>().damage + 15;
 
         GameManager.instance.playerMelee.GetComponent<NewPlayerCombat>().damage = addDamage_Melee;
         GameManager.instance.playerTank.GetComponent<NewPlayerCombat>().damage = addDamage_Tank;
