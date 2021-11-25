@@ -16,6 +16,7 @@ public class BossCombat : LifeEntity
     public Image fill;
     Animator animator;
 
+    public LayerMask Target;
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -26,17 +27,15 @@ public class BossCombat : LifeEntity
     }
     private void FixedUpdate()
     {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRange, Target);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -1 * transform.right, attackRange);
-        if(!isDead)
+
+        if (colliders.Length != 0)
         {
-            if(hit.collider == null)
+            if (colliders[0].tag == "Player")
             {
-                animator.SetBool("Move", true);
-                Move();
-            }
-            else if(hit.collider.tag == "Player" || hit.collider.tag == "Nexus")
-            {
-                AttackReady(hit);
+
+                AttackReady(colliders);
             }
             else
             {
@@ -44,19 +43,33 @@ public class BossCombat : LifeEntity
                 Idle();
             }
         }
+        else if (hit.collider == null)
+        {
+            animator.SetBool("Move", true);
+            Move();
+        }
+        else if (hit.collider.name != "Player")
+        {
+            animator.SetBool("Move", true);
+            Move();
+        }
     }
     private void Move()
     {
         Vector2 moveDistance = -1 * transform.right * Time.deltaTime * moveSpeed;
         transform.Translate(moveDistance);
     }
-    private void AttackReady(RaycastHit2D h)
+    private void AttackReady(Collider2D[] c)
     {
-        if(Time.time >= lastAttackTime + timeBetAttack)
+        if (Time.time >= lastAttackTime + timeBetAttack)
         {
             animator.SetBool("Move", true);
-            IDamageable target = h.collider.GetComponent<IDamageable>();
-            if(target != null)
+            IDamageable[] target = new IDamageable[c.Length];
+            for(int i = 0; i < c.Length; i++)
+            {
+                target[i] = c[i].GetComponent<IDamageable>();
+            }
+            if (target != null)
             {
                 animator.SetBool("AttackReady", true);
                 StartCoroutine(Attack(target));
@@ -68,15 +81,26 @@ public class BossCombat : LifeEntity
             Idle();
         }
     }
-    private IEnumerator Attack(IDamageable t)
+    private IEnumerator Attack(IDamageable[] t)
     {
-        lastAttackTime = Time.time;
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
-        animator.SetTrigger("Attack");
-        t.OnDamage(damage);
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
-        lastAttackTime = Time.time;
-        animator.SetBool("AttackReady", false);
+        if(t.Length != 0)
+        {
+            lastAttackTime = Time.time;
+            yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
+            animator.SetTrigger("Attack");
+            for (int i = 0; i < t.Length; i++)
+            {
+                t[i].OnDamage(damage);
+            }
+            yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
+            lastAttackTime = Time.time;
+            animator.SetBool("AttackReady", false);
+        }
+        else
+        {
+            lastAttackTime = Time.time;
+            animator.SetBool("AttackReady", false);
+        }
     }
     private void Idle()
     {
