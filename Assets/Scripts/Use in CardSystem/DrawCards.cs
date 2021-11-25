@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DrawCards : MonoBehaviour
 {
-    public GameObject Card1, Card2, Card3, Card4, Card5;
+    public GameObject Card1, Card2, Card3, Card4, Card5, Card6;
     public GameObject myHandArea;
 
     public List<GameObject> cards = new List<GameObject>();
@@ -19,7 +19,8 @@ public class DrawCards : MonoBehaviour
     {
         cards.Add(Card1); cards.Add(Card1); cards.Add(Card2); cards.Add(Card2); cards.Add(Card3);
         cards.Add(Card3); cards.Add(Card3); cards.Add(Card4); cards.Add(Card4); cards.Add(Card5);
-        
+        cards.Add(Card6); cards.Add(Card6);
+
         remainCard.text = cards.Count.ToString();
     }
     public void Draw()
@@ -67,5 +68,6 @@ public class DrawCards : MonoBehaviour
     {
         cards.Add(Card1); cards.Add(Card2); cards.Add(Card3); cards.Add(Card4); cards.Add(Card5);
         cards.Add(Card1); cards.Add(Card2); cards.Add(Card3); cards.Add(Card4); cards.Add(Card5);
+        cards.Add(Card6); cards.Add(Card6);
     }
 }

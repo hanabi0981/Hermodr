@@ -38,8 +38,12 @@ public class DivineAbility : MonoBehaviour
         //1 번 능력 초기화
         PlayerPrefs.SetInt("charForgeChance", 1);
         //2 번 능력 초기화
-        PlayerPrefs.SetFloat("charDamage", 25.0f);
-        GameManager.instance.player.GetComponent<PlayerCombat>().damage = PlayerPrefs.GetFloat("charDamage");
+        PlayerPrefs.SetFloat("charDamageMelee", 25.0f);
+        PlayerPrefs.SetFloat("charDamageTank", 10.0f);
+        PlayerPrefs.SetFloat("charDamageArcher", 10.0f);
+        GameManager.instance.playerMelee.GetComponent<PlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageMelee");
+        GameManager.instance.playerTank.GetComponent<PlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageTank");
+        GameManager.instance.playerArcher.GetComponent<PlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageArcher");
         //3 번 능력 초기화
         InGameShopManager.coins = 0;
         //4 번 능력 초기화
@@ -59,9 +63,17 @@ public class DivineAbility : MonoBehaviour
     }
     private void Ability_02()
     {
-        float addDamage = GameManager.instance.player.GetComponent<PlayerCombat>().damage + 15;
-        GameManager.instance.player.GetComponent<PlayerCombat>().damage = addDamage;
-        PlayerPrefs.SetFloat("charDamage", addDamage);
+        float addDamage_Melee = GameManager.instance.playerMelee.GetComponent<PlayerCombat>().damage + 15;
+        float addDamage_Tank = GameManager.instance.playerTank.GetComponent<PlayerCombat>().damage + 15;
+        float addDamage_Archer = GameManager.instance.playerArcher.GetComponent<PlayerCombat>().damage + 15;
+
+        GameManager.instance.playerMelee.GetComponent<NewPlayerCombat>().damage = addDamage_Melee;
+        GameManager.instance.playerTank.GetComponent<NewPlayerCombat>().damage = addDamage_Tank;
+        GameManager.instance.playerArcher.GetComponent<NewPlayerCombat>().damage = addDamage_Archer;
+
+        PlayerPrefs.SetFloat("charDamageMelee", addDamage_Melee);
+        PlayerPrefs.SetFloat("charDamageTank", addDamage_Tank);
+        PlayerPrefs.SetFloat("charDamageArcher", addDamage_Archer);
     }
     private void Ability_03()
     {

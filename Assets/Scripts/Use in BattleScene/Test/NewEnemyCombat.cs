@@ -18,6 +18,7 @@ public class NewEnemyCombat : LifeEntity
     Animator animator;
 
     public LayerMask Target;
+    public float moveRange;
 
     private void Start()
     {
@@ -27,34 +28,33 @@ public class NewEnemyCombat : LifeEntity
         fill.color = gradient.Evaluate(1f);
         float rand = UnityEngine.Random.Range(-0.3f, 0.3f);
         attackRange += (float) Math.Truncate(rand * 100) / 100;
+        moveRange = attackRange;
         lastAttackTime = 0;
     }
     private void FixedUpdate()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRange, Target);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -1 * transform.right, attackRange);
-
-        if (colliders.Length != 0)
+        RaycastHit2D hit= Physics2D.Raycast(transform.position, -1 * transform.right, moveRange);
+       
+        if(!isDead)
         {
-            if (colliders[0].tag == "Player")
+            if (colliders.Length != 0)
             {
-                Attack(colliders);
+                if (colliders[0].tag == "Player" || colliders[0].tag == "Nexus")
+                {
+                    Attack(colliders);
+                }
+                else
+                {
+                    animator.SetBool("Move", false);
+                    Idle();
+                }
             }
-            else
+            else if (hit.collider == null)
             {
-                animator.SetBool("Move", false);
-                Idle();
+                animator.SetBool("Move", true);
+                Move();
             }
-        }
-        else if (hit.collider == null)
-        {
-            animator.SetBool("Move", true);
-            Move();
-        }
-        else if (hit.collider.name != "Player")
-        {
-            animator.SetBool("Move", true);
-            Move();
         }
     }
     private void Move()

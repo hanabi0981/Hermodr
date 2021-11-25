@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class ObjectGenerator : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject playerMelee;
+    public GameObject playerTank;
+    public GameObject playerArcher;
+
     public GameObject enemy;
     public GameObject stageClear;
    
@@ -47,22 +50,24 @@ public class ObjectGenerator : MonoBehaviour
         // 스테이지 클리어/엔드 UI 초기화
         stageClear.SetActive(false);
         // 신성 5 : 아이템 갯수 따라 체력 증가 적용/미적용
-        player.GetComponent<NewPlayerCombat>().startHealth += haveItemCount * PlayerPrefs.GetInt("charGetHealthPerItem");
+        playerMelee.GetComponent<NewPlayerCombat>().startHealth += haveItemCount * PlayerPrefs.GetInt("charGetHealthPerItem");
+        playerTank.GetComponent<NewPlayerCombat>().startHealth += haveItemCount * PlayerPrefs.GetInt("charGetHealthPerItem");
+        playerArcher.GetComponent<NewPlayerCombat>().startHealth += haveItemCount * PlayerPrefs.GetInt("charGetHealthPerItem");
 
-        float damage = player.GetComponent<NewPlayerCombat>().damage;
-        float attackRange = player.GetComponent<NewPlayerCombat>().attackRange;
-        float timeBetAttack = player.GetComponent<NewPlayerCombat>().timeBetAttack;
-        float startHealth = player.GetComponent<NewPlayerCombat>().startHealth;
-        float moveSpeed = player.GetComponent<NewPlayerCombat>().moveSpeed;
-        Debug.Log("플레이어의 공격력 : " + damage + "\n" +
-                    "플레이어의 공격범위 : " + attackRange + "\n" +
-                    "플레이어의 공격속도 : " + timeBetAttack + "\n" + 
-                    "플레이어의 최대체력 : " + startHealth + "\n" + 
-                    "플레이어의 이동속도 : " + moveSpeed );
+        //float damage = player.GetComponent<NewPlayerCombat>().damage;
+        //float attackRange = player.GetComponent<NewPlayerCombat>().attackRange;
+        //float timeBetAttack = player.GetComponent<NewPlayerCombat>().timeBetAttack;
+        //float startHealth = player.GetComponent<NewPlayerCombat>().startHealth;
+        //float moveSpeed = player.GetComponent<NewPlayerCombat>().moveSpeed;
+        //Debug.Log("플레이어의 공격력 : " + damage + "\n" +
+        //            "플레이어의 공격범위 : " + attackRange + "\n" +
+        //            "플레이어의 공격속도 : " + timeBetAttack + "\n" + 
+        //            "플레이어의 최대체력 : " + startHealth + "\n" + 
+        //            "플레이어의 이동속도 : " + moveSpeed );
         // 적 스테이지클리어 횟수를 참조하여 소환.
         if (enemy.name == "Hell Giant")
         {
-            if (StageSelector.stageClear == 1)
+            if (StageSelector.stageClear == 0)
             {
                 totalEnemy = StageSelector.stageClear + 6;
                 remainEnemy = totalEnemy;
@@ -153,7 +158,7 @@ public class ObjectGenerator : MonoBehaviour
         timeText.text = timeString;
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            Instantiate(player);
+           
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {

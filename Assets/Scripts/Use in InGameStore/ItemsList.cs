@@ -249,12 +249,24 @@ public class ItemsList : MonoBehaviour
         if (name == "BattleManager")
         {
             ObjectGenerator og = GameObject.FindObjectOfType<ObjectGenerator>();
-
-            og.player.GetComponent<PlayerCombat>().startHealth += maxHealth;
-            og.player.GetComponent<PlayerCombat>().moveSpeed += moveSpeed;
-            og.player.GetComponent<PlayerCombat>().damage += damage;
-            og.player.GetComponent<PlayerCombat>().attackRange += attackRange;
-            og.player.GetComponent<PlayerCombat>().timeBetAttack += timeBetAttack;
+            // 근접 공격 유닛 능력치 적용.
+            og.playerMelee.GetComponent<NewPlayerCombat>().startHealth += maxHealth;
+            og.playerMelee.GetComponent<NewPlayerCombat>().moveSpeed += moveSpeed;
+            og.playerMelee.GetComponent<NewPlayerCombat>().damage += damage;
+            og.playerMelee.GetComponent<NewPlayerCombat>().attackRange += attackRange;
+            og.playerMelee.GetComponent<NewPlayerCombat>().timeBetAttack += timeBetAttack;
+            // 탱커 유닛 능력치 적용.
+            og.playerTank.GetComponent<NewPlayerCombat>().startHealth += maxHealth;
+            og.playerTank.GetComponent<NewPlayerCombat>().moveSpeed += moveSpeed;
+            og.playerTank.GetComponent<NewPlayerCombat>().damage += damage;
+            og.playerTank.GetComponent<NewPlayerCombat>().attackRange += attackRange;
+            og.playerTank.GetComponent<NewPlayerCombat>().timeBetAttack += timeBetAttack;
+            // 궁수 유닛 능력치 적용.
+            og.playerTank.GetComponent<NewPlayerCombat>().startHealth += maxHealth;
+            og.playerTank.GetComponent<NewPlayerCombat>().moveSpeed += moveSpeed;
+            og.playerTank.GetComponent<NewPlayerCombat>().damage += damage;
+            og.playerTank.GetComponent<NewPlayerCombat>().attackRange += attackRange;
+            og.playerTank.GetComponent<NewPlayerCombat>().timeBetAttack += timeBetAttack;
         }
     }
 }

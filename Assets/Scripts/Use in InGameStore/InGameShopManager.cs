@@ -40,7 +40,10 @@ public class InGameShopManager : MonoBehaviour
     public int forgeChance;
     public int charForgeChance = 1;
     public Button forgeButton;
-    public GameObject player;
+
+    public GameObject playerMelee;
+    public GameObject playerTank;
+    public GameObject playerArcher;
     // Start is called before the first frame update   
     void Start()
     {
@@ -73,12 +76,24 @@ public class InGameShopManager : MonoBehaviour
                 HaveItem[i].GetComponentInChildren<Text>().color = new Color(0,0,0,0);
             }
         }
-        // 플레이어 프리팹 초기화
-        player.GetComponent<PlayerCombat>().startHealth = 100.0f;
-        player.GetComponent<PlayerCombat>().moveSpeed = 1.0f;
-        player.GetComponent<PlayerCombat>().damage = PlayerPrefs.GetFloat("charDamage");
-        player.GetComponent<PlayerCombat>().attackRange = 0.6f;
-        player.GetComponent<PlayerCombat>().timeBetAttack = 1.0f;
+        // 근접 공격 유닛 프리팹 초기화
+        playerMelee.GetComponent<NewPlayerCombat>().startHealth = 100.0f;
+        playerMelee.GetComponent<NewPlayerCombat>().moveSpeed = 1.0f;
+        playerMelee.GetComponent<NewPlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageMelee");
+        playerMelee.GetComponent<NewPlayerCombat>().attackRange = 1.0f;
+        playerMelee.GetComponent<NewPlayerCombat>().timeBetAttack = 1.0f;
+        // 탱커 유닛 프리팹 초기화
+        playerTank.GetComponent<NewPlayerCombat>().startHealth = 200.0f;
+        playerTank.GetComponent<NewPlayerCombat>().moveSpeed = 0.7f;
+        playerTank.GetComponent<NewPlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageTank");
+        playerTank.GetComponent<NewPlayerCombat>().attackRange = 1.0f;
+        playerTank.GetComponent<NewPlayerCombat>().timeBetAttack = 2.0f;
+        // 궁수 공격 유닛 프리팹 초기화
+        playerArcher.GetComponent<NewPlayerCombat>().startHealth = 50.0f;
+        playerArcher.GetComponent<NewPlayerCombat>().moveSpeed = 1.1f;
+        playerArcher.GetComponent<NewPlayerCombat>().damage = PlayerPrefs.GetFloat("charDamageArcher");
+        playerArcher.GetComponent<NewPlayerCombat>().attackRange = 4.0f;
+        playerArcher.GetComponent<NewPlayerCombat>().timeBetAttack = 0.5f;
     }
     public void Buy()
     {

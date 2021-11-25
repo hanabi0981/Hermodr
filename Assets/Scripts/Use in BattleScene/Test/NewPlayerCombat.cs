@@ -48,8 +48,16 @@ public class NewPlayerCombat : LifeEntity
         }
         else if (hit.collider == null)
         {
-            animator.SetBool("Move", true);
-            Move();
+            if (transform.position.x < 5.5)
+            {
+                animator.SetBool("Move", true);
+                Move();
+            }
+            else
+            {
+                animator.SetBool("Move", false);
+                Idle();
+            }
         }
         else if (hit.collider.name != "Enemy")
         {

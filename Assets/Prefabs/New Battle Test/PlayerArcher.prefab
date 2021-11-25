@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 4959830526026804815}
   - component: {fileID: -4245527340795783906}
   m_Layer: 9
-  m_Name: Player 1
+  m_Name: PlayerArcher
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,7 +264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4959830526026804813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.14, y: -1.2, z: 0}
+  m_LocalPosition: {x: -8, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4959830526925221691}
@@ -357,7 +357,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -381,11 +381,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e81d7ab1cc4d949a5f358147f8b277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 10000
-  moveSpeed: 1
-  damage: 25
-  attackRange: 1
-  timeBetAttack: 1
+  startHealth: 50
+  moveSpeed: 1.1
+  damage: 10
+  attackRange: 4
+  timeBetAttack: 0.5
   healthBar: {fileID: 4959830525353002092}
   gradient:
     serializedVersion: 2
@@ -589,7 +589,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2556406188094159849, guid: 5d8a8a5c02f7c4a458e5655776cbe22c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

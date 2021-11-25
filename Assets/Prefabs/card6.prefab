@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &409142257095132103
+--- !u!1 &5517247785837473673
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,27 +8,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 409142257095132096}
-  - component: {fileID: 409142257095132098}
-  - component: {fileID: 409142257095132097}
-  - component: {fileID: -2802134710833289869}
-  - component: {fileID: 7264870820801045160}
-  - component: {fileID: 5874128898783437518}
-  - component: {fileID: 362546090430545419}
+  - component: {fileID: 5517247785837473672}
+  - component: {fileID: 5517247785837473678}
+  - component: {fileID: 5517247785837473679}
+  - component: {fileID: -2585855762097155573}
+  - component: {fileID: -2540218896931272717}
+  - component: {fileID: -1944779515940109783}
+  - component: {fileID: -4960112481314595209}
   m_Layer: 8
-  m_Name: card5
+  m_Name: card6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &409142257095132096
+--- !u!224 &5517247785837473672
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409142257095132103}
+  m_GameObject: {fileID: 5517247785837473673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -38,37 +38,37 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 675, y: -380}
+  m_AnchoredPosition: {x: -450, y: -380}
   m_SizeDelta: {x: 180, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &409142257095132098
+--- !u!222 &5517247785837473678
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409142257095132103}
+  m_GameObject: {fileID: 5517247785837473673}
   m_CullTransparentMesh: 0
---- !u!114 &409142257095132097
+--- !u!114 &5517247785837473679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409142257095132103}
+  m_GameObject: {fileID: 5517247785837473673}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f4340b76ef9d3c74c881c713c77dc7d2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 996c4ded78456774c8ebf1dd8e8737b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -78,13 +78,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-2802134710833289869
+--- !u!114 &-2585855762097155573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409142257095132103}
+  m_GameObject: {fileID: 5517247785837473673}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12d0e5a54a003b24d8479a88cae35666, type: 3}
@@ -94,8 +94,8 @@ MonoBehaviour:
   Card2: {fileID: 8377059527550354582, guid: 669ce557dcf79ef4ca6a0af44c00f630, type: 3}
   Card3: {fileID: 5591356637379826287, guid: 24610a689188bb04381b7d288dcfd427, type: 3}
   Card4: {fileID: 6845528713905795820, guid: 1f61f803656266745811ccaf662e2d56, type: 3}
-  Card5: {fileID: 409142257095132103}
-  Card6: {fileID: 5517247785837473673, guid: e0fc0dd6b1055584a843f4437660f388, type: 3}
+  Card5: {fileID: 409142257095132103, guid: 17a88798bf64c4f418a2c7b01dac5257, type: 3}
+  Card6: {fileID: 5517247785837473673}
   Effect_01: {fileID: 7902037999140417176, guid: e79a5facb5e0a57439dadc8e8ff4301e,
     type: 3}
   Effect_02: {fileID: 599330102746479135, guid: f3c4642a9202a2c42bdd024c014a7463,
@@ -112,13 +112,13 @@ MonoBehaviour:
     type: 3}
   Enemy: {fileID: 8760275077572774143, guid: 2195cb1c5e664514381774a615bfe5da, type: 3}
   delayTime: 1
---- !u!114 &7264870820801045160
+--- !u!114 &-2540218896931272717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409142257095132103}
+  m_GameObject: {fileID: 5517247785837473673}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
@@ -129,7 +129,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: -2802134710833289869}
+        - m_Target: {fileID: -2585855762097155573}
           m_MethodName: StartDrag
           m_Mode: 1
           m_Arguments:
@@ -144,7 +144,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: -2802134710833289869}
+        - m_Target: {fileID: -2585855762097155573}
           m_MethodName: EndDrag
           m_Mode: 1
           m_Arguments:
@@ -155,20 +155,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!61 &5874128898783437518
+--- !u!61 &-1944779515940109783
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409142257095132103}
+  m_GameObject: {fileID: 5517247785837473673}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.5, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -181,14 +181,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 180, y: 200}
   m_EdgeRadius: 0
---- !u!50 &362546090430545419
+--- !u!50 &-4960112481314595209
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409142257095132103}
+  m_GameObject: {fileID: 5517247785837473673}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
