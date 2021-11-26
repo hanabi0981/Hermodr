@@ -1492,7 +1492,7 @@ MonoBehaviour:
   Card3: {fileID: 5591356637379826287, guid: 24610a689188bb04381b7d288dcfd427, type: 3}
   Card4: {fileID: 6845528713905795820, guid: 1f61f803656266745811ccaf662e2d56, type: 3}
   Card5: {fileID: 409142257095132103, guid: 17a88798bf64c4f418a2c7b01dac5257, type: 3}
-  Card6: {fileID: 0}
+  Card6: {fileID: 5517247785837473673, guid: e0fc0dd6b1055584a843f4437660f388, type: 3}
   myHandArea: {fileID: 1844334910}
   cards: []
   remainCard: {fileID: 1536813048}
@@ -3127,7 +3127,6 @@ RectTransform:
   - {fileID: 156802697}
   - {fileID: 2049173155}
   - {fileID: 725636118}
-  - {fileID: 1617835780}
   - {fileID: 2091574526}
   - {fileID: 1536813047}
   m_Father: {fileID: 0}
@@ -4563,7 +4562,7 @@ GameObject:
   - component: {fileID: 966439091}
   - component: {fileID: 966439090}
   - component: {fileID: 966439089}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Nexus
   m_TagString: Nexus
   m_Icon: {fileID: 0}
@@ -4578,7 +4577,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966439087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.018, y: -1.137, z: 0}
+  m_LocalPosition: {x: -6.5, y: -1.137, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1355388153}
@@ -5783,6 +5782,7 @@ GameObject:
   - component: {fileID: 1354180307}
   - component: {fileID: 1354180308}
   - component: {fileID: 1354180309}
+  - component: {fileID: 1354180310}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -5831,7 +5831,6 @@ MonoBehaviour:
   - {fileID: 361233667}
   - {fileID: 694461275}
   - {fileID: 870389455}
-  timeText: {fileID: 1617835781}
   totalEnemy: 0
   remainEnemy: 0
   haveItemCount: 0
@@ -5889,6 +5888,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d759d2be5ad9f1346a8397a714199df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1354180310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354180305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de2aa8c7f522d644bcd39b36d9a22db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bc: {fileID: 773253237, guid: 976f6b9cb94527b4bbce8f5ac4931840, type: 3}
+  minions:
+  - {fileID: 1513585431219320620, guid: 0179479e8c3e1864e8d566fbff67ad6e, type: 3}
+  - {fileID: 337422645983922703, guid: bb46fc1ad3f40984a9fa026a783e9df1, type: 3}
 --- !u!1 &1355388152
 GameObject:
   m_ObjectHideFlags: 0
@@ -6486,7 +6501,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 770266185}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6781,84 +6796,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616662536}
   m_CullTransparentMesh: 0
---- !u!1 &1617835779
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1617835780}
-  - component: {fileID: 1617835782}
-  - component: {fileID: 1617835781}
-  m_Layer: 5
-  m_Name: Test_TimeChecker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1617835780
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617835779}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 770266185}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -656.35, y: 266.6}
-  m_SizeDelta: {x: 607.3015, y: 186.83234}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1617835781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617835779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 3698aa5ff674c5f45be5f9f0e1f22ce4, type: 3}
-    m_FontSize: 120
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 120
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 00:00
---- !u!222 &1617835782
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617835779}
-  m_CullTransparentMesh: 0
 --- !u!1 &1665502100
 GameObject:
   m_ObjectHideFlags: 0
@@ -7145,7 +7082,7 @@ MonoBehaviour:
   Card3: {fileID: 5591356637379826287, guid: 24610a689188bb04381b7d288dcfd427, type: 3}
   Card4: {fileID: 6845528713905795820, guid: 1f61f803656266745811ccaf662e2d56, type: 3}
   Card5: {fileID: 409142257095132103, guid: 17a88798bf64c4f418a2c7b01dac5257, type: 3}
-  Card6: {fileID: 0}
+  Card6: {fileID: 5517247785837473673, guid: e0fc0dd6b1055584a843f4437660f388, type: 3}
   myHandArea: {fileID: 1844334910}
   cards: []
   remainCard: {fileID: 1536813048}
@@ -7743,7 +7680,6 @@ GameObject:
   - component: {fileID: 2091574526}
   - component: {fileID: 2091574529}
   - component: {fileID: 2091574528}
-  - component: {fileID: 2091574527}
   m_Layer: 5
   m_Name: Test_RemainEnemyChecker
   m_TagString: Untagged
@@ -7763,25 +7699,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 770266185}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -656.35, y: 449.5}
   m_SizeDelta: {x: 607.3031, y: 181.0078}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2091574527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091574525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f5eb03000e484447b77b5e0825274c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2091574528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7814,7 +7738,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB0A8\uC740 \uC801 : "
+  m_Text: "\uBCF4\uC2A4 \uC2A4\uD14C\uC774\uC9C0"
 --- !u!222 &2091574529
 CanvasRenderer:
   m_ObjectHideFlags: 0

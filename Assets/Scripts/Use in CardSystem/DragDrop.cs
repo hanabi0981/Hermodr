@@ -106,47 +106,61 @@ public class DragDrop : MonoBehaviour
             }
             else if (this.gameObject == Card3)
             {
-                float damage;
                 DrawCards.handCount--;
+                target = GameObject.FindGameObjectsWithTag("Enemy");
+
+                float damage_Boss = 0;
+                int bossIndex;
+                float[] damage_Minion = new float[target.Length];
 
                 Vector3 localPosition = GetComponent<RectTransform>().position;
                 GetComponent<RectTransform>().position = localPosition + new Vector3(0, 0, -1000);
 
-                target = GameObject.FindGameObjectsWithTag("Enemy");
-                Debug.Log(target[0].name.Substring(0,9));
-                if(target[0].name.Substring(0, 9) != "Boss_Loki")
+               if(target.Length != 0)
                 {
-                    damage = target[0].GetComponent<NewEnemyCombat>().startHealth / 4;
+                    for (int i = 0; i < target.Length; i++)
+                    {
+                        if (target[i].name.Substring(0, 9) != "Boss_Loki")
+                        {
+                            damage_Minion[i] = target[i].GetComponent<NewEnemyCombat>().startHealth / 4;
+                        }
+                        else
+                        {
+                            bossIndex = i;
+                            damage_Boss = 50.0f;
+                        }
+                    }
+
+                    for (int i = 0; i < target.Length; i++)
+                    {
+                        if (target[i].name.Substring(0, 9) != "Boss_Loki")
+                        {
+                            target[i].GetComponent<NewEnemyCombat>().OnDamage(damage_Minion[i]);
+                            Effect_02.transform.position = target[i].transform.position;
+                            Effect_02.transform.position -= new Vector3(-1.0f, 0.6f, 0f);
+                            Effect_02.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder =
+                                target[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder + 1;
+                            StartCoroutine(CardEffect(Effect_02, target[i], 0.9f));
+                            target[i] = null;
+                        }
+                        else
+                        {
+                            target[i].GetComponent<BossCombat>().OnDamage(damage_Boss);
+                            Effect_02.transform.position = target[i].transform.position;
+                            Effect_02.transform.position -= new Vector3(-1.5f, 0.5f, 0f);
+                            Effect_02.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder =
+                                target[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder + 1;
+                            Vector3 localScale = Effect_02.transform.localScale;
+                            Effect_02.transform.localScale *= 1.5f;
+                            StartCoroutine(CardEffect(Effect_02, target[i], 0.9f));
+                            Effect_02.transform.localScale = localScale;
+                            target[i] = null;
+                        }
+                    }
                 }
                 else
                 {
-                    damage = 50.0f;
-                }
-                for(int i = 0; i < target.Length; i++)
-                {
-                    if (target[i].name.Substring(0, 9) != "Boss_Loki")
-                    {
-                        target[i].GetComponent<NewEnemyCombat>().OnDamage(damage);
-                        Effect_02.transform.position = target[i].transform.position;
-                        Effect_02.transform.position -= new Vector3(-1.0f, 0.6f, 0f);
-                        Effect_02.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder =
-                            target[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder + 1;
-                        StartCoroutine(CardEffect(Effect_02, target[i], 0.9f));
-                        target[i] = null;
-                    }
-                    else
-                    {
-                        target[i].GetComponent<BossCombat>().OnDamage(damage);
-                        Effect_02.transform.position = target[i].transform.position;
-                        Effect_02.transform.position -= new Vector3(-1.5f, -0.5f, 0f);
-                        Effect_02.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder =
-                            target[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder + 1;
-                        Vector3 localScale = Effect_02.transform.localScale;
-                        Effect_02.transform.localScale *= 1.5f;
-                        StartCoroutine(CardEffect(Effect_02, target[i], 0.9f));
-                        Effect_02.transform.localScale = localScale;
-                        target[i] = null;
-                    }                                                
+                    Destroy(gameObject);
                 }
             }
             else if(this.gameObject == Card4)
@@ -174,7 +188,7 @@ public class DragDrop : MonoBehaviour
                 Vector3 localPosition = GetComponent<RectTransform>().position;
                 GetComponent<RectTransform>().position = localPosition + new Vector3(0, 0, -1000);
 
-                StartCoroutine(Card5_Delay(2.0f));
+                StartCoroutine(Card5_Delay(1.0f));
             }
             else if (this.gameObject == Card6)
             {
@@ -207,14 +221,16 @@ public class DragDrop : MonoBehaviour
             if (target[i].GetComponent<NewEnemyCombat>() != null)
             {
                 target[i].GetComponent<NewEnemyCombat>().isStuck = true;
+                target[i].GetComponent<NewEnemyCombat>().tag = "Untagged";
                 Effect_04.transform.position = target[i].transform.position;
                 Effect_04.transform.position -= new Vector3(-1.3f, 0.7f, 0f);
             }
             else
             {
                 target[i].GetComponent<BossCombat>().isStuck = true;
+                target[i].GetComponent<BossCombat>().tag = "Untagged";
                 Effect_04.transform.position = target[i].transform.position;
-                Effect_04.transform.position -= new Vector3(-1.3f, -1.5f, 0f);
+                Effect_04.transform.position -= new Vector3(-1.3f, 0.5f, 0f);
             }
 
             Effect_04.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder =
@@ -231,10 +247,12 @@ public class DragDrop : MonoBehaviour
             if (target[i].GetComponent<NewEnemyCombat>() != null)
             {
                 target[i].GetComponent<NewEnemyCombat>().isStuck = false;
+                target[i].GetComponent<NewEnemyCombat>().tag = "Enemy";
             }
             else
             {
                 target[i].GetComponent<BossCombat>().isStuck = false;
+                target[i].GetComponent<NewEnemyCombat>().tag = "Enemy";
             }
             
             Destroy(e[i]);

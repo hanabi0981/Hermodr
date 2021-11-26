@@ -19,16 +19,13 @@ public class ObjectGenerator : MonoBehaviour
     List<string> HaveItemNumber = InGameShopManager.HaveItemSpriteNumber2;
     List<string> HaveItemForgeNumber = InGameShopManager.HaveItemForgeNumber;
 
-    public Text timeText;
-    float _sec;
-    int _min;
-    string timeString;
-
     public int totalEnemy;
     public int remainEnemy;
 
     public int haveItemCount;
     private BossCombat bc;
+
+    int bossKillcount;
     private void Start()
     {
         // 보유 아이템 이미지 / 실제 능력치 적용
@@ -149,18 +146,19 @@ public class ObjectGenerator : MonoBehaviour
             }
             bc = GameObject.FindObjectOfType<BossCombat>().GetComponent<BossCombat>();
         }
+        
     }
     // Update is called once per frame
     void Update()
     {
-        _sec += Time.deltaTime;
-        timeString = string.Format("{0:D2}:{1:D2}", _min, (int)_sec);
-        if ((int)_sec > 59)
+        if (bc != null)
         {
-            _sec = 0;
-            _min++;
+            bossKillcount = bc.BossKill;
         }
-        timeText.text = timeString;
+        else
+        {
+            bossKillcount = 0;
+        }
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
            
@@ -200,7 +198,7 @@ public class ObjectGenerator : MonoBehaviour
             //Invoke("InGameShopLoad", 3);
             killcount = 0;
         }
-        else if (bc.BossKill > 0 && enemy.name == "Boss_Loki")
+        else if (bossKillcount > 0 && enemy.name == "Boss_Loki")
         {
             stageClear.SetActive(true);
             Text clearText = GameObject.Find("clearText").GetComponent<Text>();

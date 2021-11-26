@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DrawCards : MonoBehaviour
@@ -24,7 +25,7 @@ public class DrawCards : MonoBehaviour
         cards.Add(Card6); cards.Add(Card6); cards.Add(Card6);
         cards.Add(Card3); cards.Add(Card3);
         cards.Add(Card4);
-        cards.Add(Card5);
+        cards.Add(Card1);
 
         remainCard.text = cards.Count.ToString();
     }
@@ -76,6 +77,6 @@ public class DrawCards : MonoBehaviour
         cards.Add(Card6); cards.Add(Card6); cards.Add(Card6);
         cards.Add(Card3);
         cards.Add(Card4); cards.Add(Card4);
-        cards.Add(Card5);
+        cards.Add(Card1);
     }
 }

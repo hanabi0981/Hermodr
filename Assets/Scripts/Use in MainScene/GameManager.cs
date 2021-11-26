@@ -71,6 +71,6 @@ public class GameManager : MonoBehaviour
         playerArcher.GetComponent<NewPlayerCombat>().moveSpeed = 1.1f;
         playerArcher.GetComponent<NewPlayerCombat>().damage = 10.0f;
         playerArcher.GetComponent<NewPlayerCombat>().attackRange = 4.0f;
-        playerArcher.GetComponent<NewPlayerCombat>().timeBetAttack = 0.5f;
+        playerArcher.GetComponent<NewPlayerCombat>().timeBetAttack = 1.0f;
     }
 }
