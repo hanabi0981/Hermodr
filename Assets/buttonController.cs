@@ -47,7 +47,21 @@ public class buttonController : MonoBehaviour
         //DontDestroyOnLoad(inGameShopManager);
         SceneManager.LoadScene("Test");
     }
+    public void Suppress()
+    {
+        DivineAbility ds = GetComponent<DivineAbility>();
 
+        for (int i = 0; i < ds.divineSprite.Length; i++)
+        {
+            if (GameManager.instance.mainHeroImage.sprite == ds.divineSprite[i])
+            {
+                Debug.Log("몇번째? :" + i);
+                ds.DivineAblilty(i);
+            }
+        }
+
+        SceneManager.LoadScene("Suppress");
+    }
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(0.75f);

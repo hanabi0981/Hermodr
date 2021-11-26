@@ -19,6 +19,7 @@ public class BossCombat : LifeEntity
     public LayerMask Target;
     public GameObject BloodEffect;
 
+    public int BossKill;
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -31,29 +32,34 @@ public class BossCombat : LifeEntity
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, attackRange, Target);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -1 * transform.right, attackRange);
-
-        if (colliders.Length != 0)
-        {
-            if (colliders[0].tag == "Player" || colliders[0].tag == "Nexus")
+        if(!isDead) 
+        { 
+            if(!isStuck)
             {
+                if (colliders.Length != 0)
+                {
+                    if (colliders[0].tag == "Player" || colliders[0].tag == "Nexus")
+                    {
 
-                AttackReady(colliders);
+                        AttackReady(colliders);
+                    }
+                    else
+                    {
+                        animator.SetBool("Move", false);
+                        Idle();
+                    }
+                }
+                else if (hit.collider == null)
+                {
+                    animator.SetBool("Move", true);
+                    Move();
+                }
+                else if (hit.collider.name != "Player")
+                {
+                    animator.SetBool("Move", true);
+                    Move();
+                }
             }
-            else
-            {
-                animator.SetBool("Move", false);
-                Idle();
-            }
-        }
-        else if (hit.collider == null)
-        {
-            animator.SetBool("Move", true);
-            Move();
-        }
-        else if (hit.collider.name != "Player")
-        {
-            animator.SetBool("Move", true);
-            Move();
         }
     }
     private void Move()
@@ -113,15 +119,16 @@ public class BossCombat : LifeEntity
         base.OnDamage(damage);
         BloodEffect.transform.position = transform.position;
 
-        float randPosition = Random.Range(-1f, 1f);
-        float randRotation = Random.Range(-10f, 10f);
-        Vector3 randP = new Vector3(2.5f + randPosition, -0.8f + randPosition, 0f);
+        float randPosition = Random.Range(-0.0f, 0.0f);
+        float randRotation = Random.Range(-1f, 1f);
+        Vector3 randP = new Vector3(1.0f + randPosition, -2.5f, 0f);
         Vector3 localScale = BloodEffect.transform.localScale;
 
         BloodEffect.transform.position -= randP;
         BloodEffect.transform.Rotate(0,0, randRotation);
-        BloodEffect.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 1;
-        BloodEffect.transform.localScale *= 1.5f;
+        BloodEffect.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder =
+            transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder + 1;
+        BloodEffect.transform.localScale *= 1.0f;
 
         StartCoroutine(B_Effect(BloodEffect, this.gameObject, 0.8f));
 
@@ -136,6 +143,7 @@ public class BossCombat : LifeEntity
         healthBar.gameObject.SetActive(false);
         gameObject.tag = "Finish";
         animator.SetTrigger("Die");
+        BossKill++;
         Destroy(gameObject, 1.0f);
     }
     IEnumerator B_Effect(GameObject effect, GameObject target, float delay)

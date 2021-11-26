@@ -28,6 +28,7 @@ public class ObjectGenerator : MonoBehaviour
     public int remainEnemy;
 
     public int haveItemCount;
+    private BossCombat bc;
     private void Start()
     {
         // 보유 아이템 이미지 / 실제 능력치 적용
@@ -142,7 +143,11 @@ public class ObjectGenerator : MonoBehaviour
             // 보스전 레벨 디자인
             totalEnemy = 1;
             remainEnemy = totalEnemy;
-            SpawnEnemy();
+            if (SceneManager.GetActiveScene().name != "Suppress")
+            {
+                SpawnEnemy();
+            }
+            bc = GameObject.FindObjectOfType<BossCombat>().GetComponent<BossCombat>();
         }
     }
     // Update is called once per frame
@@ -164,7 +169,7 @@ public class ObjectGenerator : MonoBehaviour
         {
             Instantiate(enemy);
         }
-        if (killcount >= totalEnemy && SceneManager.GetActiveScene().name!="Battle")
+        if (killcount >= totalEnemy && enemy.name != "Boss_Loki")
         {
             stageClear.SetActive(true);
 
@@ -195,7 +200,7 @@ public class ObjectGenerator : MonoBehaviour
             //Invoke("InGameShopLoad", 3);
             killcount = 0;
         }
-        else if (killcount >= totalEnemy && SceneManager.GetActiveScene().name == "Battle")
+        else if (bc.BossKill > 0 && enemy.name == "Boss_Loki")
         {
             stageClear.SetActive(true);
             Text clearText = GameObject.Find("clearText").GetComponent<Text>();
@@ -204,16 +209,16 @@ public class ObjectGenerator : MonoBehaviour
 
             float stageClearEnt = 500.0f * PlayerPrefs.GetFloat("charGainEnt");
 
-            stageClearEnt = PlayerPrefs.GetFloat("Stage Ent") + stageClearEnt;
-            PlayerPrefs.SetFloat("Stage Ent", stageClearEnt);
-            float totalClearEnt = PlayerPrefs.GetFloat("Total Ent") + stageClearEnt;
-            PlayerPrefs.SetFloat("Total Ent", totalClearEnt);
+            stageClearEnt = PlayerPrefs.GetInt("Stage Ent") + stageClearEnt;
+            PlayerPrefs.SetInt("Stage Ent", (int) stageClearEnt);
+            float totalClearEnt = PlayerPrefs.GetInt("Total Ent") + stageClearEnt;
+            PlayerPrefs.SetInt("Total Ent", (int) totalClearEnt);
             gainGold.text = "+0 G";
             Debug.Log(totalClearEnt);
             gainEnt.text = "+" + stageClearEnt + " E  >>> Total : " + totalClearEnt + " E";
 
             //Invoke("MainLoad", 3);
-            killcount = 0;
+            bc.BossKill = 0;
         }
         
     }

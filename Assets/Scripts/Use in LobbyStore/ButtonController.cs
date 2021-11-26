@@ -80,8 +80,8 @@ public class ButtonController : MonoBehaviour
     }
     public void ResetEnt()
     {
-        Debug.Log("초기화 전 총 엔트로피 : " + PlayerPrefs.GetFloat("Total Ent"));
+        Debug.Log("초기화 전 총 엔트로피 : " + PlayerPrefs.GetInt("Total Ent"));
         PlayerPrefs.SetFloat("Total Ent", 0f);
-        Debug.Log("초기화 후 총 엔트로피 : " + PlayerPrefs.GetFloat("Total Ent"));
+        Debug.Log("초기화 후 총 엔트로피 : " + PlayerPrefs.GetInt("Total Ent"));
     }
 }

@@ -40,6 +40,7 @@ public class NexusBehaviour : LifeEntity
         stageEnd.SetActive(true);
 
         LifeEntity[] G_lf = GameObject.FindObjectsOfType<LifeEntity>();
+
         Text clearText = GameObject.Find("clearText").GetComponent<Text>();
         Text gainGold = GameObject.Find("gainGold").GetComponent<Text>();
         Text gainEnt = GameObject.Find("gainEnt").GetComponent<Text>();
@@ -58,6 +59,7 @@ public class NexusBehaviour : LifeEntity
         gainGold.text = "+0 G"; 
         gainEnt.text = "+" + (int) stageClearEnt + " E  >>> Total : " + (int) totalClearEnt + " E";
 
+        gameObject.tag = "Finish";
         ObjectGenerator.killcount = 0;
     }
     public void ToMain()

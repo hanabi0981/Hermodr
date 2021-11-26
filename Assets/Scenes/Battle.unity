@@ -5816,10 +5816,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961f4d17be1f79d47bf5a9316f7b7cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMelee: {fileID: 0}
-  playerTank: {fileID: 0}
-  playerArcher: {fileID: 0}
-  enemy: {fileID: 8760275077572774143, guid: 2195cb1c5e664514381774a615bfe5da, type: 3}
+  playerMelee: {fileID: 4959830526026804813, guid: 7a3152274ab681f41a4e2e6baa256439,
+    type: 3}
+  playerTank: {fileID: 4959830526026804813, guid: ad5ccf8f1f52a8841b1893f691123f7d,
+    type: 3}
+  playerArcher: {fileID: 4959830526026804813, guid: ed2512f28ffc6d64ba11f9b7f49aafca,
+    type: 3}
+  enemy: {fileID: 3536765612983713686, guid: 976f6b9cb94527b4bbce8f5ac4931840, type: 3}
   stageClear: {fileID: 2049173154}
   playerItems:
   - {fileID: 0}

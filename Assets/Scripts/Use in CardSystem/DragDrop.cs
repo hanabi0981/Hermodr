@@ -138,11 +138,11 @@ public class DragDrop : MonoBehaviour
                     {
                         target[i].GetComponent<BossCombat>().OnDamage(damage);
                         Effect_02.transform.position = target[i].transform.position;
-                        Effect_02.transform.position -= new Vector3(-1.5f, 0.6f, 0f);
+                        Effect_02.transform.position -= new Vector3(-1.5f, -0.5f, 0f);
                         Effect_02.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder =
                             target[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder + 1;
                         Vector3 localScale = Effect_02.transform.localScale;
-                        Effect_02.transform.localScale *= 2.0f;
+                        Effect_02.transform.localScale *= 1.5f;
                         StartCoroutine(CardEffect(Effect_02, target[i], 0.9f));
                         Effect_02.transform.localScale = localScale;
                         target[i] = null;
@@ -204,11 +204,19 @@ public class DragDrop : MonoBehaviour
         GameObject[] e = new GameObject[target.Length];
         for (int i = 0; i < target.Length; i++)
         {
-            target[i].GetComponent<NewEnemyCombat>().isStuck = true;
-            
+            if (target[i].GetComponent<NewEnemyCombat>() != null)
+            {
+                target[i].GetComponent<NewEnemyCombat>().isStuck = true;
+                Effect_04.transform.position = target[i].transform.position;
+                Effect_04.transform.position -= new Vector3(-1.3f, 0.7f, 0f);
+            }
+            else
+            {
+                target[i].GetComponent<BossCombat>().isStuck = true;
+                Effect_04.transform.position = target[i].transform.position;
+                Effect_04.transform.position -= new Vector3(-1.3f, -1.5f, 0f);
+            }
 
-            Effect_04.transform.position = target[i].transform.position;
-            Effect_04.transform.position -= new Vector3(-1.3f, 0.7f, 0f);
             Effect_04.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder =
                 target[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder + 1;
 
@@ -220,7 +228,14 @@ public class DragDrop : MonoBehaviour
 
         for (int i = 0; i < target.Length; i++)
         {
-            target[i].GetComponent<NewEnemyCombat>().isStuck = false;
+            if (target[i].GetComponent<NewEnemyCombat>() != null)
+            {
+                target[i].GetComponent<NewEnemyCombat>().isStuck = false;
+            }
+            else
+            {
+                target[i].GetComponent<BossCombat>().isStuck = false;
+            }
             
             Destroy(e[i]);
         }

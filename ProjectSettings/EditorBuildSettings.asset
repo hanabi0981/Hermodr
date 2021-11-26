@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LobbyStore.unity
     guid: 62a5bd15f66ef454fae22bcad308da01
+  - enabled: 1
+    path: Assets/Scenes/Suppress.unity
+    guid: 7bd1aa685d5e6d743ac3af7e2de10539
   m_configObjects: {}
