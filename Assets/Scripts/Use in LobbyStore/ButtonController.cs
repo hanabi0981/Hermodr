@@ -40,7 +40,7 @@ public class ButtonController : MonoBehaviour
                 totalEnt -= ds.divinePrice[ds.itemindex];
                 PlayerPrefs.SetFloat("Total Ent", totalEnt);
                 pc.haveEnt.text = totalEnt + " E";
-                selectedHero.transform.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Sprites/misc")[1];
+                selectedHero.transform.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Sprites/isHaveGods")[1];
                 selectedHero.GetComponent<ItemInfo>().ItemSelection();
                 PlayerPrefs.SetInt(selectedHero.name, 1);
                 selectedHero.GetComponent<ItemInfo>().isHave = PlayerPrefs.GetInt(selectedHero.name);

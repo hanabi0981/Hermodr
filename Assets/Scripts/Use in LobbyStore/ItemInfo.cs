@@ -103,7 +103,7 @@ public class ItemInfo : MonoBehaviour
     }
     public void ToReset()
     {
-        Sprite[] OXSprites = Resources.LoadAll<Sprite>("Sprites/misc");
+        Sprite[] OXSprites = Resources.LoadAll<Sprite>("Sprites/isHaveGods");
         if (PlayerPrefs.GetInt(this.name) == 1)
         {
             isHave = 1;

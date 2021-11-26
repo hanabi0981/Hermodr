@@ -17,6 +17,8 @@ public class DrawCards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        handCount = 0;
+
         cards.Add(Card1); cards.Add(Card1); cards.Add(Card1); 
         cards.Add(Card2); cards.Add(Card2);
         cards.Add(Card6); cards.Add(Card6); cards.Add(Card6);
