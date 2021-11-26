@@ -15,7 +15,10 @@ public class TouchToStart : MonoBehaviour
     void Update()
     {
         if (Input.touchCount > 0)
-            SceneManager.LoadScene("Main");       
+        {
+            SceneManager.LoadScene("Main");
+            PlayerPrefs.SetInt("trp_01", 1);
+        }
     }
 
     public void onClick()
