@@ -116,6 +116,9 @@ public class InGameShopManager : MonoBehaviour
 
                         // counting coins that used for buy
                         usedCoins += IInfo[i].price;
+
+                        // 상점 아이템 구매 검사
+
                     }
                 }
             }

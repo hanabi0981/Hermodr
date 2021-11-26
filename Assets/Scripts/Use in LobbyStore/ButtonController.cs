@@ -29,16 +29,28 @@ public class ButtonController : MonoBehaviour
     public void BuyOrSelect()
     {
         GameObject selectedHero = GameObject.FindGameObjectWithTag("Purchase");
-     
+
+        Debug.Log(PlayerPrefs.GetInt("Total Ent"));
+
         if (selectedHero != null)
         {
             DivineStatus ds = selectedHero.GetComponent<DivineLongClick>().DivineStatusPanel.GetComponent<DivineStatus>();
             Pop_Controller pc = GameObject.FindObjectOfType<Pop_Controller>().GetComponent<Pop_Controller>();
-            float totalEnt = PlayerPrefs.GetFloat("Total Ent");
+
+            Debug.Log(PlayerPrefs.GetInt("Total Ent"));
+
+            int totalEnt = PlayerPrefs.GetInt("Total Ent");
+
+            Debug.Log(totalEnt);
+            EntCountTrophyCheck(totalEnt);
+            Debug.Log(totalEnt);
+
             if (totalEnt >= ds.divinePrice[ds.itemindex])
             {
+                GodsHaveTrophyCheck(selectedHero.name);
+
                 totalEnt -= ds.divinePrice[ds.itemindex];
-                PlayerPrefs.SetFloat("Total Ent", totalEnt);
+                PlayerPrefs.SetInt("Total Ent", totalEnt);
                 pc.haveEnt.text = totalEnt + " E";
                 selectedHero.transform.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Sprites/isHaveGods")[1];
                 selectedHero.GetComponent<ItemInfo>().ItemSelection();
@@ -81,7 +93,44 @@ public class ButtonController : MonoBehaviour
     public void ResetEnt()
     {
         Debug.Log("초기화 전 총 엔트로피 : " + PlayerPrefs.GetInt("Total Ent"));
-        PlayerPrefs.SetFloat("Total Ent", 0f);
+        PlayerPrefs.SetInt("Total Ent", 10000);
         Debug.Log("초기화 후 총 엔트로피 : " + PlayerPrefs.GetInt("Total Ent"));
+    }
+
+    private void GodsHaveTrophyCheck(string name)
+    {
+        if (name == "GodsIcon1")
+        {
+            PlayerPrefs.SetInt("trp_09", 1);
+        }
+        else if (name == "GodsIcon2")
+        {
+            PlayerPrefs.SetInt("trp_10", 1);
+        }
+        else if (name == "GodsIcon3")
+        {
+            PlayerPrefs.SetInt("trp_11", 1);
+        }
+        else if (name == "GodsIcon4")
+        {
+            PlayerPrefs.SetInt("trp_08", 1);
+        }
+        else if (name == "GodsIcon5")
+        {
+            PlayerPrefs.SetInt("trp_12", 1);
+        }
+        else if (name == "GodsIcon6")
+        {
+            PlayerPrefs.SetInt("trp_13", 1);
+        }
+
+    }
+
+    private void EntCountTrophyCheck(int ent)
+    {
+        if (ent >= 10000)
+        {
+            PlayerPrefs.SetInt("trp_14", 1);
+        }
     }
 }

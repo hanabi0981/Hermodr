@@ -12,8 +12,7 @@ public class Pop_Controller : MonoBehaviour
     public void Pop_UP()
     {
         pop_Window.SetActive(true);
-        PlayerPrefs.SetFloat("Total Ent", 10000);
-        haveEnt.text = PlayerPrefs.GetFloat("Total Ent") + " E";
+        haveEnt.text = PlayerPrefs.GetInt("Total Ent") + " E";
     }
 
     public void Pop_Down()

@@ -7,7 +7,7 @@ public class DivineStatus : MonoBehaviour
 {
     public int itemindex;
     public Sprite[] divineSprite = new Sprite[7];
-    private string[] divineName = {"Divine 0","Divine 01", "Divine 02", "Divine 03", "Divine 04", "Divine 05", "Divine 06" };
+    private string[] divineName = {"헤르모드","발키리", "굴베이그", "헤임달", "토르", "발두르", "오딘" };
     public int[] divinePrice = { 0, 1000, 1500, 2500, 3000, 3500, 6000 };
     private string[] divineAbility = {"\n       능력 없음",   " 아이템 강화 횟수 : \n +1", 
                                                 " 기본 공격력 : +15", 

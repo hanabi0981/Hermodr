@@ -8,21 +8,21 @@ public class TouchToStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.touchCount > 0)
-        {
-            SceneManager.LoadScene("Main");
-            PlayerPrefs.SetInt("trp_01", 1);
-        }
     }
 
     public void onClick()
     {
-        SceneManager.LoadScene("Main");
+        PlayerPrefs.SetInt("trp_01", 1);
+
+        if (PlayerPrefs.GetInt("Tutorial_Step") == 0)
+        {
+            SceneManager.LoadScene("Tutorial");
+            PlayerPrefs.SetInt("Tutorial_Step", 1);
+        }
+        else if (PlayerPrefs.GetInt("Tutorial_Step") == 1)
+        {
+            SceneManager.LoadScene("Main");
+        }
     }
 }

@@ -169,6 +169,20 @@ public class ObjectGenerator : MonoBehaviour
         }
         if (killcount >= totalEnemy && enemy.name != "Boss_Loki")
         {
+            //스테이지 클리어 검사
+            if (SceneManager.GetActiveScene().name == "Battle1")
+            {
+                PlayerPrefs.SetInt("trp_04", 1);
+            }
+            else if(SceneManager.GetActiveScene().name == "Battle2")
+            {
+                PlayerPrefs.SetInt("trp_02", 1);
+            }
+            else if(SceneManager.GetActiveScene().name == "Battle3")
+            {
+                PlayerPrefs.SetInt("trp_03", 1);
+            }
+
             stageClear.SetActive(true);
 
             LifeEntity[] G_lf = GameObject.FindObjectsOfType<LifeEntity>();
@@ -200,6 +214,16 @@ public class ObjectGenerator : MonoBehaviour
         }
         else if (bossKillcount > 0 && enemy.name == "Boss_Loki")
         {
+            //보스 클리어 검사
+            if(SceneManager.GetActiveScene().name == "Battle")
+            {
+                PlayerPrefs.SetInt("trp_05", 1);
+            }
+            else if(SceneManager.GetActiveScene().name == "Suppress")
+            {
+                PlayerPrefs.SetInt("trp_15", 1);
+            }
+
             stageClear.SetActive(true);
             Text clearText = GameObject.Find("clearText").GetComponent<Text>();
             Text gainGold = GameObject.Find("gainGold").GetComponent<Text>();
