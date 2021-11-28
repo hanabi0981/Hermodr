@@ -20,38 +20,6 @@ public class BGM_Player : MonoBehaviour
     [SerializeField]
     private string inGameStore_BGM;
 
-    private void Start()
-    {
-        if(SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            Title_BGM();
-        }
-        else if(SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            Main_BGM();
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == 2)
-        {
-            Forest_BGM();
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            Swamp_BGM();
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            Hell_BGM();
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == 5)
-        {
-            Dusk_BGM();
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == 6)
-        {
-            InGameStore_BGM();
-        }
-    }
-
     public void Title_BGM()
     {
         SoundManager.instance.PlayBGM(title_BGM);
@@ -84,5 +52,56 @@ public class BGM_Player : MonoBehaviour
     public void InGameStore_BGM()
     {
         SoundManager.instance.PlayBGM(inGameStore_BGM);
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // 체인을 걸어서 이 함수는 매 씬마다 호출된다.
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        BGM_Select();
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void BGM_Select()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Title_BGM();
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            Main_BGM();
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            Forest_BGM();
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            Swamp_BGM();
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            Hell_BGM();
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            Dusk_BGM();
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            InGameStore_BGM();
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 9)
+        {
+            Dusk_BGM();
+        }
     }
 }

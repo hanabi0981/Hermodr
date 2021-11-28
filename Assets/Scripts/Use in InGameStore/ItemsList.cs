@@ -8,8 +8,8 @@ public class ItemsList : MonoBehaviour
     public float maxHealth, moveSpeed, damage, attackRange, timeBetAttack;
     public Sprite[] ISprite = new Sprite[11];
     public int[] IPrice = new int[11];
-    public string[] IName = new string[11] {"None", "Item 01", "Item 02", "Item 03", "Item 04", "Item 05",
-                                            "Item 06", "Item 07", "Item 08", "Item 09", "Item 10", };
+    public string[] IName = new string[11] {"None", "메긴기요르", "뼈방패", "파푸니르의 피", "힐디스비니", "아우둠라의 서",
+                                            "브리싱가멘", "니플헤임의 핵", "전령의 서", "그람", "티르빙" };
     public void ItemAbility(int index, int forge, string name)
     {
         maxHealth = moveSpeed = damage = attackRange = timeBetAttack = 0;
