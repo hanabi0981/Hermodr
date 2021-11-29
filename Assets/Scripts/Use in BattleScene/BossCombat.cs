@@ -69,9 +69,9 @@ public class BossCombat : LifeEntity
     }
     private void AttackReady(Collider2D[] c)
     {
+        animator.SetBool("Move", true);
         if (Time.time >= lastAttackTime + timeBetAttack)
         {
-            animator.SetBool("Move", true);
             IDamageable[] target = new IDamageable[c.Length];
             for(int i = 0; i < c.Length; i++)
             {
