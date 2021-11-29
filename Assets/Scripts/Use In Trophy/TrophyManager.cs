@@ -11,6 +11,7 @@ public class TrophyManager : MonoBehaviour
     public GameObject trophyGroup;
     public void Tropy_PopUP()
     {
+        SoundManager.instance.PlaySE("Touch");
         trophyGroup.SetActive(true);
         TrophyCheck();
     }

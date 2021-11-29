@@ -23,6 +23,7 @@ public class MailController : MonoBehaviour
 
     public void PopUp()
     {
+        SoundManager.instance.PlaySE("Touch");
         window.SetActive(true);
     }
 }

@@ -17,7 +17,7 @@ public class TouchToStart : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Tutorial_Step") == 0)
         {
-            SceneManager.LoadScene("Tutorial");
+            //SceneManager.LoadScene("Tutorial");
             PlayerPrefs.SetInt("Tutorial_Step", 1);
         }
         else if (PlayerPrefs.GetInt("Tutorial_Step") == 1)

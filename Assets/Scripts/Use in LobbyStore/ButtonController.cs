@@ -23,6 +23,7 @@ public class ButtonController : MonoBehaviour
     }
     public void Back()
     {
+        SoundManager.instance.PlaySE("Touch");
         mainHeroImage.sprite = windowHeroImage.sprite;
         godsWindow.SetActive(false);
     }
@@ -47,6 +48,8 @@ public class ButtonController : MonoBehaviour
 
             if (totalEnt >= ds.divinePrice[ds.itemindex])
             {
+                SoundManager.instance.PlaySE("Buy");
+
                 GodsHaveTrophyCheck(selectedHero.name);
 
                 totalEnt -= ds.divinePrice[ds.itemindex];
@@ -63,6 +66,7 @@ public class ButtonController : MonoBehaviour
             selectedHero = GameObject.FindGameObjectWithTag("Hero");
             if (selectedHero != null)
             {
+                SoundManager.instance.PlaySE("Select");
                 Sprite heroSprite = selectedHero.GetComponent<Image>().sprite;
                 selectedHero.GetComponent<ItemInfo>().ItemSelection();
                 for (int i = 0; i < heroLists.Length; i++)
@@ -78,7 +82,8 @@ public class ButtonController : MonoBehaviour
     }
     public void HeroReset()
     {
-        for(int i = 0; i < playerPrefabItemList.Count; i++)
+        SoundManager.instance.PlaySE("Touch");
+        for (int i = 0; i < playerPrefabItemList.Count; i++)
         {
             PlayerPrefs.DeleteKey(playerPrefabItemList[i]);
         }

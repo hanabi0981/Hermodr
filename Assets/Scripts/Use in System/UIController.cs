@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
 
     public void Popup_window()
     {
+        SoundManager.instance.PlaySE("Touch");
         popup_window.SetActive(true);
 
         if (PlayerPrefs.GetInt("isQuest") == 1)
@@ -31,6 +32,7 @@ public class UIController : MonoBehaviour
 
     public void Close_window()
     {
+        SoundManager.instance.PlaySE("Touch");
         popup_window.SetActive(false);
     }
 }

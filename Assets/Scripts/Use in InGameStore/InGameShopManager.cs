@@ -106,6 +106,7 @@ public class InGameShopManager : MonoBehaviour
                 {
                     if (coins - IInfo[i].price >= 0)
                     {
+                        SoundManager.instance.PlaySE("Buy");
                         coins -= IInfo[i].price;
                         coinsText.text = "GOLD : " + coins.ToString() + " G";
                         itemsList[i].GetComponent<ItemsInfo>().ItemSelection();
@@ -147,6 +148,7 @@ public class InGameShopManager : MonoBehaviour
         int forgeValue = int.Parse(Forge_SelectedItem.GetComponentInChildren<Text>().text.ToString().Substring(1));
         if (forgeValue < 2)
         {
+            SoundManager.instance.PlaySE("Forge");
             forgeValue++;
             forgeChance--;
             PlayerPrefs.SetInt(HaveItemForgeNumber[targetNumber], forgeValue);

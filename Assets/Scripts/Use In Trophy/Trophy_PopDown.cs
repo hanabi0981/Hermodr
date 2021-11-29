@@ -8,6 +8,7 @@ public class Trophy_PopDown : MonoBehaviour
 
     public void Tropy_PopDown()
     {
+        SoundManager.instance.PlaySE("Touch");
         trophyGroup.SetActive(false);
     }
 }
