@@ -20,6 +20,10 @@ public class BossCombat : LifeEntity
     public GameObject BloodEffect;
 
     public int BossKill;
+
+    //테스트용 텍스트
+    public Text _test;
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -93,7 +97,7 @@ public class BossCombat : LifeEntity
     {
         if(t.Length != 0)
         {
-            lastAttackTime = Time.time;
+            lastAttackTime = Time.fixedTime;
             yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
             animator.SetTrigger("Attack");
             for (int i = 0; i < t.Length; i++)
@@ -101,12 +105,12 @@ public class BossCombat : LifeEntity
                 t[i].OnDamage(damage);
             }
             yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
-            lastAttackTime = Time.time;
+            lastAttackTime = Time.fixedTime;
             animator.SetBool("AttackReady", false);
         }
         else
         {
-            lastAttackTime = Time.time;
+            lastAttackTime = Time.fixedTime;
             animator.SetBool("AttackReady", false);
         }
     }
